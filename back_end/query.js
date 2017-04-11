@@ -5,9 +5,9 @@ var connection = mysql.createConnection({
   database : 'facelespedia'
 });
 
-connection.connect( function(err) {
+connection.connect(function(err) {
     if(!!err) {
-        console.log('Database Error');
+        console.log(err);
     }else {
         console.log('Database Connected');
     }
