@@ -1,5 +1,5 @@
 var fs = require('fs');
-var PORT = 8080;
+var PORT = 3000;
 var express = require('express');
 var path = require('path');
 var app = express();
@@ -9,19 +9,21 @@ app.use(cors());
 app.use(bodyParser.json());
 var query = require('./query.js');
 
-exports.getPersons = function(callback){
-  connection.query("SELECT * FROM Personss",function(err, results,fields){
-    if(err) throw err;
-    var data  = {
-      person : results
-    }
-    callback(data);
-  });
-}
-
-app.get('/', function(req,resp) {
-    resp.sendFile('index.html',{root: path.join(__dirname,'../front_end')});
+app.get('/', function(req,res) {
+    res.sendFile('index.html',{root: path.join(__dirname,'../front_end')});
 });
+app.get('/database/getPersons',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getPersons(callback);
+}); 
 
-app.listen(PORT);
+app.listen(PORT , function(err) {
+    if(!!err) {
+      console.log(err);
+    }else{
+      console.log('Server connect');
+    }
+});
 
