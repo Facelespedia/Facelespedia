@@ -1,63 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Facelespedia</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.29.1/react-bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
-    <style>
-      html{
-        height: 100%;
-      }
-      body{
-        background-color: gray;
-      }
-      #banner{
-        background-image: url("http://s1.picswalls.com/wallpapers/2014/09/18/dota-2-desktop-background_112429304_222.jpg");
-        background-size: cover;
-        padding: 380px;
-      }
-      #banner h1{
-        color: white;
-      }
-     
-      #footer{
-        padding: 300px;
-        background-color: lightcyan;
-      }
-      
-      .navbar-transparent a {
-        font-size: 20px;
-        color: whitesmoke;
-      }
-      
-      
-      
-    </style>
-  </head>
-  <body>
-    <div class="navbar navbar-transparent navbar-fixed-top">
-        <a class ="navbar-brand" href="/landing">FACELESPEDIA</a>
-        <a class="navbar-brand navbar-right" href="/stats">STATS</a>
-        <a class="navbar-brand navbar-right" href="/player_rank">PLAYER RANKING</a>
-        <a class="navbar-brand navbar-right" href="/team_rank">TEAM RANKING</a>
-        
-        
-    </div>
-    <div id="banner">
-      <h1>WELCOME TO FACELESPEDIA</h1>
-    </div>
-  <div id="footer">
-    <h1>asdasdasd</h1>
-  </div>
-  <div>
-    <h1>sadads</h1>
-  </div>
-  <div>
-    2ewqqwe
-  </div>
-  </body>
-</html>
+<head>
+  <title>Facelespedia</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
 
+    #banner{
+      background-image: url("http://s1.picswalls.com/wallpapers/2014/09/18/dota-2-desktop-background_112429304_222.jpg");
+      background-size: cover;
+      padding: 380px;
+    }
+    #banner-team-rank {
+      padding: 380px;
+    }
+    #banner-player-rank {
+      background-image: url("http://s1.picswalls.com/wallpapers/2014/09/18/dota-2-desktop-background_112429304_222.jpg");
+      background-size: cover;
+      padding: 380px;
+    }
+    #banner-stats {
+      padding: 380px;
+    }
+    .nav-faceless-logo {
+      font-family: 'Cutive', serif;
+      font-size: 30px;
+      color: whitesmoke;
+      margin-left: 20px;
+    }
+    .nav-menu {
+      font-family: 'Rasa', serif;
+      font-size: 20px;
+      color: whitesmoke;
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class ="nav-faceless-logo navbar-brand" href="#myPage">FACELESPEDIA</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#team-rank">TEAM RANKING</a></li>
+        <li><a href="#player-rank">PLAYER RANKING</a></li>
+        <li><a href="#stats">STATS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="banner">
+      <h1>WELCOME TO FACELESPEDIA</h1>
+</div>
+
+
+<div id="team-rank" class="container-fluid">
+  <div id="banner-team-rank">
+      <h1>sadads</h1>
+  </div>
+</div>
+
+<div id="player-rank">
+   <div id="banner-player-rank">
+      <h2>2ewqqwe</h2>
+   </div>  
+</div>
+
+
+<div id="stats" class="container-fluid">
+  </div>
+    <div id="banner-stats">
+  </div>
+</div>
+</script>
+<script>
+$(document).ready(function(){
+  $(".navbar a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+})
+</script>
+
+</body>
+</html>
