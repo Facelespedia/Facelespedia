@@ -7,10 +7,14 @@ var cors = require('cors')
 var bodyParser = require('body-parser')
 app.use(cors());
 app.use(bodyParser.json());
-var query = require('./query.js');
+// app.use(express.static('front_end'));
+var query = require('./back_end/query.js');
 
 app.get('/', function(req,res) {
-    res.sendFile('index.html',{root: path.join(__dirname,'../front_end')});
+    res.sendFile('index.html',{root: path.join(__dirname,'front_end')});
+});
+app.get('/landing', function(req,res) {
+    res.sendFile('landing.html',{root: path.join(__dirname,'front_end')});
 });
 app.get('/database/getPersons',function(req,res) {
   var callback = function(data){
