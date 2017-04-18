@@ -21,8 +21,10 @@ app.get('/database/getPersons',function(req,res) {
     res.send(data);
   };
   query.getPersons(callback);
-}); 
-
+});
+app.get('/OGTeam.html',function(req,res) {
+  res.sendFile('OGTeam.html',{root: path.join(__dirname,'front_end')});
+});
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);

@@ -10,6 +10,9 @@
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Cuprum" rel="stylesheet">
   <style>
 
+    body{
+      background-color:white ;
+    }
     .banner{
       background-image: url("https://dqrt72khb0whk.cloudfront.net/uploads/image/file/12878/cropped_FacelessGaming.jpg?ts=1477666711");
       background-size: cover;
@@ -18,10 +21,14 @@
     }
 
     #team-rank {
-      background-image: url("http://s1.picswalls.com/wallpapers/2014/09/18/dota-2-desktop-background_112429304_222.jpg");
+      background-color:aliceblue;
       background-size: cover;
-      padding: 380px;
+      padding-bottom: 700px;
     }
+    #team-rank table {
+      margin-left: 20px;
+    }
+
     #player-rank {
       background-image: url("http://wallup.net/wp-content/uploads/2016/01/122488-Dota_2.jpg");
       background-size: cover;
@@ -49,6 +56,8 @@
       border-bottom-left-radius: 30px;
       border-bottom-right-radius: 30px;
     }
+
+
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -72,8 +81,41 @@
 </div>
 
 
-<div id="team-rank">
-  <a href="/team-rank">TEAM RANKING</a>
+<div id="team-rank" class="container-fluid">
+    <div ><h1>TEAM RANKING</h1></div>
+    <div class="row">
+    <div class="col-xs-5">
+    <table>
+      <tr><td>
+        <a id="og-team">OG</a>
+      </td></tr>
+      <tr><td>
+        <a href="">IG</a>
+      </td></tr>
+      <tr><td>
+        <a>EG</a>
+      </td></tr>
+      <tr><td>
+        <a>Faceless</a>
+      </td></tr>
+      <tr><td>
+        <a>Navi</a>
+      </td></tr>
+      <tr><td>
+        <a>VP</a>
+      </td></tr>
+      <tr><td>
+        <a>AF</a>
+      </td></tr>
+    </table>
+    </div>
+    <div class="col-xs-7">
+    <div class="menu" style="display: none;">
+    </div>
+    </div> 
+  </div>
+  
+
 </div>
 
 <div id="player-rank">
@@ -98,6 +140,12 @@ $(document).ready(function(){
       });
     }
   });
+
+   $('#og-team').click(function() {
+        $('.menu').toggle("slide");
+        $('.menu').load("/OGTeam.html");
+    });
+
 })
 </script>
 
