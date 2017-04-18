@@ -10,31 +10,40 @@
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Cuprum" rel="stylesheet">
   <style>
 
+    body{
+      background-image: url("https://images5.alphacoders.com/475/475158.jpg");
+      background-size: 1280px 900px;
+    }
     .banner{
-      background-image: url("https://dqrt72khb0whk.cloudfront.net/uploads/image/file/12878/cropped_FacelessGaming.jpg?ts=1477666711");
-      background-size: cover;
       padding: 390px;
       color: ghostwhite;
     }
 
     #team-rank {
-      background-image: url("http://s1.picswalls.com/wallpapers/2014/09/18/dota-2-desktop-background_112429304_222.jpg");
+      background-color:black;
       background-size: cover;
-      padding: 380px;
+      padding-bottom: 400px;
+      color: whitesmoke;
     }
+    #team-rank table,td{
+      width: 100%;
+      margin-left: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
     #player-rank {
-      background-image: url("http://wallup.net/wp-content/uploads/2016/01/122488-Dota_2.jpg");
+      background-color: whitesmoke;
       background-size: cover;
-      padding: 350px;
+      padding: 200px;
     }
     #stats {
-      background-image: url("https://images2.alphacoders.com/474/thumb-1920-474206.jpg");
+      background-color: black;
       background-size: cover;
       padding: 380px;
     }
     .nav-faceless-logo {
       font-family: 'Cutive', serif;
-      font-size: 35px;
+      font-size: 30px;
       margin-left: 10px; 
     }
     .nav-menu {
@@ -49,10 +58,13 @@
       border-bottom-left-radius: 30px;
       border-bottom-right-radius: 30px;
     }
+
+
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 <nav class="navbar navbar-inverse navbar-fixed-top">
+
     <div class="navbar-header">
       <a class ="nav-faceless-logo navbar-brand" href="#myPage">FACELESPEDIA</a>
     </div>
@@ -72,8 +84,41 @@
 </div>
 
 
-<div id="team-rank">
-  <a href="/team-rank">TEAM RANKING</a>
+<div id="team-rank" class="container-fluid">
+    <div ><h1>TEAM RANKING</h1></div>
+    <div class="row">
+    <div class="col-xs-5">
+    <table>
+      <tr><td>
+        <a id="og-team">OG</a>
+      </td></tr>
+      <tr><td>
+        <a id="">IG</a>
+      </td></tr>
+      <tr><td>
+        <a>EG</a>
+      </td></tr>
+      <tr><td>
+        <a>Faceless</a>
+      </td></tr>
+      <tr><td>
+        <a>Navi</a>
+      </td></tr>
+      <tr><td>
+        <a>VP</a>
+      </td></tr>
+      <tr><td>
+        <a>AF</a>
+      </td></tr>
+    </table>
+    </div>
+    <div class="col-xs-7">
+    <div class="menu" style="display: none;">
+    </div>
+    </div> 
+  </div>
+  
+
 </div>
 
 <div id="player-rank">
@@ -98,6 +143,12 @@ $(document).ready(function(){
       });
     }
   });
+
+   $('#og-team').click(function() {
+        $('.menu').toggle("slide");
+        $('.menu').load("/OGTeam.html");
+    });
+
 })
 </script>
 
