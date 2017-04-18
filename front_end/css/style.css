@@ -1,0 +1,64 @@
+
+body{
+    background-image: url("../images/bg/dota2_logo.jpg");
+    background-size: 1280px 900px;
+}
+.banner{
+    padding: 390px;
+    color: ghostwhite;
+}
+
+#team-rank {
+    background-color:black;
+    background-size: cover;
+    padding-bottom: 400px;
+    color: whitesmoke;
+}
+#team-rank table,td{
+    width: 100%;
+    margin-left: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+#player-rank {
+    background-color: whitesmoke;
+    background-size: cover;
+    padding: 200px;
+}
+#stats {
+    background-color: black;
+    background-size: cover;
+    padding: 380px;
+}
+.nav-faceless-logo {
+    font-family: 'Cutive', serif;
+    font-size: 30px;
+    margin-left: 10px; 
+}
+.nav-menu {
+    font-family: 'Cuprum', sans-serif;
+    font-size: 20px;
+    margin-right: 45px;
+}
+.navbar{
+    border: 0px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.media-heading{
+    margin-bottom:10px ;
+    font-size: 30px;
+}
+
+.container h2{
+    font-size: 20px;
+
+}
+
+.table{
+    height: 150px;
+    width: 100%;
+    color: black;
+}
