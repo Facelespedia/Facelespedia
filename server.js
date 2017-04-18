@@ -21,7 +21,14 @@ app.get('/database/getPersons',function(req,res) {
     res.send(data);
   };
   query.getPersons(callback);
-}); 
+});
+
+app.get('/database/getTeam',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeam(callback);
+});
 
 app.listen(PORT , function(err) {
     if(!!err) {
@@ -30,4 +37,3 @@ app.listen(PORT , function(err) {
       console.log('Server connect');
     }
 });
-
