@@ -7,7 +7,7 @@ var cors = require('cors')
 var bodyParser = require('body-parser')
 app.use(cors());
 app.use(bodyParser.json());
-// app.use(express.static('front_end'));
+app.use(express.static('front_end'));
 var query = require('./back_end/query.js');
 
 app.get('/', function(req,res) {
