@@ -23,6 +23,7 @@ app.use("/",routes);
 // app.get('/landing', function(req,res) {
 //     res.sendFile('landing.html',{root: path.join(__dirname,'front_end')});
 // });
+
 app.get('/database/getPlayer',function(req,res) {
   var callback = function(data){
     res.send(data);
@@ -70,6 +71,7 @@ app.get('/database/getTeamMember',function(req,res) {
     res.send(data);
   };
   query.getTeamMember(callback);
+
 });
 // app.get('/OGTeam.html',function(req,res) {
 //   res.sendFile('OGTeam.html',{root: path.join(__dirname,'front_end')});
