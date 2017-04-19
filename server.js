@@ -23,11 +23,55 @@ app.use("/",routes);
 // app.get('/landing', function(req,res) {
 //     res.sendFile('landing.html',{root: path.join(__dirname,'front_end')});
 // });
-app.get('/database/getPersons',function(req,res) {
+
+app.get('/database/getPlayer',function(req,res) {
   var callback = function(data){
     res.send(data);
   };
-  query.getPersons(callback);
+  query.getPlayer(callback);
+});
+app.get('/database/getTeam',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeam(callback);
+});
+app.get('/database/getHero',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getHero(callback);
+});
+app.get('/database/getHeroStat',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getHeroStat(callback);
+});
+app.get('/database/getContinent',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getContinent(callback);
+});
+app.get('/database/getContinentTeam',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getContinentTeam(callback);
+});
+app.get('/database/getContinentPlayer',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getContinentPlayer(callback);
+});
+app.get('/database/getTeamMember',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeamMember(callback);
+
 });
 // app.get('/OGTeam.html',function(req,res) {
 //   res.sendFile('OGTeam.html',{root: path.join(__dirname,'front_end')});
@@ -39,4 +83,3 @@ app.listen(PORT , function(err) {
       console.log('Server connect');
     }
 });
-
