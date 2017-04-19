@@ -3,7 +3,11 @@ var PORT = 3000;
 var express = require('express');
 var path = require('path');
 var app = express();
+var cors = require('cors')
+var bodyParser = require('body-parser')
 var query = require('./back_end/query.js');
+app.use(cors());
+app.use(bodyParser.json());
 app.get('/database/getPlayer',function(req,res) {
   var callback = function(data){
     res.send(data);
