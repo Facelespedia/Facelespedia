@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Facelespedia</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Cuprum" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  
+
+  <% include landing/navbar.ejs %>
+
+  <div class="banner">
+  </div>
+
+  <div id="team-rank" class="container-fluid">
+    <% include landing/team-rank.ejs %>
+  </div>
+
+  <div id="player-rank">
+  </div>
+
+  <div id="stats">
+  </div>
+  
+  <% include landing/functional.ejs %>
+</body>
+</html>
