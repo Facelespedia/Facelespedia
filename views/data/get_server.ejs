@@ -1,0 +1,88 @@
+<script>
+var getTeam,getHero,getHeroStat,getPlayer,getContinent,getContinentTeam,
+getContinentPlayer,getTeamMember;   
+$.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeam",             
+        dataType: "json",                 
+        success: function(response){
+            getTeam = response;
+            console.log(getTeam);
+            return getTeam;
+        }
+    });
+    
+
+ $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getHero",             
+        dataType: "json",                 
+        success: function(response){                    
+           getHero = response
+        }
+    });
+  $.ajax({    
+      type: "GET",
+      url: "http://localhost:3000/database/getHeroStat",             
+      dataType: "json",                 
+      success: function(response){                    
+        getHeroStat = response
+      }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getPlayer",             
+        dataType: "json",                 
+        success: function(response){                    
+           getPlayer = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getContinent",             
+        dataType: "json",                 
+        success: function(response){                    
+           getContinent = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getContinentTeam",             
+        dataType: "json",                 
+        success: function(response){                    
+           getContinentTeam = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getContinentPlayer",             
+        dataType: "json",                 
+        success: function(response){                    
+           getContinentPlayer = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamMember",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamMember = response
+        }
+  });
+  $(document).ready(function(){
+      for(var i = 0 ; i< getTeam.Team.length ; i++){
+        console.log(getTeam.Team[i].TeamName);
+      }
+
+
+      console.log(getTeam.Team[0]);
+      console.log(getHero);
+      console.log(getHeroStat);
+      console.log(getPlayer);
+      console.log(getContinent);
+      console.log(getContinentTeam);
+      console.log(getContinentPlayer);
+      console.log(getTeamMember);
+  })      
+ 
+ </script>
