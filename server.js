@@ -64,7 +64,7 @@ app.get('/database/getTeamMember',function(req,res) {
     res.send(data);
   };
   query.getTeamMember(callback);
-
+});
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);
