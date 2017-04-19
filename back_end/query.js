@@ -12,21 +12,9 @@ var connection;
       console.log('Error : ', err);
     }else {
       console.log('Database Connect');
-<<<<<<< HEAD
     }
   });
 
-exports.getPersons = function(callback){
-  connection.query("SELECT * FROM Personss",function(err, results,fields){
-    if(!!err) console.log(err);
-    var data  = {
-      person : results
-=======
->>>>>>> 8aba5bec803c5c72e398881d1084230ba9addb45
-    }
-  });
-<<<<<<< HEAD
-}
 
 
 exports.getTeam = function(callback){
@@ -58,7 +46,6 @@ exports.getHeroStat = function(callback){
     callback(data);
   });
 }
-=======
 
   exports.getPlayer = function(callback){
     connection.query("SELECT * FROM Player",function(err, results,fields){
@@ -139,4 +126,3 @@ exports.getHeroStat = function(callback){
       callback(data);
     });
   }
->>>>>>> 8aba5bec803c5c72e398881d1084230ba9addb45

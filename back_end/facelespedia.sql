@@ -1,18 +1,3 @@
-<<<<<<< HEAD
--- DROP TABLE Team;
-
-CREATE TABLE Team (
-    TeamID varchar(3),
-    Name varchar(255),
-    Subname varchar(255),
-    Ranking int
-);
-
-INSERT INTO Team
-VALUES ('T01', 'asd', 'Nd', 123456),
-       ('T02', 'ga', 'gg', 111),
-       ('T03', 'ytu', 'rr', 222);
-=======
 -- DROP TABLE Player;
 -- DROP TABLE Team;
 -- DROP TABLE Hero;
@@ -1000,4 +985,3 @@ VALUES
 (40,195),
 (40,196),
 (40,197);
->>>>>>> 65c071a173762d100e54280ad7a1452d6b73ee4b

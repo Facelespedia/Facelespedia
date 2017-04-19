@@ -17,13 +17,6 @@ var query = require('./back_end/query.js');
 
 app.use("/",routes);
 
-// app.get('/', function(req,res) {
-//     res.sendFile('index.html',{root: path.join(__dirname,'front_end')});
-// });
-// app.get('/landing', function(req,res) {
-//     res.sendFile('landing.html',{root: path.join(__dirname,'front_end')});
-// });
-
 app.get('/database/getPlayer',function(req,res) {
   var callback = function(data){
     res.send(data);
@@ -70,24 +63,8 @@ app.get('/database/getTeamMember',function(req,res) {
   var callback = function(data){
     res.send(data);
   };
-<<<<<<< HEAD
-  query.getPersons(callback);
-});
-
-app.get('/database/getTeam',function(req,res) {
-  var callback = function(data){
-    res.send(data);
-  };
-  query.getTeam(callback);
-});
-=======
   query.getTeamMember(callback);
->>>>>>> 8aba5bec803c5c72e398881d1084230ba9addb45
 
-});
-// app.get('/OGTeam.html',function(req,res) {
-//   res.sendFile('OGTeam.html',{root: path.join(__dirname,'front_end')});
-// });
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);
