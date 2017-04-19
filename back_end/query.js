@@ -31,7 +31,7 @@ exports.getHero = function(callback){
   connection.query("SELECT * FROM Hero",function(err, results,fields){
     if(!!err) console.log(err);
     var data  = {
-      Team : results
+      Hero : results
     }
     callback(data);
   });
@@ -41,7 +41,7 @@ exports.getHeroStat = function(callback){
   connection.query("SELECT * FROM HeroStat",function(err, results,fields){
     if(!!err) console.log(err);
     var data  = {
-      Team : results
+      HeroStat : results
     }
     callback(data);
   });
@@ -57,41 +57,11 @@ exports.getHeroStat = function(callback){
     });
   }
 
-  exports.getTeam = function(callback){
-    connection.query("SELECT * FROM Team",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        Team : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getHero = function(callback){
-    connection.query("SELECT * FROM Hero",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        Hero : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getHeroStat = function(callback){
-    connection.query("SELECT * FROM HeroStat",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        person : results
-      }
-      callback(data);
-    });
-  }
-
   exports.getContinent = function(callback){
     connection.query("SELECT * FROM Continent",function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
-        person : results
+        Continent : results
       }
       callback(data);
     });
@@ -101,7 +71,7 @@ exports.getHeroStat = function(callback){
     connection.query("SELECT * FROM ContinentTeam",function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
-        person : results
+        ContinentTeam : results
       }
       callback(data);
     });
@@ -111,7 +81,7 @@ exports.getHeroStat = function(callback){
     connection.query("SELECT * FROM ContinentPlayer",function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
-        person : results
+        ContinentPlayer : results
       }
       callback(data);
     });
@@ -121,7 +91,7 @@ exports.getHeroStat = function(callback){
     connection.query("SELECT * FROM TeamMember",function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
-        person : results
+        TeamMember : results
       }
       callback(data);
     });
