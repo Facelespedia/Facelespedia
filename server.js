@@ -5,21 +5,72 @@ var path = require('path');
 var app = express();
 var cors = require('cors')
 var bodyParser = require('body-parser')
+var routes = require('./routes/index')
+
+app.set('views',path.join(__dirname,'views'));
+app.set('view engine','ejs');
+
 app.use(cors());
 app.use(bodyParser.json());
-// app.use(express.static('front_end'));
+app.use(express.static(path.join(__dirname,'public')));
 var query = require('./back_end/query.js');
 
-app.get('/', function(req,res) {
-    res.sendFile('index.html',{root: path.join(__dirname,'front_end')});
-});
-app.get('/landing', function(req,res) {
-    res.sendFile('landing.html',{root: path.join(__dirname,'front_end')});
-});
-app.get('/database/getPersons',function(req,res) {
+app.use("/",routes);
+
+// app.get('/', function(req,res) {
+//     res.sendFile('index.html',{root: path.join(__dirname,'front_end')});
+// });
+// app.get('/landing', function(req,res) {
+//     res.sendFile('landing.html',{root: path.join(__dirname,'front_end')});
+// });
+
+app.get('/database/getPlayer',function(req,res) {
   var callback = function(data){
     res.send(data);
   };
+  query.getPlayer(callback);
+});
+app.get('/database/getTeam',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeam(callback);
+});
+app.get('/database/getHero',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getHero(callback);
+});
+app.get('/database/getHeroStat',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getHeroStat(callback);
+});
+app.get('/database/getContinent',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getContinent(callback);
+});
+app.get('/database/getContinentTeam',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getContinentTeam(callback);
+});
+app.get('/database/getContinentPlayer',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getContinentPlayer(callback);
+});
+app.get('/database/getTeamMember',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+<<<<<<< HEAD
   query.getPersons(callback);
 });
 
@@ -29,7 +80,14 @@ app.get('/database/getTeam',function(req,res) {
   };
   query.getTeam(callback);
 });
+=======
+  query.getTeamMember(callback);
+>>>>>>> 8aba5bec803c5c72e398881d1084230ba9addb45
 
+});
+// app.get('/OGTeam.html',function(req,res) {
+//   res.sendFile('OGTeam.html',{root: path.join(__dirname,'front_end')});
+// });
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);
