@@ -1,0 +1,123 @@
+<script>
+var getTeam,getHero,getHeroStat,getPlayer,getContinent,getContinentTeam,
+getContinentPlayer,getTeamMember,getTeamSortRating,getTeamSea,getTeamEurope
+,getTeamAmerica,getTeamChina;   
+$.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeam",             
+        dataType: "json",                 
+        success: function(response){
+            getTeam = response;
+        }
+    });
+    
+
+ $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getHero",             
+        dataType: "json",                 
+        success: function(response){                    
+           getHero = response
+        }
+    });
+  $.ajax({    
+      type: "GET",
+      url: "http://localhost:3000/database/getHeroStat",             
+      dataType: "json",                 
+      success: function(response){                    
+        getHeroStat = response
+      }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getPlayer",             
+        dataType: "json",                 
+        success: function(response){                    
+           getPlayer = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getContinent",             
+        dataType: "json",                 
+        success: function(response){                    
+           getContinent = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getContinentTeam",             
+        dataType: "json",                 
+        success: function(response){                    
+           getContinentTeam = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getContinentPlayer",             
+        dataType: "json",                 
+        success: function(response){                    
+           getContinentPlayer = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamMember",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamMember = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamSortRating",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamSortRating = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamSea",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamSea = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamEurope",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamEurope = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamAmerica",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamAmerica = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamChina",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamChina = response
+        }
+  });
+
+      // console.log(getTeam);
+      // console.log(getHero);
+      // console.log(getHeroStat);
+      // console.log(getPlayer);
+      // console.log(getContinent);
+      // console.log(getContinentTeam);
+      // console.log(getContinentPlayer);
+      // console.log(getTeamMember);
+      // console.log(getTeamSortRating);
+     
+ 
+ </script>
