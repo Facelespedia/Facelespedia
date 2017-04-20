@@ -1,33 +1,21 @@
 <div ><h1>TEAM RANKING</h1></div>
 <div class="row">
-    <div class="col-xs-5">
-    <table>
-        <tr><td>
-        <a id="og-team">OG</a>
-        </td></tr>
-        <tr><td>
-        <a id="">IG</a>
-        </td></tr>
-        <tr><td>
-        <a>EG</a>
-        </td></tr>
-        <tr><td>
-        <a>Faceless</a>
-        </td></tr>
-        <tr><td>
-        <a>Navi</a>
-        </td></tr>
-        <tr><td>
-        <a>VP</a>
-        </td></tr>
-        <tr><td>
-        <a>AF</a>
-        </td></tr>
-    </table>
+    <div id="team-rank" class="col-xs-5">
+        <table id="table-team"></table >
     </div>
     <div class="col-xs-7">
         <div class="menu" style="display: none;">
         </div>
     </div>
 </div> 
-  
+<script>
+    $(document).ready(function(){
+        var team_table = "<table>";
+        for(var i = 0 ;i<10 ; i++){
+            team_table +="<tr><td><a>"+getTeamSortRating.TeamSortRating[i].TeamName +"</a></td></tr>";
+        }
+        team_table += "</table>";
+        document.getElementById('table-team').innerHTML = team_table;
+    })
+    
+</script>
