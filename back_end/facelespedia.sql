@@ -42,23 +42,23 @@ CREATE TABLE HeroStat(
 );
 
 CREATE TABLE Continent(
-  IDContinent int,
+  ContinentID int,
   ContinentName varchar(255)
 );
 
-CREATE TABLE Continentteam(
-  IDContinent int,
-  IDTeam int
+CREATE TABLE ContinentTeam(
+  ContinentID int,
+  TeamID int
 );
 
-CREATE TABLE Continentplayer(
-  IDContinent int,
-  IDPlayer int
+CREATE TABLE ContinentPlayer(
+  ContinentID int,
+  PlayerID int
 );
 
 CREATE TABLE TeamMember(
-  IDTeam int,
-  IDPlayer int
+  TeamID int,
+  PlayerID int
 );
 
 
@@ -537,14 +537,14 @@ VALUES
 (112,54,2,2,1,0,0),
 (113,47,1,2,1,0,0);
 
-INSERT INTO Continent(IDContinent,ContinentName)
+INSERT INTO Continent(ContinentID,ContinentName)
 VALUES
 (1,'Sea & Oceania'),
 (2,'Europe &CIS'),
-(3,'Europe &CIS'),
+(3,'Americas'),
 (4,'China');
 
-INSERT INTO Continentteam(IDTeam,IDContinent)
+INSERT INTO ContinentTeam(TeamID,ContinentID)
 VALUES
 (01,01),
 (02,01),
@@ -587,7 +587,7 @@ VALUES
 (39,04),
 (40,04);
 
-INSERT INTO Continentplayer(IDPlayer,IDContinent)
+INSERT INTO ContinentPlayer(PlayerID,ContinentID)
 VALUES
 (1,01),
 (2,01),
@@ -787,7 +787,7 @@ VALUES
 (196,04),
 (197,04);
 
-INSERT INTO TeamMember(IDTeam,IDPlayer)
+INSERT INTO TeamMember(TeamID,PlayerID)
 VALUES
 (1,1),
 (1,2),
