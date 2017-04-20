@@ -107,3 +107,14 @@ exports.getHeroStat = function(callback){
       callback(data);
     });
   }
+
+  exports.getTeamSea = function(callback){
+    connection.query("SELECT * FROM Team where TeamID IN(select IDTeam from Continentteam where IDContinent = 1)ORDER BY Rating DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        TeamSea : results
+      }
+      callback(data);
+    });
+  }

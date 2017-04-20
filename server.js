@@ -62,6 +62,12 @@ app.get('/database/getTeamSortRating',function(req,res) {
   };
   query.getTeamSortRating(callback);
 });
+app.get('/database/getTeamSea',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeamSea(callback);
+});
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);

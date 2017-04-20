@@ -1,6 +1,6 @@
 <script>
 var getTeam,getHero,getHeroStat,getPlayer,getContinent,getContinentTeam,
-getContinentPlayer,getTeamMember,getTeamSortRating;   
+getContinentPlayer,getTeamMember,getTeamSortRating,getTeamSea;   
 $.ajax({    
         type: "GET",
         url: "http://localhost:3000/database/getTeam",             
@@ -73,6 +73,14 @@ $.ajax({
         dataType: "json",                 
         success: function(response){                    
            getTeamSortRating = response
+        }
+  });
+    $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamSea",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamSea = response
         }
   });
 

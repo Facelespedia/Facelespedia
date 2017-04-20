@@ -1,0 +1,26 @@
+<script>
+    $(document).ready(function(){
+     var team_table_global = "<table id=&quot;table-team&quot;>";
+     var team_table_sea = "<table id=&quot;table-team&quot;>";
+        for(var i = 0 ;i<10; i++){
+            team_table_global +="<tr><td><a>"+getTeamSortRating.TeamSortRating[i].TeamName+"</a></td></tr>";
+            team_table_sea +="<tr><td><a>"+getTeamSea.TeamSea[i].TeamName+"</a></td></tr>";
+
+        }
+        team_table_global += "</table>";
+        team_table_sea += "</table>";    
+    $('#team-global').click(function() { 
+        document.getElementById('table-team').innerHTML = team_table_global;
+        $('.menu').hide();
+    });
+    $('#team-sea').click(function() { 
+        document.getElementById('table-team').innerHTML = team_table_sea;
+        $('.menu').hide();
+    });
+    $('#table-team').click(function() {
+        $('.menu').toggle("slide");
+        $('.menu').load("/team_card");
+    });
+    console.log();
+    })
+</script>
