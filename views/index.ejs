@@ -11,14 +11,15 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">  
-  <% include data/get_server.ejs %>
-  <% include landing/navbar.ejs %>
+
+  
+  <% include landing/landing_navbar.ejs %>
 
   <div class="banner">
   </div>
 
   <div id="team-rank" class="container-fluid">
-    <% include landing/team-rank.ejs %>
+    <% include landing/landing_team-rank.ejs %>
   </div>
 
   <div id="player-rank">
@@ -26,6 +27,8 @@
 
   <div id="stats">
   </div>
-  <% include landing/function_landing.ejs %>
+  <% include data/get_server.ejs %>
+  <% include function/function_landing.ejs %>
+  <% include function/function_team.ejs %>
 </body>
 </html>

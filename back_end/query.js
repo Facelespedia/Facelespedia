@@ -107,3 +107,47 @@ exports.getHeroStat = function(callback){
       callback(data);
     });
   }
+
+  exports.getTeamSea = function(callback){
+    connection.query("SELECT * FROM Team where TeamID IN(select IDTeam from Continentteam where IDContinent = 1)ORDER BY Rating DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        TeamSea : results
+      }
+      callback(data);
+    });
+  }
+
+   exports.getTeamEurope = function(callback){
+    connection.query("SELECT * FROM Team where TeamID IN(select IDTeam from Continentteam where IDContinent = 2)ORDER BY Rating DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        TeamEurope : results
+      }
+      callback(data);
+    });
+  }
+
+   exports.getTeamAmerica = function(callback){
+    connection.query("SELECT * FROM Team where TeamID IN(select IDTeam from Continentteam where IDContinent = 3)ORDER BY Rating DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        TeamAmerica : results
+      }
+      callback(data);
+    });
+  }
+
+   exports.getTeamChina = function(callback){
+    connection.query("SELECT * FROM Team where TeamID IN(select IDTeam from Continentteam where IDContinent = 4)ORDER BY Rating DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        TeamChina : results
+      }
+      callback(data);
+    });
+  }

@@ -62,6 +62,30 @@ app.get('/database/getTeamSortRating',function(req,res) {
   };
   query.getTeamSortRating(callback);
 });
+app.get('/database/getTeamSea',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeamSea(callback);
+});
+app.get('/database/getTeamEurope',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeamEurope(callback);
+});
+app.get('/database/getTeamAmerica',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeamAmerica(callback);
+});
+app.get('/database/getTeamChina',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeamChina(callback);
+});
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);

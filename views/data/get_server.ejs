@@ -1,6 +1,7 @@
 <script>
 var getTeam,getHero,getHeroStat,getPlayer,getContinent,getContinentTeam,
-getContinentPlayer,getTeamMember,getTeamSortRating;   
+getContinentPlayer,getTeamMember,getTeamSortRating,getTeamSea,getTeamEurope
+,getTeamAmerica,getTeamChina;   
 $.ajax({    
         type: "GET",
         url: "http://localhost:3000/database/getTeam",             
@@ -73,6 +74,38 @@ $.ajax({
         dataType: "json",                 
         success: function(response){                    
            getTeamSortRating = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamSea",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamSea = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamEurope",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamEurope = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamAmerica",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamAmerica = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getTeamChina",             
+        dataType: "json",                 
+        success: function(response){                    
+           getTeamChina = response
         }
   });
 
