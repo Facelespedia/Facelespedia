@@ -96,3 +96,14 @@ exports.getHeroStat = function(callback){
       callback(data);
     });
   }
+
+  exports.getTeamSortRating = function(callback){
+    connection.query("SELECT * FROM Team ORDER BY Rating DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        TeamSortRating : results
+      }
+      callback(data);
+    });
+  }
