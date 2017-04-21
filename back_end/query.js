@@ -3,7 +3,8 @@ var mysql      = require('mysql');
 var connection;
   connection = mysql.createConnection({
     host     : 'localhost',
-    user     : 'root',
+    user     : 'gamkub',
+    password : 'gamkung',
     database : 'facelespedia'
   });
 
@@ -206,5 +207,3 @@ exports.getHeroStat = function(callback){
       callback(data);
     });
   }
-
-  
