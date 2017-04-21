@@ -3,8 +3,8 @@
 -- DROP TABLE Hero;
 -- Drop TABLE HeroStat;
 -- DROP TABLE Continent;
--- DROP TABLE Continentteam;
--- DROP TABLE Continentplayer;
+-- DROP TABLE ContinentTeam;
+-- DROP TABLE ContinentPlayer;
 -- DROP TABLE TeamMember;
 
 CREATE TABLE Player(

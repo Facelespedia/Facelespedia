@@ -92,6 +92,30 @@ app.get('/database/getPlayerSortMMR',function(req,res) {
   };
   query.getPlayerSortMMR(callback);
 });
+app.get('/database/getPlayerSea',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getPlayerSea(callback);
+});
+app.get('/database/getPlayerEurope',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getPlayerAmerica(callback);
+});
+app.get('/database/getPlayerAmerica',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getPlayerEurope(callback);
+});
+app.get('/database/getPlayerChina',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getPlayerChina(callback);
+});
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);
