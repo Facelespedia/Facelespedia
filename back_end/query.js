@@ -3,7 +3,8 @@ var mysql      = require('mysql');
 var connection;
   connection = mysql.createConnection({
     host     : 'localhost',
-    user     : 'root',
+    user     : 'gamkub',
+    password : 'gamkung',
     database : 'facelespedia'
   });
 
@@ -206,6 +207,7 @@ exports.getHeroStat = function(callback){
       callback(data);
     });
   }
+
 
   exports.getPlayerWithTeam = function(callback){
     connection.query("SELECT Team.TeamID,Player.PlayerID,GameName FROM Player,TeamMember,Team where Player.PlayerID = TeamMember.PlayerID && Team.TeamID = TeamMember.TeamID"
