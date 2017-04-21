@@ -38,11 +38,13 @@
 })
 var temp = 0;
 function SelectTable(TeamID){
-    console.log(temp);
-    console.log(TeamID);
-    $('.team-menu').toggle("slide");
-    $('.team-menu').show();
-    temp = TeamID;
+    if(TeamID!=temp){
+        createCardTeam(TeamID);
+        $('.team-menu').show();
+        temp = TeamID;
+    }else{
+        $('.team-menu').toggle("slide");
+    }
 }
 
 

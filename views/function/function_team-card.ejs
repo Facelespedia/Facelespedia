@@ -9,5 +9,9 @@
     //         }
     //     }
     // }
+    function createCardTeam(TeamID){
+        document.getElementById('team-card-name').innerHTML = getTeam.Team[TeamID-1].TeamName;
+        document.getElementById('team-card-nation').innerHTML = getTeam.Team[TeamID-1].Nation +"  <img src=\"/images/national/"+getTeam.Team[TeamID-1].Nation+".png\" style=\"width:30px\">";
+    }
 
 </script>
