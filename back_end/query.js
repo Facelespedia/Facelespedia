@@ -206,3 +206,5 @@ exports.getHeroStat = function(callback){
       callback(data);
     });
   }
+
+  
