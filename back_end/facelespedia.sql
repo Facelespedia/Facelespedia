@@ -9,8 +9,8 @@
 
 CREATE TABLE Player(
     PlayerID int,
-    FirstName varchar(255),
-    LastName varchar(255),
+    PlayerName varchar(255),
+    GameName varchar(255),
     MMR int,
     Nation varchar(255)
 );
@@ -62,7 +62,7 @@ CREATE TABLE TeamMember(
 );
 
 
-INSERT INTO Player (PlayerID,FirstName,LastName,MMR,Nation)
+INSERT INTO Player (PlayerID,PlayerName,GameName,MMR,Nation)
 VALUES
 (1,'Marc Polo Luis Fausto','Raven',7884,'Philippines'),
 (2,'Carlo Palad','Kuku',7845,'Philippines'),
