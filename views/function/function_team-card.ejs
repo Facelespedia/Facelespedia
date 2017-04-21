@@ -1,17 +1,20 @@
 <script>
-    
-    // for(var i = 0 ; i < getTeam.Team.length ; i++ ) {
-    //     console.log(getTeam.Team[i].TeamID +" "+getTeam.Team[i].TeamName +" "+getTeam.Team[i].TeamsubName+" "
-    //     +getTeam.Team[i].Rating+" "+getTeam.Team[i].Nation);
-    //     for(var j = 0 ; j < getPlayerWithTeam.PlayerWithTeam.length ;j++ ) {
-    //         if(getTeam.Team[i].TeamID == getPlayerWithTeam.PlayerWithTeam[j].TeamID){
-    //             console.log(getPlayerWithTeam.PlayerWithTeam[j].GameName);
-    //         }
-    //     }
-    // }
+
     function createCardTeam(TeamID){
+
+        var addPlayer = "";
+        document.getElementById('team-card-logo').innerHTML = "<img src=\"/images/team/"+getTeam.Team[TeamID-1].TeamsubName+".png\" style=\"width:80px\">";
         document.getElementById('team-card-name').innerHTML = getTeam.Team[TeamID-1].TeamName;
         document.getElementById('team-card-nation').innerHTML = getTeam.Team[TeamID-1].Nation +"  <img src=\"/images/national/"+getTeam.Team[TeamID-1].Nation+".png\" style=\"width:30px\">";
+        for(var j = 0 ; j < getPlayerWithTeam.PlayerWithTeam.length ;j++ ) {
+            if(TeamID == getPlayerWithTeam.PlayerWithTeam[j].TeamID){
+                console.log(getPlayerWithTeam.PlayerWithTeam[j].GameName);
+                 addPlayer += "<tr><td><img src=\"/images/player/"+getPlayerWithTeam.PlayerWithTeam[j].GameName+".jpg\"style=\"width:50px;height:50px;\">";
+                 addPlayer += "</td><td>"+getPlayerWithTeam.PlayerWithTeam[j].GameName+"</td></tr>";
+            }
+        }
+        document.getElementById('team-card-player').innerHTML = addPlayer;        
+
     }
 
 </script>
