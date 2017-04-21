@@ -102,13 +102,13 @@ app.get('/database/getPlayerEurope',function(req,res) {
   var callback = function(data){
     res.send(data);
   };
-  query.getPlayerAmerica(callback);
+  query.getPlayerEurope(callback);
 });
 app.get('/database/getPlayerAmerica',function(req,res) {
   var callback = function(data){
     res.send(data);
   };
-  query.getPlayerEurope(callback);
+  query.getPlayerAmerica(callback);
 });
 app.get('/database/getPlayerChina',function(req,res) {
   var callback = function(data){
