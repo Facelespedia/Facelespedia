@@ -14,10 +14,13 @@
     "webpack-dev-server": "^1.14.1",
     "webpack": "^1.13.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "concurrently": "^3.4.0"
+  },
   "scripts": {
-    "start":"node client.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "node client.js",
+    "server": "node server.js",
+    "start": "concurrently --kill-others \"npm run client\" \"npm run server\""
   },
   "author": "",
   "license": "ISC"

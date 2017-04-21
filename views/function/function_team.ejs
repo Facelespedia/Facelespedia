@@ -18,28 +18,27 @@
 
     $('#team-global').click(function() { 
         document.getElementById('team-table').innerHTML = team_table_global;
-        $(".menu").hide();
+        $(".team-menu").hide();
     });
     $('#team-sea').click(function() { 
         document.getElementById('team-table').innerHTML = team_table_sea;
-        $(".menu").hide();
+        $(".team-menu").hide();
     });
     $('#team-china').click(function() { 
         document.getElementById('team-table').innerHTML = team_table_china;
-        $(".menu").hide();
+        $(".team-menu").hide();
     });
     $('#team-america').click(function() { 
         document.getElementById('team-table').innerHTML = team_table_america;
-        $(".menu").hide();
+        $(".team-menu").hide();
     });
     $('#team-europe').click(function() { 
         document.getElementById('team-table').innerHTML = team_table_europe;
-        $(".menu").hide();
+        $(".team-menu").hide();
     });
     $('#team-table').click(function() {
-        $('.menu').toggle("slide");
-        $('.menu').load("/team_card");
+        $('.team-menu').toggle("slide");
+        $('.team-menu').load("/team_card");
     });
-    console.log();
     })
 </script>

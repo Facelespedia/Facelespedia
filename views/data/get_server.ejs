@@ -1,7 +1,10 @@
 <script>
+
 var getTeam,getHero,getHeroStat,getPlayer,getContinent,getContinentTeam,
 getContinentPlayer,getTeamMember,getTeamSortRating,getTeamSea,getTeamEurope
-,getTeamAmerica,getTeamChina;   
+,getTeamAmerica,getTeamChina,getPlayerSortMMR,getPlayerSea,getPlayerEurope
+,getPlayerAmerica,getPlayerChina;   
+
 $.ajax({    
         type: "GET",
         url: "http://localhost:3000/database/getTeam",             
@@ -108,16 +111,45 @@ $.ajax({
            getTeamChina = response
         }
   });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getPlayerSortMMR",             
+        dataType: "json",                 
+        success: function(response){                    
+           getPlayerSortMMR = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getPlayerSea",             
+        dataType: "json",                 
+        success: function(response){                    
+           getPlayerSea = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getPlayerEurope",             
+        dataType: "json",                 
+        success: function(response){                    
+           getPlayerEurope = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getPlayerAmerica",             
+        dataType: "json",                 
+        success: function(response){                    
+           getPlayerAmerica = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getPlayerChina",             
+        dataType: "json",                 
+        success: function(response){                    
+           getPlayerChina = response
+        }
+  });
 
-      // console.log(getTeam);
-      // console.log(getHero);
-      // console.log(getHeroStat);
-      // console.log(getPlayer);
-      // console.log(getContinent);
-      // console.log(getContinentTeam);
-      // console.log(getContinentPlayer);
-      // console.log(getTeamMember);
-      // console.log(getTeamSortRating);
-     
- 
  </script>

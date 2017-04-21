@@ -109,7 +109,7 @@ exports.getHeroStat = function(callback){
   }
 
   exports.getTeamSea = function(callback){
-    connection.query("SELECT * FROM Team where TeamID IN(select IDTeam from Continentteam where IDContinent = 1)ORDER BY Rating DESC"
+    connection.query("SELECT * FROM Team where TeamID IN(select TeamID from ContinentTeam where ContinentID = 1)ORDER BY Rating DESC"
     ,function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
@@ -120,7 +120,7 @@ exports.getHeroStat = function(callback){
   }
 
    exports.getTeamEurope = function(callback){
-    connection.query("SELECT * FROM Team where TeamID IN(select IDTeam from Continentteam where IDContinent = 2)ORDER BY Rating DESC"
+    connection.query("SELECT * FROM Team where TeamID IN(select TeamID from ContinentTeam where ContinentID = 2)ORDER BY Rating DESC"
     ,function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
@@ -131,7 +131,7 @@ exports.getHeroStat = function(callback){
   }
 
    exports.getTeamAmerica = function(callback){
-    connection.query("SELECT * FROM Team where TeamID IN(select IDTeam from Continentteam where IDContinent = 3)ORDER BY Rating DESC"
+    connection.query("SELECT * FROM Team where TeamID IN(select TeamID from ContinentTeam where ContinentID = 3)ORDER BY Rating DESC"
     ,function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
@@ -142,11 +142,66 @@ exports.getHeroStat = function(callback){
   }
 
    exports.getTeamChina = function(callback){
-    connection.query("SELECT * FROM Team where TeamID IN(select IDTeam from Continentteam where IDContinent = 4)ORDER BY Rating DESC"
+    connection.query("SELECT * FROM Team where TeamID IN(select TeamID from ContinentTeam where ContinentID = 4)ORDER BY Rating DESC"
     ,function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
         TeamChina : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getPlayerSortMMR = function(callback){
+    connection.query("SELECT * FROM Player ORDER BY MMR DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        PlayerSortMMR : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getPlayerSea = function(callback){
+    connection.query("SELECT * FROM Player where PlayerID IN(select PlayerID from ContinentPlayer where ContinentID = 1)ORDER BY MMR DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        PlayerSea : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getPlayerEurope = function(callback){
+    connection.query("SELECT * FROM Player where PlayerID IN(select PlayerID from ContinentPlayer where ContinentID = 2)ORDER BY MMR DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        PlayerEurope : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getPlayerAmerica = function(callback){
+    connection.query("SELECT * FROM Player where PlayerID IN(select PlayerID from ContinentPlayer where ContinentID = 3)ORDER BY MMR DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        PlayerAmerica : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getPlayerChina = function(callback){
+    connection.query("SELECT * FROM Player where PlayerID IN(select PlayerID from ContinentPlayer where ContinentID = 4)ORDER BY MMR DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        PlayerChina : results
       }
       callback(data);
     });

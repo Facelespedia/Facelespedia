@@ -22,7 +22,8 @@
     <% include landing/landing_team-rank.ejs %>
   </div>
 
-  <div id="player-rank">
+  <div id="player-rank" class="container-fluid">
+    <% include landing/landing_player-rank.ejs %>
   </div>
 
   <div id="stats">
@@ -30,5 +31,6 @@
   <% include data/get_server.ejs %>
   <% include function/function_landing.ejs %>
   <% include function/function_team.ejs %>
+  <% include function/function_player.ejs %>
 </body>
 </html>
