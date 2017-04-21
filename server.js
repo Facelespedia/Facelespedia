@@ -120,6 +120,6 @@ app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);
     }else{
-      console.log('Server connect');
+      console.log('Server connect , PORT : ' + PORT);
     }
 });

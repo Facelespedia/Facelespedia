@@ -20,6 +20,6 @@ app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);
     }else{
-      console.log('Client connect');
+      console.log('Client connect , PORT : ' + PORT);
     }
 });
