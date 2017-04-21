@@ -151,3 +151,14 @@ exports.getHeroStat = function(callback){
       callback(data);
     });
   }
+
+  exports.getPlayerSortMMR = function(callback){
+    connection.query("SELECT * FROM Player ORDER BY MMR DESC"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        PlayerSortMMR : results
+      }
+      callback(data);
+    });
+  }

@@ -86,6 +86,12 @@ app.get('/database/getTeamChina',function(req,res) {
   };
   query.getTeamChina(callback);
 });
+app.get('/database/getPlayerSortMMR',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getPlayerSortMMR(callback);
+});
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);

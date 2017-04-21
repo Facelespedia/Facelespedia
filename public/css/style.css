@@ -23,7 +23,7 @@ body{
 #player-rank {
     background-color: whitesmoke;
     background-size: cover;
-    padding: 200px;
+    padding-bottom: 400px;
 }
 #stats {
     background-color: black;
