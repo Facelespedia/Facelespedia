@@ -207,14 +207,3 @@ exports.getHeroStat = function(callback){
     });
   }
 
-  exports.getPlayerWithTeam = function(callback){
-    connection.query("SELECT Team.TeamID,Player.PlayerID,GameName FROM Player,TeamMember,Team where Player.PlayerID = TeamMember.PlayerID && Team.TeamID = TeamMember.TeamID"
-    ,function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        PlayerWithTeam : results
-      }
-      callback(data);
-    });
-  }
-
