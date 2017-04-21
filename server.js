@@ -116,6 +116,12 @@ app.get('/database/getPlayerChina',function(req,res) {
   };
   query.getPlayerChina(callback);
 });
+app.get('/database/getPlayerWithTeam',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getPlayerWithTeam(callback);
+});
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);
