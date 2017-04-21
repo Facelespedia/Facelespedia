@@ -10,8 +10,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <link rel="stylesheet" href="/css/style.css">
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">  
+  <% include data/get_server.ejs %>
 
   <% include landing/landing_navbar.ejs %>
 
@@ -29,9 +30,10 @@
   <div id="stats" >
     <% include landing/landing_stat.ejs %>
   </div>
-  <% include data/get_server.ejs %>
+ 
   <% include function/function_landing.ejs %>
   <% include function/function_team.ejs %>
   <% include function/function_player.ejs %>
+  <% include function/function_team-card.ejs %>
 </body>
 </html>
