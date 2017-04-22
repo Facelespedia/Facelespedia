@@ -26,9 +26,9 @@ body{
     padding-bottom: 400px;
 }
 #stats {
-    background-color: green;
+    background-color: white;
     background-size: cover;
-    padding-bottom: 20px;
+    padding-bottom: 400px;
 }
 .nav-faceless-logo {
     font-family: 'Cutive', serif;
@@ -64,7 +64,7 @@ body{
 }
 /*---------------Stat---------*/
 
-.header_stat{
+/*.header_stat{
   background-color: black;
   color: white;
   padding: 30px;
@@ -82,18 +82,19 @@ body{
 }
 .menu {
     width: 15%;
-}
+}*/
 /*.content { เลื่อนไปขวาได้
     width: 75%;
 }*/
-.menu ul {
+
+/*.menu ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-}
+}*/
 
 /* Standard syntax */
-@keyframes stat_tab {
+/*@keyframes stat_tab {
     0%   {background-color:#33b5e5; left:0px; top:0px;}
     25%  {background-color:#33b5e5; left:1000px; top:0px;}
     100% {background-color:#33b5e5; left:0px; top:0px;}
@@ -118,7 +119,7 @@ body{
 }
 .menu li:hover {
     background-color: #0099cc;
-}
+}*/
 
 
 
