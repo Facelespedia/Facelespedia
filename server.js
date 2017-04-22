@@ -122,6 +122,12 @@ app.get('/database/getPlayerWithTeam',function(req,res) {
   };
   query.getPlayerWithTeam(callback);
 });
+app.get('/database/getStatsWin',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getStatsWin(callback);
+});
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);
