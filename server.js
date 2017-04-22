@@ -128,6 +128,36 @@ app.get('/database/getStatsWin',function(req,res) {
   };
   query.getStatsWin(callback);
 });
+app.get('/database/getStatsPick',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getStatsPick(callback);
+});
+app.get('/database/getStatsContest',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getStatsContest(callback);
+});
+app.get('/database/getStatsBanned',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getStatsBanned(callback);
+});
+app.get('/database/getStatsFirstPick',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getStatsFirstPick(callback);
+});
+app.get('/database/getStatsFirstBanned',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getStatsBanned(callback);
+});
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);
