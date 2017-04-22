@@ -156,7 +156,7 @@ app.get('/database/getStatsFirstBanned',function(req,res) {
   var callback = function(data){
     res.send(data);
   };
-  query.getStatsBanned(callback);
+  query.getStatsFirstBanned(callback);
 });
 app.listen(PORT , function(err) {
     if(!!err) {
