@@ -8,11 +8,11 @@
      var player_table_china = "";
 
         for(var i = 0 ;i<10; i++){
-            player_table_global +="<tr><td><a>"+getPlayerSortMMR.PlayerSortMMR[i].GameName+"</a></td></tr>";
-            player_table_sea +="<tr><td><a>"+getPlayerSea.PlayerSea[i].GameName+"</a></td></tr>";
-            player_table_europe +="<tr><td><a>"+getPlayerEurope.PlayerEurope[i].GameName+"</a></td></tr>";
-            player_table_america +="<tr><td><a>"+getPlayerAmerica.PlayerAmerica[i].GameName+"</a></td></tr>";
-            player_table_china +="<tr><td><a>"+getPlayerChina.PlayerChina[i].GameName+"</a></td></tr>";
+            player_table_global +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerSortMMR.PlayerSortMMR[i].PlayerID+")\">"+getPlayerSortMMR.PlayerSortMMR[i].GameName+"</a></td></tr>";
+            player_table_sea +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerSea.PlayerSea[i].PlayerID+")\">"+getPlayerSea.PlayerSea[i].GameName+"</a></td></tr>";
+            player_table_europe +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerEurope.PlayerEurope[i].PlayerID+")\">"+getPlayerEurope.PlayerEurope[i].GameName+"</a></td></tr>";
+            player_table_america +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerAmerica.PlayerAmerica[i].PlayerID+")\">"+getPlayerAmerica.PlayerAmerica[i].GameName+"</a></td></tr>";
+            player_table_china +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerChina.PlayerChina[i].PlayerID+")\">"+getPlayerChina.PlayerChina[i].GameName+"</a></td></tr>";
         }
 
 
@@ -36,9 +36,20 @@
         document.getElementById('player-table').innerHTML = player_table_europe;
         $(".player-menu").hide();
     });
-    $('#player-table').click(function() {
+})
+
+var tempPlayer = 0;
+
+function SelectTablePlayer(PlayerID){
+    if(Player!=tempPlayer){
+        createCardTeam(PlayerID);
+        $('.player-menu').show();
+        tempPlayer = PlayerID;
+    }else{
         $('.player-menu').toggle("slide");
-        // $('.player-menu').load("/team_card");
-    });
-    })
+    }
+}
+
+
+
 </script>
