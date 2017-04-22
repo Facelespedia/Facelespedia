@@ -1,0 +1,26 @@
+.nav-faceless-logo {
+    font-family: 'Cutive', serif;
+    font-size: 30px;
+    margin-left: 10px;
+}
+.nav-menu {
+    font-family: 'Cuprum', sans-serif;
+    font-size: 20px;
+    margin-right: 45px;
+}
+.navbar {
+    border: 0px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+#nav-team {
+    padding: 20px;
+}
+#nav-player {
+    padding: 20px;
+}
+#nav-stats {
+    padding: 20px;
+}
