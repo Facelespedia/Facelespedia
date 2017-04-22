@@ -1,4 +1,5 @@
 <script>
+
     $(document).ready(function(){
 
      var player_table_global = "";
@@ -41,15 +42,13 @@
 var tempPlayer = 0;
 
 function SelectTablePlayer(PlayerID){
-    if(Player!=tempPlayer){
-        createCardTeam(PlayerID);
+    if(PlayerID!=tempPlayer){
+        createCardPlayer(PlayerID);
         $('.player-menu').show();
         tempPlayer = PlayerID;
     }else{
         $('.player-menu').toggle("slide");
     }
 }
-
-
 
 </script>
