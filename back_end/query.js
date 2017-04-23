@@ -206,3 +206,76 @@ exports.getHeroStat = function(callback){
       callback(data);
     });
   }
+
+   exports.getPlayerWithTeam = function(callback){
+    connection.query("SELECT Team.TeamID,Player.PlayerID,GameName FROM Player,TeamMember,Team where Player.PlayerID = TeamMember.PlayerID && Team.TeamID = TeamMember.TeamID"
+    ,function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+         PlayerWithTeam : results
+       }
+       callback(data);
+     });
+   }
+   
+  exports.getStatsWin = function(callback){
+    connection.query("SELECT Hero.HeroID,HeroName,Winratepercent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY Winratepercent DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        StatsWin : results
+      }
+      callback(data);
+    });
+  }
+  
+  exports.getStatsPick = function(callback){
+    connection.query("SELECT Hero.HeroID,HeroName,PercentPick FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentPick DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        StatsPick : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getStatsContest = function(callback){
+    connection.query("SELECT Hero.HeroID,HeroName,PercentContest FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentContest DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        StatsContest : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getStatsBanned = function(callback){
+    connection.query("SELECT Hero.HeroID,HeroName,PercentBanned FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentBanned DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        StatsBanned : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getStatsFirstPick = function(callback){
+    connection.query("SELECT Hero.HeroID,HeroName,PercentFirstPick FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentFirstPick DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        StatsFirstPick : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getStatsFirstBanned = function(callback){
+    connection.query("SELECT Hero.HeroID,HeroName,PercentFirstBanned FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentFirstBanned DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        StatsFirstBanned : results
+      }
+      callback(data);
+    });
+  }
+
+  

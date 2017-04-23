@@ -9,10 +9,10 @@ body{
 }
 
 #team-rank {
-    background-color:black;
+    background-color:whitesmoke;
     background-size: cover;
     padding-bottom: 400px;
-    color: whitesmoke;
+    color:black;
 }
 #team-rank table,td{
     width: 100%;
@@ -26,14 +26,14 @@ body{
     padding-bottom: 400px;
 }
 #stats {
-    background-color: black;
+    background-color: white;
     background-size: cover;
-    padding: 380px;
+    padding-bottom: 400px;
 }
 .nav-faceless-logo {
     font-family: 'Cutive', serif;
     font-size: 30px;
-    margin-left: 10px; 
+    margin-left: 10px;
 }
 .nav-menu {
     font-family: 'Cuprum', sans-serif;
@@ -62,3 +62,65 @@ body{
     width: 100%;
     color: black;
 }
+/*---------------Stat---------*/
+
+/*.header_stat{
+  background-color: black;
+  color: white;
+  padding: 30px;
+}
+
+.column_stat {
+    float: left;
+    padding: 20px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.menu {
+    width: 15%;
+}*/
+/*.content { เลื่อนไปขวาได้
+    width: 75%;
+}*/
+
+/*.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}*/
+
+/* Standard syntax */
+/*@keyframes stat_tab {
+    0%   {background-color:#33b5e5; left:0px; top:0px;}
+    25%  {background-color:#33b5e5; left:1000px; top:0px;}
+    100% {background-color:#33b5e5; left:0px; top:0px;}
+}
+
+
+#tab1 {animation-timing-function: linear;}
+#tab2 {animation-timing-function: ease;}
+#tab3 {animation-timing-function: ease-in;}
+#tab4 {animation-timing-function: ease-out;}
+#tab5 {animation-timing-function: ease-in-out;}
+
+.menu li {
+    padding: 10px;
+    margin-bottom: 30px;
+    background-color: #33b5e5;
+    color: #ffffff;
+    border-radius: 20px;
+    position: relative;
+    animation-delay: 2s;
+    animation: stat_tab 20s infinite;
+}
+.menu li:hover {
+    background-color: #0099cc;
+}*/
+
+
+
+/*----------------end Stat--------------------*/

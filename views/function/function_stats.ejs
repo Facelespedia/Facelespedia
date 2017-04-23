@@ -1,0 +1,58 @@
+<script>
+
+$(document).ready(function(){
+    var stats_table_winrate = "";
+    var stats_table_pick = "";
+    var stats_table_ban = "";
+    var stats_table_contest = "";
+    var stats_table_fpick = "";
+    var stats_table_fban = "";
+
+   
+    for(var i = 0 ;i< getStatsWin.StatsWin.length; i++){
+        stats_table_winrate +="<tr><td><h4>"+getStatsWin.StatsWin[i].HeroName+"</h4></td>";
+        stats_table_winrate +="<td><h4>"+getStatsWin.StatsWin[i].Winratepercent+"</h4></td></tr>";
+
+        stats_table_pick +="<tr><td><h4>"+getStatsPick.StatsPick[i].HeroName+"</h4></td>";
+        stats_table_pick +="<td><h4>"+getStatsPick.StatsPick[i].PercentPick+"</h4></td></tr>";
+
+        stats_table_ban +="<tr><td><h4>"+getStatsBanned.StatsBanned[i].HeroName+"</h4></td>";
+        stats_table_ban +="<td><h4>"+getStatsBanned.StatsBanned[i].PercentBanned+"</h4></td></tr>";
+
+        stats_table_contest +="<tr><td><h4>"+getStatsContest.StatsContest[i].HeroName+"</h4></td>";
+        stats_table_contest +="<td><h4>"+getStatsContest.StatsContest[i].PercentContest+"</h4></td></tr>";
+
+        stats_table_fpick +="<tr><td><h4>"+getStatsFirstPick.StatsFirstPick[i].HeroName+"</h4></td>";
+        stats_table_fpick +="<td><h4>"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"</h4></td></tr>";
+
+        stats_table_fban +="<tr><td><h4>"+getStatsFirstBanned.StatsFirstBanned[i].HeroName+"</h4></td>";
+        stats_table_fban +="<td><h4>"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"</h4></td></tr>";
+
+    }
+
+    $('#stats-winrate').click(function() {
+        document.getElementById('stats-hero').innerHTML = stats_table_winrate;
+    });
+
+    $('#stats-pick').click(function() {
+        document.getElementById('stats-hero').innerHTML = stats_table_pick;
+    });
+
+    $('#stats-contest').click(function() {
+        document.getElementById('stats-hero').innerHTML = stats_table_contest;
+    });
+
+    $('#stats-ban').click(function() {
+        document.getElementById('stats-hero').innerHTML = stats_table_ban;
+    });
+
+    $('#stats-fpick').click(function() {
+        document.getElementById('stats-hero').innerHTML = stats_table_fpick;
+    });
+
+    $('#stats-fban').click(function() {
+        document.getElementById('stats-hero').innerHTML = stats_table_fban;
+    });
+})
+
+</script>

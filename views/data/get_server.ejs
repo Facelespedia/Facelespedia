@@ -3,7 +3,8 @@
 var getTeam,getHero,getHeroStat,getPlayer,getContinent,getContinentTeam,
 getContinentPlayer,getTeamMember,getTeamSortRating,getTeamSea,getTeamEurope
 ,getTeamAmerica,getTeamChina,getPlayerSortMMR,getPlayerSea,getPlayerEurope
-,getPlayerAmerica,getPlayerChina;   
+,getPlayerAmerica,getPlayerChina,getPlayerWithTeam,getStatsWin,getStatsPick
+,getStatsBanned,getStatsContest,getStatsFirstPick,getStatsFirstBanned;   
 
 $.ajax({    
         type: "GET",
@@ -13,8 +14,6 @@ $.ajax({
             getTeam = response;
         }
     });
-    
-
  $.ajax({    
         type: "GET",
         url: "http://localhost:3000/database/getHero",             
@@ -151,5 +150,62 @@ $.ajax({
            getPlayerChina = response
         }
   });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getPlayerWithTeam",             
+        dataType: "json",                 
+        success: function(response){                    
+           getPlayerWithTeam = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getStatsWin",             
+        dataType: "json",                 
+        success: function(response){                    
+           getStatsWin = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getStatsPick",             
+        dataType: "json",                 
+        success: function(response){                    
+           getStatsPick = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getStatsContest",             
+        dataType: "json",                 
+        success: function(response){                    
+           getStatsContest = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getStatsBanned",             
+        dataType: "json",                 
+        success: function(response){                    
+           getStatsBanned = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getStatsFirstPick",             
+        dataType: "json",                 
+        success: function(response){                    
+           getStatsFirstPick = response
+        }
+  });
+  $.ajax({    
+        type: "GET",
+        url: "http://localhost:3000/database/getStatsFirstBanned",             
+        dataType: "json",                 
+        success: function(response){                    
+           getStatsFirstBanned = response
+        }
+  });
+
 
  </script>
