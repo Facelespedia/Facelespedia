@@ -14,22 +14,21 @@
   <link rel="stylesheet" href="/css/style_player.css">
   <link rel="stylesheet" href="/css/style_stats.css">
 </head>
+<body id = "myPage">
   <% include data/get_server.ejs %>
   <% include landing/landing_navbar.ejs %>
 
   <div class="banner">
   </div>
 
-  <div id="nav-team"></div>
   <div id="team-rank" class="container">
     <% include landing/landing_team-rank.ejs %>
   </div>
-  <div id="nav-player"></div>
+  
   <div id="player-rank" class="container">
     <% include landing/landing_player-rank.ejs %>
   </div>
 
-  <div id="nav-stats"></div>
   <div id="stats" class="container">
     <% include landing/landing_stat.ejs %>
   </div>

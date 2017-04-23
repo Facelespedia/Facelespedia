@@ -1,15 +1,16 @@
 
 body{
-    background-image: url("../images/bg/bg_1.jpg");
-    background-size: 1680px 900px;
+    /*background-image: url("../images/bg/bg_1.jpg");
+    background-size: 1680px 900px;*/
+    background-color: #191919;
 }
 .banner{
     background-image: url("../images/bg/dota2_logo.jpg");
     background-size: cover;
     padding: 360px;
     color: ghostwhite;
-    opacity: 0.5;
-    filter: alpha(opacity=200); 
+    /*opacity: 0.5;
+    filter: alpha(opacity=200); */
 }
 
 

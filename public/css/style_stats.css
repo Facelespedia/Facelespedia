@@ -1,7 +1,11 @@
 #stats {
-    background-color: whitesmoke;
+    background-color: #333333;
     background-size: cover;
     padding-bottom: 600px;
+    color:whitesmoke;
+}
+.head-stats {
+    padding-top: 30px;
 }
 /*---------------Stat---------*/
 

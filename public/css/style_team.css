@@ -1,10 +1,13 @@
 #team-rank {
-    background-color:whitesmoke;
+    background-color: #333333;
     background-size: cover;
     padding-bottom: 400px;
-    color:black;
+    color:whitesmoke;
 }
-#team-rank table,td{
+.head-team-rank {
+    padding-top: 30px;
+}
+#team-rank table,td {
     width: 100%;
     margin-left: 20px;
     border-bottom: 1px solid #ddd;
