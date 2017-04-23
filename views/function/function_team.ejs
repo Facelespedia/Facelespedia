@@ -8,12 +8,27 @@ $(document).ready(function(){
      var team_table_america = "";
      var team_table_china = "";
 
-        for(var i = 0 ;i<10; i++){
-            team_table_global +="<tr><td><a onClick=\"SelectTableTeam("+getTeamSortRating.TeamSortRating[i].TeamID+")\">"+getTeamSortRating.TeamSortRating[i].TeamName+"</a></td></tr>";
-            team_table_sea +="<tr><td><a onClick=\"SelectTableTeam("+getTeamSea.TeamSea[i].TeamID+")\">"+getTeamSea.TeamSea[i].TeamName+"</a></td></tr>";
-            team_table_europe +="<tr><td><a onClick=\"SelectTableTeam("+getTeamEurope.TeamEurope[i].TeamID+")\">"+getTeamEurope.TeamEurope[i].TeamName+"</a></td></tr>";
-            team_table_america +="<tr><td><a onClick=\"SelectTableTeam("+getTeamAmerica.TeamAmerica[i].TeamID+")\">"+getTeamAmerica.TeamAmerica[i].TeamName+"</a></td></tr>";
-            team_table_china +="<tr><td><a onClick=\"SelectTableTeam("+getTeamChina.TeamChina[i].TeamID+")\">"+getTeamChina.TeamChina[i].TeamName+"</a></td></tr>";
+        for(var i = 0 ;i<getTeamSortRating.TeamSortRating.length; i++) {
+            if(i%2==0){
+                team_table_global +="<tr class=\"a\"><td><a onClick=\"SelectTableTeam("+getTeamSortRating.TeamSortRating[i].TeamID+")\">"+getTeamSortRating.TeamSortRating[i].TeamName+"</a></td></tr>";
+               }else{
+                team_table_global +="<tr class=\"b\"><td><a onClick=\"SelectTableTeam("+getTeamSortRating.TeamSortRating[i].TeamID+")\">"+getTeamSortRating.TeamSortRating[i].TeamName+"</a></td></tr>";
+            }    
+        }
+
+        for(var i = 0 ;i<10; i++) {
+            if(i%2==0){
+                team_table_sea +="<tr><td><a onClick=\"SelectTableTeam("+getTeamSea.TeamSea[i].TeamID+")\">"+getTeamSea.TeamSea[i].TeamName+"</a></td></tr>";
+                team_table_europe +="<tr><td><a onClick=\"SelectTableTeam("+getTeamEurope.TeamEurope[i].TeamID+")\">"+getTeamEurope.TeamEurope[i].TeamName+"</a></td></tr>";
+                team_table_america +="<tr><td><a onClick=\"SelectTableTeam("+getTeamAmerica.TeamAmerica[i].TeamID+")\">"+getTeamAmerica.TeamAmerica[i].TeamName+"</a></td></tr>";
+                team_table_china +="<tr><td><a onClick=\"SelectTableTeam("+getTeamChina.TeamChina[i].TeamID+")\">"+getTeamChina.TeamChina[i].TeamName+"</a></td></tr>";
+            }else{
+                team_table_sea +="<tr><td><a onClick=\"SelectTableTeam("+getTeamSea.TeamSea[i].TeamID+")\">"+getTeamSea.TeamSea[i].TeamName+"</a></td></tr>";
+                team_table_europe +="<tr><td><a onClick=\"SelectTableTeam("+getTeamEurope.TeamEurope[i].TeamID+")\">"+getTeamEurope.TeamEurope[i].TeamName+"</a></td></tr>";
+                team_table_america +="<tr><td><a onClick=\"SelectTableTeam("+getTeamAmerica.TeamAmerica[i].TeamID+")\">"+getTeamAmerica.TeamAmerica[i].TeamName+"</a></td></tr>";
+                team_table_china +="<tr><td><a onClick=\"SelectTableTeam("+getTeamChina.TeamChina[i].TeamID+")\">"+getTeamChina.TeamChina[i].TeamName+"</a></td></tr>";
+        
+            }    
         }
     $('#team-global').click(function() {
         document.getElementById('team-table').innerHTML = team_table_global;

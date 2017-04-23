@@ -7,8 +7,34 @@
 .head-team-rank {
     padding-top: 30px;
 }
-#team-rank table,td {
+.body-team-rank {
+    padding-top: 20px;
+    border: 0px;
+}
+#team-rank table{
     width: 100%;
     margin-left: 20px;
-    border-bottom: 1px solid #ddd;
+    /*border-bottom: 1px solid #ddd;*/
+    text-align: center;
+    border: 0px;
+}
+#team-card-data td{
+    width: 100%;
+    margin-left: 20px;
+    /*border-bottom: 1px solid #ddd;*/
+    border: none;
+    padding-bottom: 10px;
+    text-align: left;
+}
+.a{
+    background-color: white;
+}
+.a a{
+    color: black;
+}
+.b{
+    background-color: black;
+}
+.b a{
+     color:white;
 }
