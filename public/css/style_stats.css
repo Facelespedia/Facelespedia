@@ -1,0 +1,71 @@
+#stats {
+    background-color: #333333;
+    background-size: cover;
+    padding-bottom: 600px;
+    color:whitesmoke;
+}
+.head-stats {
+    padding-top: 30px;
+}
+/*---------------Stat---------*/
+
+/*.header_stat{
+  background-color: black;
+  color: white;
+  padding: 30px;
+}
+
+.column_stat {
+    float: left;
+    padding: 20px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.menu {
+    width: 15%;
+}*/
+/*.content { เลื่อนไปขวาได้
+    width: 75%;
+}*/
+
+/*.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}*/
+
+/* Standard syntax */
+/*@keyframes stat_tab {
+    0%   {background-color:#33b5e5; left:0px; top:0px;}
+    25%  {background-color:#33b5e5; left:1000px; top:0px;}
+    100% {background-color:#33b5e5; left:0px; top:0px;}
+}
+
+
+#tab1 {animation-timing-function: linear;}
+#tab2 {animation-timing-function: ease;}
+#tab3 {animation-timing-function: ease-in;}
+#tab4 {animation-timing-function: ease-out;}
+#tab5 {animation-timing-function: ease-in-out;}
+
+.menu li {
+    padding: 10px;
+    margin-bottom: 30px;
+    background-color: #33b5e5;
+    color: #ffffff;
+    border-radius: 20px;
+    position: relative;
+    animation-delay: 2s;
+    animation: stat_tab 20s infinite;
+}
+.menu li:hover {
+    background-color: #0099cc;
+}*/
+
+
+
+/*----------------end Stat--------------------*/
