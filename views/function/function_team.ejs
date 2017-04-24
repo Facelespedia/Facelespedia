@@ -1,5 +1,6 @@
 <script>
-    $(document).ready(function(){
+
+$(document).ready(function(){
 
      var team_table_global = "";
      var team_table_sea = "";
@@ -40,12 +41,12 @@ var tempTeam = 0;
 function SelectTableTeam(TeamID){
     if(TeamID!=tempTeam){
         createCardTeam(TeamID);
-        $('.team-menu').show();
+        $('.team-menu').hide();
+        $('.team-menu').toggle("slide");
         tempTeam = TeamID;
     }else{
         $('.team-menu').toggle("slide");
     }
 }
-
 
 </script>
