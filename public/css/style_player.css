@@ -7,8 +7,3 @@
 .head-player-rank {
     padding-top: 30px;
 }
-#player-rank table,td {
-    width: 100%;
-    margin-left: 20px;
-    border-bottom: 1px solid #ddd;
-}    

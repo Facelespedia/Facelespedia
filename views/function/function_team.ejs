@@ -7,40 +7,37 @@ $(document).ready(function(){
 
         for(var i = 0; i<getTeamSortRating.TeamSortRating.length; i++) {
             team_table_global +="<tr><td><a onClick=\"SelectTableTeam("+getTeamSortRating.TeamSortRating[i].TeamID+")\"><label class=\"col-md-1\">"+(i+1)+"</label>"
-                                +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamSortRating.TeamSortRating[i].Nation+".png\" style=\"width:17px;height:15px;\"></label>"
+                                +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamSortRating.TeamSortRating[i].Nation+".png\"></label>"
                                 +"<label class=\"col-md-7\">"+getTeamSortRating.TeamSortRating[i].TeamName+"</label>"
                                 +"<label class=\"col-md-2\">"+getTeamSortRating.TeamSortRating[i].Rating+"</label></a></td></tr>";
         }
 
         for(var i= 0; i<getTeamSea.TeamSea.length; i++) {
             team_table_sea +="<tr><td><a onClick=\"SelectTableTeam("+getTeamSea.TeamSea[i].TeamID+")\"><label class=\"col-md-1\">"+(i+1)+"</label>"
-                            +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamSea.TeamSea[i].Nation+".png\" style=\"width:17px;height:15px;\"></label>"
+                            +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamSea.TeamSea[i].Nation+".png\"></label>"
                             +"<label class=\"col-md-7\">"+getTeamSea.TeamSea[i].TeamName+"</label>"
                             +"<label class=\"col-md-2\">"+getTeamSea.TeamSea[i].Rating+"</label></a></td></tr>";
             
             team_table_europe +="<tr><td><a onClick=\"SelectTableTeam("+getTeamEurope.TeamEurope[i].TeamID+")\"><label class=\"col-md-1\">"+(i+1)+"</label>"
-                                +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamEurope.TeamEurope[i].Nation+".png\" style=\"width:17px;height:15px;\"></label>"
+                                +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamEurope.TeamEurope[i].Nation+".png\"></label>"
                                 +"<label class=\"col-md-7\">"+getTeamEurope.TeamEurope[i].TeamName+"</label>"
                                 +"<label class=\"col-md-2\">"+getTeamEurope.TeamEurope[i].Rating+"</label></a></td></tr>";
             
             team_table_america +="<tr><td><a onClick=\"SelectTableTeam("+getTeamAmerica.TeamAmerica[i].TeamID+")\"><label class=\"col-md-1\">"+(i+1)+"</label>"
-                                +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamAmerica.TeamAmerica[i].Nation+".png\" style=\"width:17px;height:15px;\"></label>"
+                                +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamAmerica.TeamAmerica[i].Nation+".png\"></label>"
                                 +"<label class=\"col-md-7\">"+getTeamAmerica.TeamAmerica[i].TeamName+"</label>"
                                 +"<label class=\"col-md-2\">"+getTeamAmerica.TeamAmerica[i].Rating+"</label></a></td></tr>";
             
             team_table_china +="<tr><td><a onClick=\"SelectTableTeam("+getTeamChina.TeamChina[i].TeamID+")\"><label class=\"col-md-1\">"+(i+1)+"</label>"
-                              +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamChina.TeamChina[i].Nation+".png\" style=\"width:17px;height:15px;\"></label>"
+                              +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamChina.TeamChina[i].Nation+".png\"></label>"
                               +"<label class=\"col-md-7\">"+getTeamChina.TeamChina[i].TeamName+"</label>"
                               +"<label class=\"col-md-2\">"+getTeamChina.TeamChina[i].Rating+"</label></a></td></tr>";   
         }
-
-   
-   
-    
-    
-   
     
     $('#team-global').click(function(){
+        // var loader_images = '<img src="/images/bg/loader.gif" alt="Loading" />';
+        // $(".team-scroll").show();
+        // $('.team-scroll').append(loader_images);
         $.fn.createTableTeam(team_table_global);
     });
     $('#team-sea').click(function() { 
@@ -56,8 +53,7 @@ $(document).ready(function(){
        $.fn.createTableTeam(team_table_europe);
     });
 
-    $.fn.createTableTeam = function(TeamTable) {
-       
+    $.fn.createTableTeam = function(TeamTable) {  
         if(TeamTable!=tempTeamTable){
             document.getElementById('team-table').innerHTML = TeamTable;
             $(".team-menu").hide();
@@ -68,6 +64,8 @@ $(document).ready(function(){
              $(".team-scroll").slideToggle("slow");
         }
     }
+    
+    $('[data-toggle="tooltip"]').tooltip();
 
 })
 var tempTeam = 0;
