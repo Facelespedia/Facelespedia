@@ -3,7 +3,7 @@
     function createCardTeam(TeamID){
 
         var addPlayer = "";
-        document.getElementById('team-card-logo').innerHTML = "<img src=\"/images/team/"+getTeam.Team[TeamID-1].TeamsubName+".png\" style=\"width:80px\">";
+        document.getElementById('team-card-logo').innerHTML = "<img src=\"/images/team/"+getTeam.Team[TeamID-1].TeamsubName+".png\" style=\"width:120px;height:120px;\">";
         document.getElementById('team-card-name').innerHTML = getTeam.Team[TeamID-1].TeamName;
         document.getElementById('team-card-nation').innerHTML = getTeam.Team[TeamID-1].Nation +"  <img src=\"/images/national/"+getTeam.Team[TeamID-1].Nation+".png\" style=\"width:30px\">";
         for(var j = 0 ; j < getPlayerWithTeam.PlayerWithTeam.length ;j++ ) {

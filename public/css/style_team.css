@@ -1,8 +1,12 @@
 #team-rank {
     background-color: #333333;
     background-size: cover;
-    padding-bottom: 400px;
+    padding-bottom: 100px;
     color:whitesmoke;
+}
+#team-rank .scroll{
+    height: 420.5px;
+    overflow: auto;
 }
 .head-team-rank {
     padding-top: 30px;
@@ -11,25 +15,7 @@
     padding-top: 20px;
     border: 0px;
 }
-#team-rank table {
-    width: 100%;
-    margin-left: 20px;
-    /*border-bottom: 1px solid #ddd;*/
-    /*text-align: center;*/
-    border: 0px;
-}
-#team-card-data td {
-    width: 100%;
-    margin-left: 20px;
-    /*border-bottom: 1px solid #ddd;*/
-    border: none;
-    padding-bottom: 10px;
-    text-align: left;
+.table label{
+    color: whitesmoke;
 }
 
-.label-team1 {
-    margin-right: 20px;
-}
-.label-image {
-    margin-left: 10px;
-}
