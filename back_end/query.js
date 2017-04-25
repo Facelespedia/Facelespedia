@@ -4,6 +4,7 @@ var connection;
   connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
+    password : 'pass',
     database : 'facelespedia'
   });
 
@@ -217,7 +218,7 @@ exports.getHeroStat = function(callback){
        callback(data);
      });
    }
-   
+
   exports.getStatsWin = function(callback){
     connection.query("SELECT Hero.HeroID,HeroName,Winratepercent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY Winratepercent DESC",function(err, results,fields){
       if(!!err) console.log(err);
@@ -227,7 +228,7 @@ exports.getHeroStat = function(callback){
       callback(data);
     });
   }
-  
+
   exports.getStatsPick = function(callback){
     connection.query("SELECT Hero.HeroID,HeroName,PercentPick FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentPick DESC",function(err, results,fields){
       if(!!err) console.log(err);
@@ -277,5 +278,3 @@ exports.getHeroStat = function(callback){
       callback(data);
     });
   }
-
-  
