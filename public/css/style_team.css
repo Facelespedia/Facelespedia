@@ -4,7 +4,7 @@
     padding-bottom: 100px;
     color:whitesmoke;
 }
-#team-rank .scroll{
+#team-rank .team-scroll{
     height: 420.5px;
     overflow: auto;
 }
@@ -15,7 +15,7 @@
     padding-top: 20px;
     border: 0px;
 }
-.table label{
+#team-rank .table label{
     color: whitesmoke;
 }
 

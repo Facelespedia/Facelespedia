@@ -2,11 +2,8 @@
 
 $(document).ready(function(){
 
-     var team_table_global = "";
-     var team_table_sea = "";
-     var team_table_europe = "";
-     var team_table_america = "";
-     var team_table_china = "";
+     var team_table_global = "",team_table_sea = "",team_table_europe = "",team_table_america = "",team_table_china = "";
+     var tempTeamTable="";    
 
         for(var i = 0; i<getTeamSortRating.TeamSortRating.length; i++) {
             team_table_global +="<tr><td><a onClick=\"SelectTableTeam("+getTeamSortRating.TeamSortRating[i].TeamID+")\"><label class=\"col-md-1\">"+(i+1)+"</label>"
@@ -37,31 +34,44 @@ $(document).ready(function(){
                               +"<label class=\"col-md-2\">"+getTeamChina.TeamChina[i].Rating+"</label></a></td></tr>";   
         }
 
-       
-    $('#team-global').click(function() {
-        document.getElementById('team-table').innerHTML = team_table_global;
-        $(".team-menu").hide();
+   
+   
+    
+    
+   
+    
+    $('#team-global').click(function(){
+        $.fn.createTableTeam(team_table_global);
     });
     $('#team-sea').click(function() { 
-        document.getElementById('team-table').innerHTML = team_table_sea;
-        $(".team-menu").hide();
+        $.fn.createTableTeam(team_table_sea);
     });
-    $('#team-china').click(function() { 
-        document.getElementById('team-table').innerHTML = team_table_china;
-        $(".team-menu").hide();
+    $('#team-china').click(function() {
+       $.fn.createTableTeam(team_table_china);
     });
-    $('#team-america').click(function() { 
-        document.getElementById('team-table').innerHTML = team_table_america;
-        $(".team-menu").hide();
+    $('#team-america').click(function() {
+       $.fn.createTableTeam(team_table_america);
     });
-    $('#team-europe').click(function() { 
-        document.getElementById('team-table').innerHTML = team_table_europe;
-        $(".team-menu").hide();
+    $('#team-europe').click(function() {
+       $.fn.createTableTeam(team_table_europe);
     });
+
+    $.fn.createTableTeam = function(TeamTable) {
+       
+        if(TeamTable!=tempTeamTable){
+            document.getElementById('team-table').innerHTML = TeamTable;
+            $(".team-menu").hide();
+            $(".team-scroll").hide();
+            $(".team-scroll").slideToggle("slow");
+            tempTeamTable = TeamTable;   
+        }else{
+             $(".team-scroll").slideToggle("slow");
+        }
+    }
 
 })
 var tempTeam = 0;
-function SelectTableTeam(TeamID){
+function SelectTableTeam(TeamID) {
     if(TeamID!=tempTeam){
         createCardTeam(TeamID);
         $('.team-menu').hide();
@@ -71,5 +81,7 @@ function SelectTableTeam(TeamID){
         $('.team-menu').toggle( "slow");
     }
 }
+
+
 
 </script>
