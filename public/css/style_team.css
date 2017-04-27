@@ -38,14 +38,17 @@
 .media-body {
     color: black;
 }
-#team-card-data tr td #test{
+#team-card-data tr td img{
     border: 1px solid;
     border-color: black;
     margin-bottom: 20px;
     width:80px;
     height:50px;
 }
-#team-card-data tr td #test:hover {
-    opacity: 0.5;
-    filter: alpha(opacity=50);
+
+#team-rank .table tr:hover {
+    background-color: whitesmoke;
+}
+#team-rank .table tr:hover label{
+    color: black;
 }

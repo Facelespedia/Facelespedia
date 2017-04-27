@@ -9,7 +9,7 @@
         document.getElementById('team-card-rating').innerHTML = getTeam.Team[TeamID-1].Rating;
         for(var j = 0 ; j < getPlayerWithTeam.PlayerWithTeam.length ;j++ ) {
             if(TeamID == getPlayerWithTeam.PlayerWithTeam[j].TeamID){
-                 addPlayer += "<tr><td class=\"col-md-4\"><img id=\"test\" src=\"/images/player/"+getPlayerWithTeam.PlayerWithTeam[j].GameName+".jpg\">";
+                 addPlayer += "<tr><td class=\"col-md-4\"><img src=\"/images/player/"+getPlayerWithTeam.PlayerWithTeam[j].GameName+".jpg\">";
                  addPlayer += "</td><td class=\"col-md-1\">"+getPlayerWithTeam.PlayerWithTeam[j].GameName+"</td></tr>";
             }
         }
