@@ -2,51 +2,81 @@
 
 $(document).ready(function(){
 
-     var team_table_global = "";
-     var team_table_sea = "";
-     var team_table_europe = "";
-     var team_table_america = "";
-     var team_table_china = "";
+     var team_table_global = "",team_table_sea = "",team_table_europe = "",team_table_america = "",team_table_china = "";
+     var tempTeamTable="";    
 
-        for(var i = 0 ;i<10; i++){
-            team_table_global +="<tr><td><a onClick=\"SelectTableTeam("+getTeamSortRating.TeamSortRating[i].TeamID+")\">"+getTeamSortRating.TeamSortRating[i].TeamName+"</a></td></tr>";
-            team_table_sea +="<tr><td><a onClick=\"SelectTableTeam("+getTeamSea.TeamSea[i].TeamID+")\">"+getTeamSea.TeamSea[i].TeamName+"</a></td></tr>";
-            team_table_europe +="<tr><td><a onClick=\"SelectTableTeam("+getTeamEurope.TeamEurope[i].TeamID+")\">"+getTeamEurope.TeamEurope[i].TeamName+"</a></td></tr>";
-            team_table_america +="<tr><td><a onClick=\"SelectTableTeam("+getTeamAmerica.TeamAmerica[i].TeamID+")\">"+getTeamAmerica.TeamAmerica[i].TeamName+"</a></td></tr>";
-            team_table_china +="<tr><td><a onClick=\"SelectTableTeam("+getTeamChina.TeamChina[i].TeamID+")\">"+getTeamChina.TeamChina[i].TeamName+"</a></td></tr>";
+        for(var i = 0; i<getTeamSortRating.TeamSortRating.length; i++) {
+            team_table_global +="<tr onClick=\"SelectTableTeam("+getTeamSortRating.TeamSortRating[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+                                +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamSortRating.TeamSortRating[i].Nation+".png\"></label>"
+                                +"<label class=\"col-md-7\">"+getTeamSortRating.TeamSortRating[i].TeamName+"</label>"
+                                +"<label class=\"col-md-2\">"+getTeamSortRating.TeamSortRating[i].Rating+"</label></td></tr>";
         }
-    $('#team-global').click(function() {
-        document.getElementById('team-table').innerHTML = team_table_global;
-        $(".team-menu").hide();
+
+        for(var i= 0; i<getTeamSea.TeamSea.length; i++) {
+            team_table_sea +="<tr onClick=\"SelectTableTeam("+getTeamSea.TeamSea[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+                            +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamSea.TeamSea[i].Nation+".png\"></label>"
+                            +"<label class=\"col-md-7\">"+getTeamSea.TeamSea[i].TeamName+"</label>"
+                            +"<label class=\"col-md-2\">"+getTeamSea.TeamSea[i].Rating+"</label></td></tr>";
+            
+            team_table_europe +="<tr onClick=\"SelectTableTeam("+getTeamEurope.TeamEurope[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+                                +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamEurope.TeamEurope[i].Nation+".png\"></label>"
+                                +"<label class=\"col-md-7\">"+getTeamEurope.TeamEurope[i].TeamName+"</label>"
+                                +"<label class=\"col-md-2\">"+getTeamEurope.TeamEurope[i].Rating+"</label></td></tr>";
+            
+            team_table_america +="<tr onClick=\"SelectTableTeam("+getTeamAmerica.TeamAmerica[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+                                +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamAmerica.TeamAmerica[i].Nation+".png\"></label>"
+                                +"<label class=\"col-md-7\">"+getTeamAmerica.TeamAmerica[i].TeamName+"</label>"
+                                +"<label class=\"col-md-2\">"+getTeamAmerica.TeamAmerica[i].Rating+"</label></td></tr>";
+            
+            team_table_china +="<tr onClick=\"SelectTableTeam("+getTeamChina.TeamChina[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+                              +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamChina.TeamChina[i].Nation+".png\"></label>"
+                              +"<label class=\"col-md-7\">"+getTeamChina.TeamChina[i].TeamName+"</label>"
+                              +"<label class=\"col-md-2\">"+getTeamChina.TeamChina[i].Rating+"</label></td></tr>";   
+        }
+    
+    $('#team-global').click(function(){
+        $.fn.createTableTeam(team_table_global);
     });
     $('#team-sea').click(function() { 
-        document.getElementById('team-table').innerHTML = team_table_sea;
-        $(".team-menu").hide();
+        $.fn.createTableTeam(team_table_sea);
     });
-    $('#team-china').click(function() { 
-        document.getElementById('team-table').innerHTML = team_table_china;
-        $(".team-menu").hide();
+    $('#team-china').click(function() {
+       $.fn.createTableTeam(team_table_china);
     });
-    $('#team-america').click(function() { 
-        document.getElementById('team-table').innerHTML = team_table_america;
-        $(".team-menu").hide();
+    $('#team-america').click(function() {
+       $.fn.createTableTeam(team_table_america);
     });
-    $('#team-europe').click(function() { 
-        document.getElementById('team-table').innerHTML = team_table_europe;
-        $(".team-menu").hide();
+    $('#team-europe').click(function() {
+       $.fn.createTableTeam(team_table_europe);
     });
+
+    $.fn.createTableTeam = function(TeamTable) {  
+        if(TeamTable!=tempTeamTable){
+            document.getElementById('team-table').innerHTML = TeamTable;
+            $(".team-menu").hide();
+            $(".team-scroll").hide();
+            $(".team-scroll").slideToggle("slow");
+            tempTeamTable = TeamTable;   
+        }else{
+             $(".team-scroll").slideToggle("slow");
+        }
+    }
+    
+    $('[data-toggle="tooltip"]').tooltip();
 
 })
 var tempTeam = 0;
-function SelectTableTeam(TeamID){
+function SelectTableTeam(TeamID) {
     if(TeamID!=tempTeam){
         createCardTeam(TeamID);
         $('.team-menu').hide();
-        $('.team-menu').toggle("slide");
+        $('.team-menu').toggle("slow");
         tempTeam = TeamID;
     }else{
-        $('.team-menu').toggle("slide");
+        $('.team-menu').toggle( "slow");
     }
 }
+
+
 
 </script>
