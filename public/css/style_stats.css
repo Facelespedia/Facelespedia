@@ -7,3 +7,18 @@
 .head-stats {
     padding-top: 30px;
 }
+
+#stats-hero tr td h4{
+    margin-left: 20px;
+}
+
+#stats-hero {
+    margin-left: 20px;
+}
+
+#stats-hero tr td h4{
+    margin-left: 20px;
+}
+#stats-hero tr td .progress{
+    margin-left: 20px;
+}
