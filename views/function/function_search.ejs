@@ -1,0 +1,11 @@
+<script>
+
+$("#search-text").on("keyup",function(e){
+  if(e. keyCode === 13){
+    var address = $('#myButton').attr('href');
+    window.location = address;
+  }
+
+  $('#myButton').attr("href","?=#"+$(this).val());
+})
+</script>
