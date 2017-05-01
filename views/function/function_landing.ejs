@@ -13,5 +13,15 @@ $(document).ready(function(){
       }
     });
 
+     $(window).on('scroll', function() {
+        if (Math.round($(window).scrollTop()) < 660) {
+          $('.navbar').removeClass('navbar-default');
+          $('.navbar').addClass('transparent');
+        } else {
+          $('.navbar').removeClass('transparent');
+          $('.navbar').addClass('navbar-default');
+        }
+      });
+
  })
 </script>

@@ -10,8 +10,11 @@
 }
 .navbar {
     border: 0px;
-    border-top-left-radius: 30px;
+    /*border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-bottom-right-radius: 30px;*/
+}
+.nav li:hover li{
+    color: red;
 }
