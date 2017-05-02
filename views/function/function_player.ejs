@@ -10,10 +10,10 @@
 
         for(var i = 0 ;i<10; i++){
             player_table_global +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerSortMMR.PlayerSortMMR[i].PlayerID+")\">"+getPlayerSortMMR.PlayerSortMMR[i].GameName+"</a></td></tr>";
-            player_table_sea +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerSea.PlayerSea[i].PlayerID+")\">"+getPlayerSea.PlayerSea[i].GameName+"</a></td></tr>";
-            player_table_europe +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerEurope.PlayerEurope[i].PlayerID+")\">"+getPlayerEurope.PlayerEurope[i].GameName+"</a></td></tr>";
-            player_table_america +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerAmerica.PlayerAmerica[i].PlayerID+")\">"+getPlayerAmerica.PlayerAmerica[i].GameName+"</a></td></tr>";
-            player_table_china +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerChina.PlayerChina[i].PlayerID+")\">"+getPlayerChina.PlayerChina[i].GameName+"</a></td></tr>";
+            player_table_sea +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerSea[i].PlayerID+")\">"+getPlayerSea[i].GameName+"</a></td></tr>";
+            player_table_europe +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerEurope[i].PlayerID+")\">"+getPlayerEurope[i].GameName+"</a></td></tr>";
+            player_table_america +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerAmerica[i].PlayerID+")\">"+getPlayerAmerica[i].GameName+"</a></td></tr>";
+            player_table_china +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerChina[i].PlayerID+")\">"+getPlayerChina[i].GameName+"</a></td></tr>";
         }
 
 
@@ -38,6 +38,7 @@
         $(".player-menu").hide();
     });
 
+    document.getElementById('player-table').innerHTML = player_table_global;
     document.getElementById('player-global').click();
 
 })
