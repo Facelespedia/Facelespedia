@@ -14,9 +14,10 @@
   <link rel="stylesheet" href="/css/style_team.css">
   <link rel="stylesheet" href="/css/style_player.css">
   <link rel="stylesheet" href="/css/style_stats.css">
+  <script src="/javascript/data.js"></script>
 </head>
 <body id = "myPage">
-  <% include data/get_server.ejs %>
+  
   <% include landing/landing_navbar.ejs %>
 
   <div class="banner">
@@ -34,12 +35,11 @@
     <% include landing/landing_stat.ejs %>
   </div>
 
- 
   <% include function/function_landing.ejs %>
   <% include function/function_team.ejs %>
-  <!--<% include function/function_player.ejs %>
   <% include function/function_team-card.ejs %>
+  <% include function/function_player.ejs %>
   <% include function/function_player-card.ejs %>
-  <% include function/function_stats.ejs %>-->
+  <% include function/function_stats.ejs %>
 </body>
 </html>
