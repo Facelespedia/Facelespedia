@@ -13,43 +13,37 @@ $(document).ready(function(){
         stats_table_winrate +="<td><h4>"+getStatsWin.StatsWin[i].HeroName+"</h4>";
         stats_table_winrate +="<div class=\"progress\" style=\"width:200px;\">"
                             +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
-                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsWin.StatsWin[i].Winratepercent+"%;\"></div></div>";
-        stats_table_winrate +="<td><h4>"+getStatsWin.StatsWin[i].Winratepercent+"</h4></td></tr>";
+                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsWin.StatsWin[i].Winratepercent+"%;\"><span>"+getStatsWin.StatsWin[i].Winratepercent+"%</span></div></div></tr>";
 
         stats_table_pick +="<tr><td><img src=\"/images/hero/"+getStatsPick.StatsPick[i].HeroName+".jpg\" style=\"width:40px;height:40px;\"></td>";
         stats_table_pick +="<td><h4>"+getStatsPick.StatsPick[i].HeroName+"</h4>";
         stats_table_pick += "<div class=\"progress\" style=\"width:200px;\">"
                             +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
-                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsPick.StatsPick[i].PercentPick+"%;\"></div></div>";
-        stats_table_pick +="<td><h4>"+getStatsPick.StatsPick[i].PercentPick+"</h4></td></tr>";
+                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsPick.StatsPick[i].PercentPick+"%;\"><span>"+getStatsPick.StatsPick[i].PercentPick+"%</span></div></div></tr>";
 
         stats_table_ban +="<tr><td><img src=\"/images/hero/"+getStatsBanned.StatsBanned[i].HeroName+".jpg\" style=\"width:40px;height:40px;\"></td>";
         stats_table_ban +="<td><h4>"+getStatsBanned.StatsBanned[i].HeroName+"</h4>";
         stats_table_ban += "<div class=\"progress\" style=\"width:200px;\">"
                             +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
-                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsBanned.StatsBanned[i].PercentBanned+"%;\"></div></div>";
-        stats_table_ban +="<td><h4>"+getStatsBanned.StatsBanned[i].PercentBanned+"</h4></td></tr>";
+                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsBanned.StatsBanned[i].PercentBanned+"%;\"><span>"+getStatsBanned.StatsBanned[i].PercentBanned+"%</span></div></div>";
 
         stats_table_contest +="<tr><td><img src=\"/images/hero/"+getStatsContest.StatsContest[i].HeroName+".jpg\" style=\"width:40px;height:40px;\"></td>";
         stats_table_contest +="<td><h4>"+getStatsContest.StatsContest[i].HeroName+"</h4>";
         stats_table_contest += "<div class=\"progress\" style=\"width:200px;\">"
                             +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
-                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsContest.StatsContest[i].PercentContest+"%;\"></div></div>";
-        stats_table_contest +="<td><h4>"+getStatsContest.StatsContest[i].PercentContest+"</h4></td></tr>";
+                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsContest.StatsContest[i].PercentContest+"%;\"><span>"+getStatsContest.StatsContest[i].PercentContest+"%</span></div></div>";
 
         stats_table_fpick +="<tr><td><img src=\"/images/hero/"+getStatsFirstPick.StatsFirstPick[i].HeroName+".jpg\" style=\"width:40px;height:40px;\"></td>";
         stats_table_fpick +="<td><h4>"+getStatsFirstPick.StatsFirstPick[i].HeroName+"</h4>";
         stats_table_fpick += "<div class=\"progress\" style=\"width:200px;\">"
                             +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
-                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"%;\"></div></div>";
-        stats_table_fpick +="<td><h4>"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"</h4></td></tr>";
+                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"%;\"><span>"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"%</span></div></div>";
 
         stats_table_fban +="<tr><td><img src=\"/images/hero/"+getStatsFirstBanned.StatsFirstBanned[i].HeroName+".jpg\" style=\"width:40px;height:40px;\"></td>";
         stats_table_fban +="<td><h4>"+getStatsFirstBanned.StatsFirstBanned[i].HeroName+"</h4>";
         stats_table_fban += "<div class=\"progress\" style=\"width:200px;\">"
                             +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
-                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"%;\"></div></div>";
-        stats_table_fban +="<td><h4>"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"</h4></td></tr>";
+                            +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"%;\"><span>"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"%</span></div></div>";
 
     }
 
