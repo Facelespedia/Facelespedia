@@ -14,19 +14,25 @@
   <link rel="stylesheet" href="/css/style_team.css">
   <link rel="stylesheet" href="/css/style_player.css">
   <link rel="stylesheet" href="/css/style_stats.css">
+  <link rel="stylesheet" href="/css/style_search.css">
   <script src="/javascript/data.js"></script>
 </head>
 <body id = "myPage">
-  
+
   <% include landing/landing_navbar.ejs %>
 
   <div class="banner">
-  </div>
+
+
+
+    <% include landing/landing_search.ejs %>
+  
+</div>
 
   <div id="team-rank" class="container">
     <% include landing/landing_team-rank.ejs %>
   </div>
-  
+
   <div id="player-rank" class="container">
     <% include landing/landing_player-rank.ejs %>
   </div>
@@ -34,7 +40,7 @@
   <div id="stats" class="container">
     <% include landing/landing_stat.ejs %>
   </div>
-
+  <% include function/function_search.ejs %>
   <% include function/function_landing.ejs %>
   <% include function/function_team.ejs %>
   <% include function/function_team-card.ejs %>
