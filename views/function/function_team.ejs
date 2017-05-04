@@ -73,6 +73,8 @@ $(document).ready(function(){
 var tempTeam = 0;
 function SelectTableTeam(TeamID) {
     if(TeamID!=tempTeam){
+
+        $('.team-menu').addClass();
         createCardTeam(TeamID);
         $('.team-menu').hide();
         $('.team-menu').toggle("slow");

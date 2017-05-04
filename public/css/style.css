@@ -5,9 +5,9 @@ body{
     background-color: #191919;
 }
 .banner{
-    background-image: url("../images/bg/backG.jpg");
+    background-image: url("../images/bg/job.jpg");
     background-size: cover;
-    padding: 180px;
+    padding: 230px;
     color: ghostwhite;
     /*opacity: 0.5;
     filter: alpha(opacity=200); */
