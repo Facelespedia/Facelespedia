@@ -15,7 +15,7 @@
        width: 400px;
        padding: 15px;
        margin-top:  180px ;
-       margin-left: 200px;
+       margin-left: 215px;
        background: #444;
        background: rgba(0,0,0,.2);
        -moz-border-radius: 10px;
@@ -27,11 +27,11 @@
    }
 
    .form-wrapper input {
-       width: 250px;
-       height: 40px;
+       width: 370px;
+       height: 80px;
        padding: 10px 5px;
        float: left;
-       font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+       font: bold 30px 'lucida sans', 'trebuchet MS', 'Tahoma';
        border: 0;
        background: #eee;
        -moz-border-radius: 3px 0 0 3px;
@@ -65,7 +65,11 @@
        font-style: italic;
    }
 
-   .form-wrapper button {
+   .search-select {
+       margin-left: 390px;
+   }
+
+   /*.form-wrapper button {
    overflow: visible;
        position: relative;
        float: right;
@@ -125,4 +129,4 @@
 .byline p a{
  color:#d83c3c;
  text-decoration:none;
-}
+}*/

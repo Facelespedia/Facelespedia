@@ -1,22 +1,75 @@
 <script>
 
-    $("#search-submit").click(function() {
-        
-        var teamID=-1;
-        for(var i=0; i<getTeam.Team.length; i++) {
-            if(getTeam.Team[i].TeamsubName == $("#search-input").val() || getTeam.Team[i].TeamName == $("#search-input").val()) {
-                teamID = getTeam.Team[i].TeamID;
-                break;
+    $("#select-team").click(function(){
+        $("#search-form-team").show();
+        $("#search-form-player").hide();
+        var options = {
+            data: getTeam.Team,
+            getValue: 'TeamsubName',
+            list: {
+                maxNumberOfElements: 10,
+                match: {
+                    enabled: true
+                }
+            },
+            theme: "dark"
+        };
+        $("#search-input-team").easyAutocomplete(options);
+        $(document).keypress(function(e) {
+            if(e.which == 13) {
+                var teamID=-1;
+                for(var i=0; i<getTeam.Team.length; i++) {
+                    if(getTeam.Team[i].TeamsubName == $("#search-input-team").val()) {
+                        teamID = getTeam.Team[i].TeamID;
+                        break;
+                    }
+                }
+                if(teamID != -1) {
+                    window.location.href = ("#team-rank");
+                    SelectTableTeam(teamID);
+                }else {
+                    window.location.href = ("#myPage");
+                }
             }
-        }
-        if(teamID != -1) {
-            window.location.href = ("#team-rank");
-            SelectTableTeam(teamID);
-        }else {
-            window.location.href = ("#myPage");
-        }
-
+        });
     });
+    $("#select-player").click(function(){
+        $("#search-form-player").show();
+        $("#search-form-team").hide();
+        var options = {
+            data: getPlayer.Player,
+            getValue: 'GameName',
+            list: {
+                maxNumberOfElements: 10,
+                match: {
+                    enabled: true
+                }
+            },
+            theme: "dark"
+        };
+        $("#search-input-player").easyAutocomplete(options);
+
+        $(document).keypress(function(e) {
+            if(e.which == 13) {
+                var playerID=-1;
+                for(var i=0; i<getPlayer.Player.length; i++) {
+                    if(getPlayer.Player[i].GameName == $("#search-input-player").val()) {
+                        playerID = getPlayer.Player[i].PlayerID;
+                        break;
+                    }
+                }
+                if(playerID != -1) {
+                    window.location.href = ("#player-rank");
+                    SelectTablePlayer(playerID);
+                }else {
+                    window.location.href = ("#myPage");
+                }
+            }
+        });
+    });
+
+
+    $("#select-team").click();
 
 
 </script>
