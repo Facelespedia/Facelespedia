@@ -14,7 +14,7 @@ CREATE TABLE Player(
     GameName varchar(255),
     MMR int,
     Nation varchar(255),
-    Most_Hero_win int
+    Winrate int
 );
 
 CREATE TABLE Team (
@@ -73,7 +73,7 @@ CREATE TABLE HeroMostWin(
 );
 
 
-INSERT INTO Player (PlayerID,PlayerName,GameName,MMR,Nation,Most_Hero_win)
+INSERT INTO Player (PlayerID,PlayerName,GameName,MMR,Nation,Winrate)
 VALUES
 (1,'Marc Polo Luis Fausto','Raven',7884,'Philippines',54),
 (2,'Carlo Palad','Kuku',7845,'Philippines',55),
@@ -1000,7 +1000,7 @@ VALUES
 (40,197);
 
 
-INSERT INTO HeroMostWin (PlayerID,Hero1,Hero2,Hero3,Hero4,Hero5)
+INSERT INTO HeroMostWin (PlayerID,HeroId1,HeroId2,HeroId3,HeroId4,HeroId5)
 VALUES
  (1,89,49,84,92,105),
  (2,94,66,95,98,2),
