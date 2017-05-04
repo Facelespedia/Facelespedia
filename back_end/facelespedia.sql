@@ -1001,7 +1001,7 @@ VALUES
 (40,197);
 
 
-INSERT INTO HeroMostWin (TeamId,Name,Hero1,Hero2,Hero3,Hero4,Hero5)
+INSERT INTO HeroMostWin (PlayerID,Name,Hero1,Hero2,Hero3,Hero4,Hero5)
 VALUES
  (1,'Marc Polo Luis Fausto',89,49,84,92,105),
  (2,'Carlo Palad',94,66,95,98,2),
