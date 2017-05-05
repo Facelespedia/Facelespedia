@@ -17,8 +17,7 @@
             theme: "dark"
         };
         $("#search-input-team").easyAutocomplete(options);
-        $(document).keypress(function(e) {
-            if(e.which == 13) {
+        $('#search-button-team').click(function(){
                 var teamID=-1;
                 for(var i=0; i<getTeam.Team.length; i++) {
                     if(getTeam.Team[i].TeamsubName == $("#search-input-team").val()) {
@@ -29,11 +28,10 @@
                 if(teamID != -1) {
                     window.location.href = ("#team-rank");
                     SelectTableTeam(teamID);
+                    resetText();
                 }else {
                     window.location.href = ("#myPage");
-                }
-                resetText();
-            }
+                }     
         });
     });
     $("#select-player").click(function(){
@@ -41,7 +39,7 @@
         $("#search-form-player").show();
         $("#search-form-team").hide();
         var options = {
-             url: 'http://localhost:3000/database/getPlayer',
+            url: 'http://localhost:3000/database/getPlayer',
             listLocation: "Player",
             getValue: "GameName",
             list: {
@@ -53,9 +51,7 @@
             theme: "dark"
         };
         $("#search-input-player").easyAutocomplete(options);
-
-        $(document).keypress(function(e) {
-            if(e.which == 13) {
+        $('#search-button-player').click(function(){
                 var playerID=-1;
                 for(var i=0; i<getPlayer.Player.length; i++) {
                     if(getPlayer.Player[i].GameName == $("#search-input-player").val()) {
@@ -66,11 +62,10 @@
                 if(playerID != -1) {
                     window.location.href = ("#player-rank");
                     SelectTablePlayer(playerID);
+                    resetText();
                 }else {
                     window.location.href = ("#myPage");
                 }
-                resetText();
-            }
         });
     });
 
