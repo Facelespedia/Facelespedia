@@ -1,11 +1,13 @@
 <script>
 
     $("#select-team").click(function(){
+        resetText();
         $("#search-form-team").show();
         $("#search-form-player").hide();
         var options = {
-            data: getTeam.Team,
-            getValue: 'TeamsubName',
+            url: 'http://localhost:3000/database/getTeam',
+            listLocation: "Team",
+            getValue: "TeamsubName",
             list: {
                 maxNumberOfElements: 10,
                 match: {
@@ -30,15 +32,18 @@
                 }else {
                     window.location.href = ("#myPage");
                 }
+                resetText();
             }
         });
     });
     $("#select-player").click(function(){
+        resetText();
         $("#search-form-player").show();
         $("#search-form-team").hide();
         var options = {
-            data: getPlayer.Player,
-            getValue: 'GameName',
+             url: 'http://localhost:3000/database/getPlayer',
+            listLocation: "Player",
+            getValue: "GameName",
             list: {
                 maxNumberOfElements: 10,
                 match: {
@@ -64,6 +69,7 @@
                 }else {
                     window.location.href = ("#myPage");
                 }
+                resetText();
             }
         });
     });
@@ -71,5 +77,9 @@
 
     $("#select-team").click();
 
+    function resetText(){
+        $("#search-input-team").val('');
+        $("#search-input-player").val('');
+    }
 
 </script>
