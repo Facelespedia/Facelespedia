@@ -20,7 +20,7 @@
     color: whitesmoke;
 }
 .team-menu {
-  margin-left: 100px;
+    margin-left: 100px;
     padding-top: 30px;
 
 }
@@ -39,19 +39,10 @@
 .media-body {
     color: whitesmoke;
 }
-#team-card-data tx {
-margin-top: 30px;
+#team-card-data tr {
+    margin-top: 30px;
 }
 #team-card-data tr td img{
-
-    border: 1px solid;
-    border-color: whitesmoke;
-    margin-bottom: 10px;
-    width:60px;
-    height:35px;
-}
-
-#player-card-data tr td img{
 
     border: 1px solid;
     border-color: whitesmoke;
@@ -63,17 +54,19 @@ margin-top: 30px;
 #team-rank .table tr:hover {
     background-color: whitesmoke;
 }
+
 #team-rank .table tr:hover label{
-    color: white;
+    color: black;
 }
 
 .margin-top-roster{
-
   margin-top: 25px;
 }
 
 
 .margin-left-roster{
-
   margin-right: 400px;
+}
+.select-table-team{
+    background-color: rgba(253, 235, 211,0.3);
 }
