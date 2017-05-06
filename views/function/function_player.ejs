@@ -9,7 +9,10 @@
      var player_table_china = "";
 
         for(var i = 0; i<getPlayerSortMMR.PlayerSortMMR.length; i++) {
-            player_table_global +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerSortMMR.PlayerSortMMR[i].PlayerID+")\">"+getPlayerSortMMR.PlayerSortMMR[i].GameName+"</a></td></tr>";
+            player_table_global +="<tr onClick=\"SelectTablePlayer("+getPlayerSortMMR.PlayerSortMMR[i].PlayerID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+                        +"<label class=\"col-md-2\"><img src=\"/images/national/"+getPlayerSortMMR.PlayerSortMMR[i].Nation+".png\"></label>"
+                        +"<label class=\"col-md-7\">"+getPlayerSortMMR.PlayerSortMMR[i].GameName+"</label>"
+                        +"<label class=\"col-md-2\">"+getPlayerSortMMR.PlayerSortMMR[i].MMR+"</label></td></tr>";
         }
         for(var i =0; i<getPlayerSea.length; i++) {
             player_table_sea +="<tr><td><a onClick=\"SelectTablePlayer("+getPlayerSea[i].PlayerID+")\">"+getPlayerSea[i].GameName+"</a></td></tr>";

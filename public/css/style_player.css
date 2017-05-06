@@ -4,7 +4,7 @@
     color:whitesmoke;
 }
 
-#player-rank .team-scroll{
+#player-rank .player-scroll{
     height: 442px;
     overflow: auto;
 }
