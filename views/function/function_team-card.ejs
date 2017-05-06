@@ -3,17 +3,19 @@
     function createCardTeam(TeamID){
 
         var addPlayer = "";
-        document.getElementById('team-card-logo').innerHTML = "<img src=\"/images/team/"+getTeam.Team[TeamID-1].TeamsubName+".png\" style=\"width:130px;height:120px;\">";
+        document.getElementById('team-card-logo').innerHTML = "<img src=\"/images/team/"+getTeam.Team[TeamID-1].TeamsubName+".png\" style=\"width:70px;height:70px;\">";
         document.getElementById('team-card-name').innerHTML = getTeam.Team[TeamID-1].TeamName;
         document.getElementById('team-card-nation').innerHTML = getTeam.Team[TeamID-1].Nation +"  <img src=\"/images/national/"+getTeam.Team[TeamID-1].Nation+".png\" style=\"width:30px\">";
         document.getElementById('team-card-rating').innerHTML = getTeam.Team[TeamID-1].Rating;
+
         for(var j = 0 ; j < getPlayerWithTeam.PlayerWithTeam.length ;j++ ) {
             if(TeamID == getPlayerWithTeam.PlayerWithTeam[j].TeamID){
-                 addPlayer += "<tr><td class=\"col-md-4\"><img src=\"/images/player/"+getPlayerWithTeam.PlayerWithTeam[j].GameName+".jpg\">";
-                 addPlayer += "</td><td class=\"col-md-1\">"+getPlayerWithTeam.PlayerWithTeam[j].GameName+"</td></tr>";
+                 addPlayer += "<tr><td class=\"col-xs-2\"><img src=\"/images/player/"+getPlayerWithTeam.PlayerWithTeam[j].GameName+".jpg\">";
+                 addPlayer += "</td><td class=\"col-xs-10\">"+getPlayerWithTeam.PlayerWithTeam[j].GameName+"</td></tr>";
             }
         }
-        document.getElementById('team-card-data').innerHTML = addPlayer;        
+
+        document.getElementById('team-card-data').innerHTML =addPlayer;
 
     }
 

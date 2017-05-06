@@ -1,9 +1,56 @@
 #player-rank {
-    background-color: #333333;
-    background-size: cover;
-    padding-bottom: 300px;
+    background-color: #120F0F;
+
     color:whitesmoke;
 }
+
+#player-rank .team-scroll{
+    height: 442px;
+    overflow: auto;
+}
 .head-player-rank {
+    padding-top: 40px;
+}
+.body-player-rank {
+    padding-top: 20px;
+    border: 0px;
+}
+#player-rank .table label {
+    text-align: center;
+    color: whitesmoke;
+}
+.player-menu {
+  margin-left: 100px;
     padding-top: 30px;
+
+}
+#player-rank .table label img {
+    border: 1px solid;
+    border-color: black;
+    width: 15px;
+    height: 15px;
+    margin-bottom: 4px;
+}
+#player-card-data {
+    margin-left: 120px;
+    margin-top: 0px;
+    color: whitesmoke;
+}
+
+
+#player-card-data tr td img{
+
+    border: 1px solid;
+    border-color: whitesmoke;
+    margin-bottom: 10px;
+    width:60px;
+    height:35px;
+}
+
+
+#player-rank .table tr:hover {
+    background-color: whitesmoke;
+}
+#player-rank .table tr:hover label{
+    color: white;
 }

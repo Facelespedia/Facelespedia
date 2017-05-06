@@ -1,4 +1,4 @@
-   .cf:before, .cf:after{
+   /*.cf:before, .cf:after{
      content:"";
      display:table;
    }
@@ -9,13 +9,14 @@
 
    .cf{
      zoom:1;
-   }
+   }*/
 
    .form-wrapper {
-       width: 400px;
-       padding: 15px;
-       margin-top:  180px ;
-       margin-left: 215px;
+       width: 500px;
+       height: 50px;
+
+       margin-top:  300px ;
+       margin-left: 250px;
        background: #444;
        background: rgba(0,0,0,.2);
        -moz-border-radius: 10px;
@@ -27,11 +28,13 @@
    }
 
    .form-wrapper input {
-       width: 370px;
-       height: 80px;
-       padding: 10px 5px;
-       float: left;
-       font: bold 30px 'lucida sans', 'trebuchet MS', 'Tahoma';
+     margin-top: 10px;
+      margin-left: 10px;
+       width: 350px;
+       height: 30px;
+       /*padding: 10px 5px;*/
+       /*float: left;*/
+       font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
        border: 0;
        background: #eee;
        -moz-border-radius: 3px 0 0 3px;
@@ -66,10 +69,12 @@
    }
 
    .search-select {
-       margin-left: 390px;
+     margin-top: 10px;
+       margin-left: 430px;
    }
 
-   /*.form-wrapper button {
+   .form-wrapper button {
+
    overflow: visible;
        position: relative;
        float: right;
@@ -77,11 +82,11 @@
        padding: 0;
        cursor: pointer;
        height: 40px;
-       width: 110px;
+       width: 90px;
        font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
        color: #fff;
        text-transform: uppercase;
-       background: #d83c3c;
+       /*background: #d83c3c;*/
        -moz-border-radius: 0 3px 3px 0;
        -webkit-border-radius: 0 3px 3px 0;
        border-radius: 0 3px 3px 0;
@@ -129,4 +134,4 @@
 .byline p a{
  color:#d83c3c;
  text-decoration:none;
-}*/
+}
