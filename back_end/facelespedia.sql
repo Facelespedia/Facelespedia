@@ -1000,7 +1000,7 @@ VALUES
 (40,197);
 
 
-INSERT INTO HeroMostWin (PlayerID,HeroId1,HeroId2,HeroId3,HeroId4,HeroId5)
+INSERT INTO HeroMostWin (PlayerID,Hero1,Hero2,Hero3,Hero4,Hero5)
 VALUES
  (1,89,49,84,92,105),
  (2,94,66,95,98,2),
