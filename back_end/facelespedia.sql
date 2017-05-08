@@ -74,16 +74,16 @@ CREATE TABLE HeroMostWin(
 );
 
 CREATE TABLE Tournament(
-  Manilla var(255),
+  Manilla varchar(255),
   ManillaTeamId int,
   ManillaEarning int,
-  Boston var(255),
+  Boston varchar(255),
   BostonTeamId int,
   BostonEarning int,
-  Kiev var(255),
+  Kiev varchar(255),
   KievTeamId int,
   KievEarning int,
-  Ti6 var(255),
+  Ti6 varchar(255),
   Ti6TeamId int,
   Ti6Earning int
 
@@ -290,11 +290,11 @@ VALUES
 (196,'Song Runxi','dark',6412,'China',35),
 (197,'Jiang An','An',7162,'China',38),
 (198,'Chen Jingwu','Rong',7748,'China',45),
-(199,'Omar Dabachach','Madara'.9119,'Greece'),
-(200,'Dimitris Plivouris','Thug',7546,'Greece'),
-(201,'Kharis Zafeiriou','SkyLark',7578,'Greece'),
-(202,'Verros Apostolos','Maybe Next Time',6740,'Greece'),
-(203,'Giorgos Giannakopoulos','SsaSpartan',7524,'Greece');
+(199,'Omar Dabachach','Madara',9119,'Greece',47),
+(200,'Dimitris Plivouris','Thug',7546,'Greece',49),
+(201,'Kharis Zafeiriou','SkyLark',7578,'Greece',42),
+(202,'Verros Apostolos','Maybe Next Time',6740,'Greece',43),
+(203,'Giorgos Giannakopoulos','SsaSpartan',7524,'Greece',42);
 
 INSERT INTO Team (TeamID,TeamName,TeamsubName,Rating,Nation)
 VALUES
@@ -338,7 +338,7 @@ VALUES
 (38,'LGD.Forever Young','LGD.fy',1106,'China'),
 (39,'CDEC Gaming','CDEC',1072,'China'),
 (40,'EHOME.Keen','Ehome.k',1065,'China'),
-(41,'MVP Phoenix','MVP',926,,'United State'),
+(41,'MVP Phoenix','MVP',926,'United State'),
 (42,'Mousesports','Mouse',1144,'Greece');
 
 INSERT INTO Hero(HeroID,HeroName,HeroType,HeroAttackType,HeroRole)
