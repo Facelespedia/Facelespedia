@@ -235,4 +235,11 @@ exports.getTeam = function(callback){
     });
   }
 
-  
+  exports.postPlayer = function(callback , info){
+    connection.query("INSERT INTO Player VALUES ("+info.PlayerID+",\""+info.PlayerName+"\",\""+info.GameName+"\",\""+info.MMR+"\",\""+info.Nation+"\",\""+info.Winrate+"\")",function(err, results,fields){
+      if(!!err) console.log(err);
+    });
+  }
+
+
+  // INSERT INTO Player VALUES (199,"asdads","asdads",8000,"Thai",42);
