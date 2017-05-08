@@ -3,65 +3,69 @@
 $(document).ready(function(){
 
      var team_table_global = "",team_table_sea = "",team_table_europe = "",team_table_america = "",team_table_china = "";
-     var tempTeamTable="";
+     var tempTeamTable="",tempSelect=null;
         for(var i = 0; i<getTeamSortRating.TeamSortRating.length; i++) {
-            team_table_global +="<tr onClick=\"SelectTableTeam("+getTeamSortRating.TeamSortRating[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+            team_table_global +="<tr id=\"team"+getTeamSortRating.TeamSortRating[i].TeamID+"\" onClick=\"SelectTableTeam("+getTeamSortRating.TeamSortRating[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
                                 +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamSortRating.TeamSortRating[i].Nation+".png\"></label>"
                                 +"<label class=\"col-md-7\">"+getTeamSortRating.TeamSortRating[i].TeamName+"</label>"
                                 +"<label class=\"col-md-2\">"+getTeamSortRating.TeamSortRating[i].Rating+"</label></td></tr>";
         }
 
         for(var i= 0; i<getTeamSea.length; i++) {
-            team_table_sea +="<tr onClick=\"SelectTableTeam("+getTeamSea[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+            team_table_sea +="<tr id=\"team"+getTeamSea[i].TeamID+"\" onClick=\"SelectTableTeam("+getTeamSea[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
                             +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamSea[i].Nation+".png\"></label>"
                             +"<label class=\"col-md-7\">"+getTeamSea[i].TeamName+"</label>"
                             +"<label class=\"col-md-2\">"+getTeamSea[i].Rating+"</label></td></tr>";
         }
         for(var i= 0; i<getTeamEurope.length; i++) {
-             team_table_europe +="<tr onClick=\"SelectTableTeam("+getTeamEurope[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+             team_table_europe +="<tr id=\"team"+getTeamEurope[i].TeamID+"\" onClick=\"SelectTableTeam("+getTeamEurope[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
                                 +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamEurope[i].Nation+".png\"></label>"
                                 +"<label class=\"col-md-7\">"+getTeamEurope[i].TeamName+"</label>"
                                 +"<label class=\"col-md-2\">"+getTeamEurope[i].Rating+"</label></td></tr>";
         }
         for(var i= 0; i<getTeamAmerica.length; i++) {
-            team_table_america +="<tr onClick=\"SelectTableTeam("+getTeamAmerica[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+            team_table_america +="<tr id=\"team"+getTeamAmerica[i].TeamID+"\" onClick=\"SelectTableTeam("+getTeamAmerica[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
                     +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamAmerica[i].Nation+".png\"></label>"
                     +"<label class=\"col-md-7\">"+getTeamAmerica[i].TeamName+"</label>"
                     +"<label class=\"col-md-2\">"+getTeamAmerica[i].Rating+"</label></td></tr>";
         }
         for(var i= 0; i<getTeamChina.length; i++) {
-            team_table_china +="<tr onClick=\"SelectTableTeam("+getTeamChina[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+            team_table_china +="<tr id=\"team"+getTeamChina[i].TeamID+"\" onClick=\"SelectTableTeam("+getTeamChina[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
                               +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamChina[i].Nation+".png\"></label>"
                               +"<label class=\"col-md-7\">"+getTeamChina[i].TeamName+"</label>"
                               +"<label class=\"col-md-2\">"+getTeamChina[i].Rating+"</label></td></tr>"; 
         }
     
     $('#team-global').click(function(){
-        $.fn.createTableTeam(team_table_global);
+        $.fn.createTableTeam(team_table_global,this);
     });
     $('#team-sea').click(function() { 
-        $.fn.createTableTeam(team_table_sea);
+        $.fn.createTableTeam(team_table_sea,this);
     });
     $('#team-china').click(function() {
-       $.fn.createTableTeam(team_table_china);
+       $.fn.createTableTeam(team_table_china,this);
     });
     $('#team-america').click(function() {
-       $.fn.createTableTeam(team_table_america);
+       $.fn.createTableTeam(team_table_america,this);
     });
     $('#team-europe').click(function() {
-       $.fn.createTableTeam(team_table_europe);
+       $.fn.createTableTeam(team_table_europe,this);
     });
 
-    $.fn.createTableTeam = function(TeamTable) {  
+    $.fn.createTableTeam = function(TeamTable,select) {  
         if(TeamTable!=tempTeamTable){
             document.getElementById('team-table').innerHTML = TeamTable;
             $(".team-menu").hide();
-            $(".team-scroll").hide();
-            $(".team-scroll").slideToggle("slow");
-            tempTeamTable = TeamTable;   
-        }else{
-             $(".team-scroll").slideToggle("slow");
+            // $(".team-scroll").hide();
+            // $(".team-scroll").slideToggle("slow");
+            $(tempSelect).removeClass('select-continent');
+            $(select).addClass('select-continent');
+            tempTeamTable = TeamTable;  
+            tempSelect = select; 
         }
+        // else{
+        //      $(".team-scroll").slideToggle("slow");
+        // }
     }
 
     document.getElementById('team-table').innerHTML = team_table_global;
@@ -73,6 +77,8 @@ $(document).ready(function(){
 var tempTeam = 0;
 function SelectTableTeam(TeamID) {
     if(TeamID!=tempTeam){
+        $('#team' + tempTeam).removeClass('select-table');
+        $('#team' + TeamID).addClass('select-table');
         createCardTeam(TeamID);
         $('.team-menu').hide();
         $('.team-menu').toggle("slow");

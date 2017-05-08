@@ -12,3 +12,9 @@ body{
     /*opacity: 0.5;
     filter: alpha(opacity=200); */
 }
+.select-continent{
+    background-color: white;
+}
+.select-table{
+    background-color: rgba(253, 235, 211,0.3);
+}

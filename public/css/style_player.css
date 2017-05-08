@@ -1,6 +1,5 @@
 #player-rank {
     background-color: #120F0F;
-
     color:whitesmoke;
 }
 
@@ -20,7 +19,7 @@
     color: whitesmoke;
 }
 .player-menu {
-  margin-left: 100px;
+    margin-left: 100px;
     padding-top: 30px;
 
 }
@@ -39,7 +38,6 @@
 
 
 #player-card-data tr td img{
-
     border: 1px solid;
     border-color: whitesmoke;
     margin-bottom: 10px;
@@ -52,5 +50,5 @@
     background-color: whitesmoke;
 }
 #player-rank .table tr:hover label{
-    color: white;
+    color: black;
 }
