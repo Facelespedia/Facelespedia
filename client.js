@@ -7,6 +7,7 @@ var cors = require('cors')
 var bodyParser = require('body-parser')
 var routes = require('./routes/index')
 var dashboard = require('./routes/dashboard')
+var test = require('./routes/test')
 
 app.set('views',path.join(__dirname,'views'));
 app.set('view engine','ejs');
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname,'public')));
 app.use('/',routes);
 app.use('/dashboard',dashboard);
+app.use('/test',test);
 
 
 app.listen(PORT , function(err) {
