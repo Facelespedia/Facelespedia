@@ -7,9 +7,10 @@
      var player_table_europe = "";
      var player_table_america = "";
      var player_table_china = "";
+     var tempPlayerTable="",tempSelectP = null ;
 
         for(var i = 0; i<getPlayerSortMMR.PlayerSortMMR.length; i++) {
-            player_table_global +="<tr onClick=\"SelectTablePlayer("+getPlayerSortMMR.PlayerSortMMR[i].PlayerID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+            player_table_global +="<tr id=\"player"+getPlayerSortMMR.PlayerSortMMR[i].PlayerID+"\" onClick=\"SelectTablePlayer("+getPlayerSortMMR.PlayerSortMMR[i].PlayerID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
                         +"<label class=\"col-md-2\"><img src=\"/images/national/"+getPlayerSortMMR.PlayerSortMMR[i].Nation+".png\"></label>"
                         +"<label class=\"col-md-7\">"+getPlayerSortMMR.PlayerSortMMR[i].GameName+"</label>"
                         +"<label class=\"col-md-2\">"+getPlayerSortMMR.PlayerSortMMR[i].MMR+"</label></td></tr>";
@@ -29,25 +30,32 @@
 
 
     $('#player-global').click(function() { 
-        document.getElementById('player-table').innerHTML = player_table_global;
-        $(".team-menu").hide();
+        $.fn.createTablePlayer(player_table_global,this);
     });
     $('#player-sea').click(function() { 
-        document.getElementById('player-table').innerHTML = player_table_sea;
-        $(".player-menu").hide();
+        $.fn.createTablePlayer(player_table_sea,this);
     });
     $('#player-china').click(function() { 
-        document.getElementById('player-table').innerHTML = player_table_china;
-        $(".player-menu").hide();
+        $.fn.createTablePlayer(player_table_china,this);
     });
     $('#player-america').click(function() { 
-        document.getElementById('player-table').innerHTML = player_table_america;
-        $(".player-menu").hide();
+        $.fn.createTablePlayer(player_table_america,this);
     });
     $('#player-europe').click(function() { 
-        document.getElementById('player-table').innerHTML = player_table_europe;
-        $(".player-menu").hide();
+       $.fn.createTablePlayer(player_table_europe,this);
     });
+
+    $.fn.createTablePlayer = function(PlayerTable,select) {  
+        if(PlayerTable!=tempPlayerTable){
+            document.getElementById('player-table').innerHTML = PlayerTable;
+            $(".player-menu").hide();
+            $(tempSelectP).removeClass('select-continent');
+            $(select).addClass('select-continent');
+            tempPlayerTable = PlayerTable;  
+            tempSelectP = select; 
+        }
+    }
+
 
     document.getElementById('player-table').innerHTML = player_table_global;
     document.getElementById('player-global').click();
@@ -58,6 +66,8 @@ var tempPlayer = 0;
 
 function SelectTablePlayer(PlayerID){
     if(PlayerID!=tempPlayer){
+        $('#player' + tempPlayer).removeClass('select-table');
+        $('#player' + PlayerID).addClass('select-table');
         createCardPlayer(PlayerID);
         $('.player-menu').hide();
         $('.player-menu').toggle("slide");
