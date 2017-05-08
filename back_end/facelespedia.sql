@@ -7,6 +7,7 @@
 -- DROP TABLE ContinentPlayer;
 -- DROP TABLE TeamMember;
 -- DROP TABLE HeroMostWin;
+-- DROP TABLE Tournament;
 
 CREATE TABLE Player(
     PlayerID int,
@@ -70,6 +71,22 @@ CREATE TABLE HeroMostWin(
   ,Hero3                INT
   ,Hero4                INT
   ,Hero5                INT
+);
+
+CREATE TABLE Tournament(
+  Manilla var(255),
+  ManillaTeamId int,
+  ManillaEarning int,
+  Boston var(255),
+  BostonTeamId int,
+  BostonEarning int,
+  Kiev var(255),
+  KievTeamId int,
+  KievEarning int,
+  Ti6 var(255),
+  Ti6TeamId int,
+  Ti6Earning int
+
 );
 
 
@@ -272,7 +289,12 @@ VALUES
 (195,'Zhai Jingkai','zhai',7246,'China',35),
 (196,'Song Runxi','dark',6412,'China',35),
 (197,'Jiang An','An',7162,'China',38),
-(198,'Chen Jingwu','Rong',7748,'China',45);
+(198,'Chen Jingwu','Rong',7748,'China',45),
+(199,'Omar Dabachach','Madara'.9119,'Greece'),
+(200,'Dimitris Plivouris','Thug',7546,'Greece'),
+(201,'Kharis Zafeiriou','SkyLark',7578,'Greece'),
+(202,'Verros Apostolos','Maybe Next Time',6740,'Greece'),
+(203,'Giorgos Giannakopoulos','SsaSpartan',7524,'Greece');
 
 INSERT INTO Team (TeamID,TeamName,TeamsubName,Rating,Nation)
 VALUES
@@ -315,7 +337,9 @@ VALUES
 (37,'Vici Gaming J','VG.J',1140,'China'),
 (38,'LGD.Forever Young','LGD.fy',1106,'China'),
 (39,'CDEC Gaming','CDEC',1072,'China'),
-(40,'EHOME.Keen','Ehome.k',1065,'China');
+(40,'EHOME.Keen','Ehome.k',1065,'China'),
+(41,'MVP Phoenix','MVP',926,,'United State'),
+(42,'Mousesports','Mouse',1144,'Greece');
 
 INSERT INTO Hero(HeroID,HeroName,HeroType,HeroAttackType,HeroRole)
 VALUES
@@ -597,7 +621,9 @@ VALUES
 (37,04),
 (38,04),
 (39,04),
-(40,04);
+(40,04),
+(41,03),
+(42,02);
 
 INSERT INTO ContinentPlayer(PlayerID,ContinentID)
 VALUES
@@ -797,7 +823,14 @@ VALUES
 (194,04),
 (195,04),
 (196,04),
-(197,04);
+(197,04),
+(198,04),
+(199,02),
+(200,02),
+(201,02),
+(202,02),
+(203,02);
+
 
 INSERT INTO TeamMember(TeamID,PlayerID)
 VALUES
@@ -997,7 +1030,17 @@ VALUES
 (40,194),
 (40,195),
 (40,196),
-(40,197);
+(40,197),
+(41,88),
+(41,43),
+(41,30),
+(41,123),
+(41,67),
+(42,199),
+(42,200),
+(42,201),
+(42,202),
+(42,203);
 
 
 INSERT INTO HeroMostWin (PlayerID,Hero1,Hero2,Hero3,Hero4,Hero5)
@@ -1200,3 +1243,22 @@ VALUES
  (196,37,74,91,70,47),
  (197,103,64,81,82,11),
  (198,25,103,24,47,110);
+
+INSERT INTO Tournament(Manilla,ManillaTeamId,ManillaEarning,Boston,BostonTeamId,BostonEarning,Kiev,KievTeamId,KievEarning,Ti6,Ti6TeamId,Ti6Earning)
+VALUES
+('OG',11,1110000,'OG',11,1000000,'OG',11,1000000,'Wing',36,9139000),
+('Liquid',13,405000,'Mouse',42,500000,'VP',12,500000,'DC',25,3427100),
+('Newbee',32,315000,'EG',21,250000,'IG',31,250000,'EG',21,2180100),
+('LGD',35,255000,'DC',25,250000,'EG',21,250000,'FnC',6,1454000),
+('FnC',6,202500,'VP',12,125000,'Liquid',13,125000,'Ehome.k',40,940000),
+('mvp phoenix',41,105000,'WG',3,125000,'Faceless',2,125000,'mvp phoenix',41,940000),
+('Navi',17,45000,'NP',23,125000,'VG.j',37,125000,'TnC',1,512000),
+('VG',34,45000,'LGD.fy',38,125000,'SG',26,125000,'Liquid',13,512000),
+('compLexity Gaming',24,45000,'IG.v',33,62500,'Mouse',42,62500,'OG',11,312000),
+('Alliance',16,45000,'Wing',36,62500,'Newbee',32,62500,'LGD',35,312000),
+('DC',25,45000,'compLexity Gaming',24,62500,'Onyx',25,62500,'Alliance',16,312000),
+('Empire',15,45000,'mvp phoenix',41,62500,'IG.V',32,62500,'Newbee',32,312000),
+('Wing',36,30000,'Faceless',2,62500,'TNC',1,62500,'VG',34,100000),
+('Mskni',5,30000,'Ehome.k',40,62500,'Wing',36,62500,'Secret',14,100000),
+('EG',21,30000,'Newbee',32,62500,'DC',25,62500,'NP',23,100000),
+('Secret',14,30000,'LGD',35,62500,'Secret',14,62500,'Navi',17,100000);
