@@ -2,95 +2,190 @@
 
 $(document).ready(function(){
     var stats_table_winrate_max = "",stats_table_winrate_min = "";
-    var stats_table_pick = "";
-    var stats_table_ban = "";
-    var stats_table_contest = "";
-    var stats_table_fpick = "";
-    var stats_table_fban = "";
+    var stats_table_pick = "" ,stats_table_pick_mini = "";
+    var stats_table_ban = "", stats_table_ban_mini = "";
+    var stats_table_contest = "" ,stats_table_contest_mini = "";
+    var stats_table_fpick = "" , stats_table_fpick_mini = "";
+    var stats_table_fban = "" , stats_table_fban_mini = "";
 
     for(var i = 0 ;i<10; i++) {
         stats_table_winrate_min +="<tr><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsWin.StatsWin[i].HeroName+".jpg\"></td>";
         stats_table_winrate_min +="<td><label>"+getStatsWin.StatsWin[i].HeroName+"</label>";
         stats_table_winrate_min +="<div class=\"progress\" style=\"width:200px;\">"
-                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
+                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
                             +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsWin.StatsWin[i].Winratepercent+"%;\"><span>"+getStatsWin.StatsWin[i].Winratepercent+"%</span></div></div></tr>";
+
+        stats_table_pick_mini +="<tr><td><img src=\"/images/hero/"+getStatsPick.StatsPick[i].HeroName+".jpg\"></td>";
+        stats_table_pick_mini +="<td><h4>"+getStatsPick.StatsPick[i].HeroName+"</h4>";
+        stats_table_pick_mini += "<div class=\"progress\" style=\"width:200px;\">"
+                          +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
+                          +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsPick.StatsPick[i].PercentPick+"%;\"><span>"+getStatsPick.StatsPick[i].PercentPick+"%</span></div></div></tr>";
+
+        stats_table_ban_mini +="<tr><td><img src=\"/images/hero/"+getStatsBanned.StatsBanned[i].HeroName+".jpg\"></td>";
+        stats_table_ban_mini +="<td><h4>"+getStatsBanned.StatsBanned[i].HeroName+"</h4>";
+        stats_table_ban_mini += "<div class=\"progress\" style=\"width:200px;\">"
+                          +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
+                          +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsBanned.StatsBanned[i].PercentBanned+"%;\"><span>"+getStatsBanned.StatsBanned[i].PercentBanned+"%</span></div></div>";
+
+        stats_table_contest_mini +="<tr><td><img src=\"/images/hero/"+getStatsContest.StatsContest[i].HeroName+".jpg\"></td>";
+        stats_table_contest_mini +="<td><h4>"+getStatsContest.StatsContest[i].HeroName+"</h4>";
+        stats_table_contest_mini += "<div class=\"progress\" style=\"width:200px;\">"
+                             +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
+                             +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsContest.StatsContest[i].PercentContest+"%;\"><span>"+getStatsContest.StatsContest[i].PercentContest+"%</span></div></div>";
+
+        stats_table_fpick_mini +="<tr><td><img src=\"/images/hero/"+getStatsFirstPick.StatsFirstPick[i].HeroName+".jpg\"></td>";
+        stats_table_fpick_mini +="<td><h4>"+getStatsFirstPick.StatsFirstPick[i].HeroName+"</h4>";
+        stats_table_fpick_mini += "<div class=\"progress\" style=\"width:200px;\">"
+                           +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
+                           +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"%;\"><span>"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"%</span></div></div>";
+
+        stats_table_fban_mini +="<tr><td><img src=\"/images/hero/"+getStatsFirstBanned.StatsFirstBanned[i].HeroName+".jpg\"></td>";
+        stats_table_fban_mini +="<td><h4>"+getStatsFirstBanned.StatsFirstBanned[i].HeroName+"</h4>";
+        stats_table_fban_mini += "<div class=\"progress\" style=\"width:200px;\">"
+                          +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
+                          +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"%;\"><span>"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"%</span></div></div>";
+
+
+
     }
-   
+
     for(var i = 0 ;i< getStatsWin.StatsWin.length; i++){
         stats_table_winrate_max +="<tr><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsWin.StatsWin[i].HeroName+".jpg\"></td>";
         stats_table_winrate_max +="<td><h4>"+getStatsWin.StatsWin[i].HeroName+"</h4>";
         stats_table_winrate_max +="<div class=\"progress\" style=\"width:200px;\">"
-                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
+                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
                             +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsWin.StatsWin[i].Winratepercent+"%;\"><span>"+getStatsWin.StatsWin[i].Winratepercent+"%</span></div></div></tr>";
 
         stats_table_pick +="<tr><td><img src=\"/images/hero/"+getStatsPick.StatsPick[i].HeroName+".jpg\"></td>";
         stats_table_pick +="<td><h4>"+getStatsPick.StatsPick[i].HeroName+"</h4>";
         stats_table_pick += "<div class=\"progress\" style=\"width:200px;\">"
-                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
+                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
                             +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsPick.StatsPick[i].PercentPick+"%;\"><span>"+getStatsPick.StatsPick[i].PercentPick+"%</span></div></div></tr>";
 
         stats_table_ban +="<tr><td><img src=\"/images/hero/"+getStatsBanned.StatsBanned[i].HeroName+".jpg\"></td>";
         stats_table_ban +="<td><h4>"+getStatsBanned.StatsBanned[i].HeroName+"</h4>";
         stats_table_ban += "<div class=\"progress\" style=\"width:200px;\">"
-                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
+                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
                             +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsBanned.StatsBanned[i].PercentBanned+"%;\"><span>"+getStatsBanned.StatsBanned[i].PercentBanned+"%</span></div></div>";
 
         stats_table_contest +="<tr><td><img src=\"/images/hero/"+getStatsContest.StatsContest[i].HeroName+".jpg\"></td>";
         stats_table_contest +="<td><h4>"+getStatsContest.StatsContest[i].HeroName+"</h4>";
         stats_table_contest += "<div class=\"progress\" style=\"width:200px;\">"
-                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
+                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
                             +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsContest.StatsContest[i].PercentContest+"%;\"><span>"+getStatsContest.StatsContest[i].PercentContest+"%</span></div></div>";
 
         stats_table_fpick +="<tr><td><img src=\"/images/hero/"+getStatsFirstPick.StatsFirstPick[i].HeroName+".jpg\"></td>";
         stats_table_fpick +="<td><h4>"+getStatsFirstPick.StatsFirstPick[i].HeroName+"</h4>";
         stats_table_fpick += "<div class=\"progress\" style=\"width:200px;\">"
-                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
+                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
                             +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"%;\"><span>"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"%</span></div></div>";
 
         stats_table_fban +="<tr><td><img src=\"/images/hero/"+getStatsFirstBanned.StatsFirstBanned[i].HeroName+".jpg\"></td>";
         stats_table_fban +="<td><h4>"+getStatsFirstBanned.StatsFirstBanned[i].HeroName+"</h4>";
         stats_table_fban += "<div class=\"progress\" style=\"width:200px;\">"
-                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\"" 
+                            +"<div class=\"progress-bar progress-bar-danger progress-bar-striped active\""
                             +"aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"%;\"><span>"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"%</span></div></div>";
 
     }
-
+// Start website show this item-----------------------------------------------
     $('#stats-winrate').click(function() {
         document.getElementById('stats-hero-winrate').innerHTML = stats_table_winrate_min;
     });
 
     $('#stats-pick').click(function() {
-        document.getElementById('stats-hero').innerHTML = stats_table_pick;
+        document.getElementById('stats-hero-most_picked').innerHTML = stats_table_pick_mini;
     });
 
     $('#stats-contest').click(function() {
-        document.getElementById('stats-hero').innerHTML = stats_table_contest;
+        document.getElementById('stats-hero-most_contest').innerHTML = stats_table_contest_mini;
     });
 
     $('#stats-ban').click(function() {
-        document.getElementById('stats-hero').innerHTML = stats_table_ban;
+        document.getElementById('stats-hero-most_ban').innerHTML = stats_table_ban_mini;
     });
 
     $('#stats-fpick').click(function() {
-        document.getElementById('stats-hero').innerHTML = stats_table_fpick;
+        document.getElementById('stats-hero-most_firstpick').innerHTML = stats_table_fpick_mini;
     });
 
     $('#stats-fban').click(function() {
-        document.getElementById('stats-hero').innerHTML = stats_table_fban;
+        document.getElementById('stats-hero-most_firstban').innerHTML = stats_table_fban_mini;
     });
-
-    $('#show-all').click(function() {
+// funtion showall----------------------------------------------------------------------------
+    $('#show-all_winrate').click(function() {
         $('#close').show();
         document.getElementById('stats-hero-winrate').innerHTML = stats_table_winrate_max;
+        document.getElementById('close_winrate').style="display block";
     });
 
-    $('#close').click(function() {
+    $('#show-all_most_picked').click(function() {
+        $('#close').show();
+        document.getElementById('stats-hero-most_picked').innerHTML = stats_table_pick;
+        document.getElementById('close_most_picked').style="display block";
+    });
+
+    $('#show-all_most_contest').click(function() {
+        $('#close').show();
+        document.getElementById('stats-hero-most_contest').innerHTML = stats_table_contest;
+        document.getElementById('close_most_contest').style="display block";
+    });
+
+    $('#show-all_most_ban').click(function() {
+        $('#close').show();
+        document.getElementById('stats-hero-most_ban').innerHTML = stats_table_ban;
+        document.getElementById('close_most_ban').style="display block";
+    });
+
+    $('#show-all_most_firstpick').click(function() {
+        $('#close').show();
+        document.getElementById('stats-hero-most_firstpick').innerHTML = stats_table_fpick;
+        document.getElementById('close_most_firstpick').style="display block";
+    });
+
+    $('#show-all_most_firstban').click(function() {
+        $('#close').show();
+        document.getElementById('stats-hero-most_firstban').innerHTML = stats_table_fban;
+        document.getElementById('close_most_firstban').style="display block";
+    });
+
+// function close tab-------------------------------------------------------------------------
+    $('#close_winrate').click(function() {
          $('#close').hide();
          document.getElementById('stats-hero-winrate').innerHTML = stats_table_winrate_min;
+
     });
 
+    $('#close_most_picked').click(function() {
+         $('#close').hide();
+         document.getElementById('stats-hero-most_picked').innerHTML = stats_table_pick_mini;
+    });
+
+    $('#close_most_contest').click(function() {
+         $('#close').hide();
+         document.getElementById('stats-hero-most_contest').innerHTML = stats_table_contest_mini;
+    });
+
+    $('#close_most_ban').click(function() {
+         $('#close').hide();
+         document.getElementById('stats-hero-most_ban').innerHTML = stats_table_ban_mini;
+    });
+
+    $('#close_most_firstpick').click(function() {
+         $('#close').hide();
+         document.getElementById('stats-hero-most_firstpick').innerHTML = stats_table_fpick_mini;
+    });
+
+    $('#close_most_firstban').click(function() {
+         $('#close').hide();
+         document.getElementById('stats-hero-most_firstban').innerHTML = stats_table_fban_mini;
+    });
+
+// funtion click -----------------------------------------------------------------------------
     document.getElementById('stats-hero-winrate').innerHTML = stats_table_winrate_min;
     document.getElementById('stats-winrate').click();
+
+    document.getElementById('stats-hero-most_picked').innerHTML = stats_table_pick;
+    document.getElementById('stats-pick').click();
 
 })
 

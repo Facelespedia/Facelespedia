@@ -35,8 +35,36 @@
     width: 100%;
     color: black;
 }
+/*Image of hero----------------------------*/
 #stats-hero-winrate tr td img{
    margin-bottom: 15px;
    height: 40px;
    width: 40px;
 }
+
+#stats-hero-most_picked tr td img{
+   margin-bottom: 15px;
+   height: 40px;
+   width: 40px;
+}
+#stats-hero-most_contest tr td img{
+   margin-bottom: 15px;
+   height: 40px;
+   width: 40px;
+}
+#stats-hero-most_ban tr td img{
+   margin-bottom: 15px;
+   height: 40px;
+   width: 40px;
+}
+#stats-hero-most_firstpick tr td img{
+   margin-bottom: 15px;
+   height: 40px;
+   width: 40px;
+}
+#stats-hero-most_firstban tr td img{
+   margin-bottom: 15px;
+   height: 40px;
+   width: 40px;
+}
+/*------------------------------------------*/

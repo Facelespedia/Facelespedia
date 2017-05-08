@@ -3,7 +3,9 @@ var mysql      = require('mysql');
 var connection;
   connection = mysql.createConnection({
     host     : 'localhost',
-    user     : 'root',
+//    user     : 'root',
+    user     : 'gamkub',
+    password : 'gamkung',
     database : 'facelespedia'
   });
 
@@ -163,7 +165,7 @@ exports.getTeam = function(callback){
     });
   }
 
-  
+
    exports.getPlayerWithTeam = function(callback){
     connection.query("SELECT Team.TeamID,GameName FROM Player,TeamMember,Team where Player.PlayerID = TeamMember.PlayerID && Team.TeamID = TeamMember.TeamID"
     ,function(err, results,fields){
@@ -174,7 +176,7 @@ exports.getTeam = function(callback){
        callback(data);
      });
    }
-   
+
   exports.getStatsWin = function(callback){
     connection.query("SELECT Hero.HeroID,HeroName,Winratepercent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY Winratepercent DESC",function(err, results,fields){
       if(!!err) console.log(err);
@@ -184,7 +186,7 @@ exports.getTeam = function(callback){
       callback(data);
     });
   }
-  
+
   exports.getStatsPick = function(callback){
     connection.query("SELECT Hero.HeroID,HeroName,PercentPick FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentPick DESC",function(err, results,fields){
       if(!!err) console.log(err);
@@ -234,5 +236,3 @@ exports.getTeam = function(callback){
       callback(data);
     });
   }
-
-  
