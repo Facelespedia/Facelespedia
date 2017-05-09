@@ -18,7 +18,7 @@ body{
 .banner{
     background-image: url("../images/bg/bg_2.jpg");
     background-size: cover;
-    padding: 200px;
+    padding: 140px;
     color: ghostwhite;
     /*opacity: 0.5;
     filter: alpha(opacity=200); */
@@ -86,6 +86,6 @@ body{
     background-size: cover;
 }
 #navbar-top-padding div ul li a{
-    color : black;
+    color : dimgray;
     cursor: pointer;
 }
