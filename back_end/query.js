@@ -244,7 +244,7 @@ exports.getTeam = function(callback){
         if(!!err) console.log(err);
       });
     }else if(info.TYPE == 'delete') {
-      connection.query("DELETE FROM Player WHERE PlayerID = "+info.PlayerID,function(err, results,fields){
+      connection.query("DELETE Player,ContinentPlayer FROM Player INNER JOIN ContinentPlayer WHERE ContinentPlayer.PlayerID = Player.PlayerID && Player.GameName = \""+info.GameName+"\"",function(err, results,fields){
         if(!!err) console.log(err);
       });
     }
@@ -258,7 +258,7 @@ exports.getTeam = function(callback){
         if(!!err) console.log(err);
       });
     }else if(info.TYPE == 'delete') {
-      connection.query("DELETE FROM Player WHERE PlayerID = "+info.PlayerID,function(err, results,fields){
+      connection.query("DELETE FROM Player WHERE GameName = "+info.GameName,function(err, results,fields){
         if(!!err) console.log(err);
       });
     }
@@ -294,3 +294,5 @@ exports.getTeam = function(callback){
 // WHERE Team.TeamsubName ='OG' && Player.GameName = 'จ๊อบ ค้าม้า';
 // INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentName = info.ContinentName && Player.PlayerID = info.PlayerID
 //INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentName = "Sea & Oceania" && Player.PlayerID = 3
+
+// DELETE Player,ContinentPlayer FROM Player INNER JOIN ContinentPlayer WHERE ContinentPlayer.PlayerID = Player.PlayerID && Player.GameName = "qqq";

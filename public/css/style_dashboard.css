@@ -1055,3 +1055,21 @@ main {
 .bg-color {
   background-color: rgba(101, 116, 134, 0.57);
 }
+.table label {
+    text-align: center;
+    color: black;
+}
+
+.table label img {
+    border: 1px solid;
+    border-color: black;
+    width: 15px;
+    height: 15px;
+}
+.player-scroll{
+    height: 442px;
+    overflow: auto;
+}
+#search-input-player {
+  width: 300px;
+}
