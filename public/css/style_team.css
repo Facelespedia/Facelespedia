@@ -50,20 +50,18 @@
     width:60px;
     height:35px;
 }
-
 #team-rank .table tr:hover {
-    background-color: whitesmoke;
+    background-color: rgba(128, 128, 128, 0.4);
 }
-
-#team-rank .table tr:hover label{
-    color: black;
-}
-
 .margin-top-roster{
   margin-top: 25px;
 }
-
-
 .margin-left-roster{
   margin-right: 400px;
+}
+.table-header{
+    background-color: whitesmoke;
+}
+#team-rank .table-header label{
+    color: black;
 }
