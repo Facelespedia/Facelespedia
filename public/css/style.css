@@ -5,9 +5,9 @@ body{
     background-color: #191919;
 }
 .banner{
-    background-image: url("../images/bg/bg_2.png");
+    background-image: url("../images/bg/bg_2.jpg");
     background-size: cover;
-    padding: 100px;
+    padding: 200px;
     color: ghostwhite;
     /*opacity: 0.5;
     filter: alpha(opacity=200); */
