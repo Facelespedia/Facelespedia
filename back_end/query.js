@@ -3,9 +3,9 @@ var mysql      = require('mysql');
 var connection;
   connection = mysql.createConnection({
     host     : 'localhost',
-//    user     : 'root',
-    user     : 'gamkub',
-    password : 'gamkung',
+    user     : 'root',
+    // user     : 'gamkub',
+    // password : 'gamkung',
     database : 'facelespedia'
   });
 
