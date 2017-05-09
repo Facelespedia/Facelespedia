@@ -1052,3 +1052,6 @@ main {
   padding: 0 15px;
   border-left: 1px solid #ccc;
 }
+.bg-color {
+  background-color: rgba(101, 116, 134, 0.57);
+}
