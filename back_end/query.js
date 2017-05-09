@@ -236,9 +236,15 @@ exports.getTeam = function(callback){
   }
 
   exports.postPlayer = function(callback , info){
-    connection.query("INSERT INTO Player VALUES ("+info.PlayerID+",\""+info.PlayerName+"\",\""+info.GameName+"\",\""+info.MMR+"\",\""+info.Nation+"\",\""+info.Winrate+"\")",function(err, results,fields){
-      if(!!err) console.log(err);
-    });
+    if(info.TYPE == 'add') {
+      connection.query("INSERT INTO Player VALUES ("+info.PlayerID+",\""+info.PlayerName+"\",\""+info.GameName+"\",\""+info.MMR+"\",\""+info.Nation+"\",\""+info.Winrate+"\")",function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+    }else if(info.TYPE == 'delete') {
+      connection.query("DELETE FROM Player WHERE PlayerID = "+info.PlayerID,function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+    }
   }
 
 

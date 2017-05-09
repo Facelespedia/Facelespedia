@@ -1,0 +1,35 @@
+<script>
+
+    $('#add').click(function(){
+        $('#insert-player').show();
+        $('#delete-player').hide();
+    });
+    $('#remove').click(function(){
+        $('#insert-player').hide();
+        $('#delete-player').show();
+    });
+
+    $('#submit-add').click(function(){
+          if ($('#player-name').val().length == 0 || $('#game-name').val().length == 0 || $('#mmr').val().length == 0 || $('#nation').val().length == 0 || $('#winrate').val().length == 0) {
+              window.alert("ERROR");
+          }else {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/database/postPlayer",
+                    data: "PlayerID=" + (getPlayer.Player.length +1) +
+                          "&PlayerName=" + $('#player-name').val() + 
+                          "&GameName="  + $('#game-name').val() +
+                          "&MMR=" + $('#mmr').val() +
+                          "&Nation=" + $('#nation').val() +
+                          "&Winrate=" + $('#winrate').val()+
+                          "&TYPE=add",
+                    success: function(data) {
+                        alert("sucess");
+                    }
+                });
+                window.alert("ADD SUCCESS");
+          }
+          
+    });
+
+</script>
