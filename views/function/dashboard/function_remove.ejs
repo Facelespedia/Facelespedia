@@ -1,21 +1,24 @@
 <script>
 
-    $('#delete-player #submit').click(function(){
-          if ($('#delete-player #player-id').val().length == 0) {
-              window.alert("ERROR");
-          }else {
-                $.ajax({
-                    type: "POST",
-                    url: "http://localhost:3000/database/postPlayer",
-                    data: "PlayerID=" + $('#delete-player #player-id').val() +
-                          "&TYPE=delete",
-                    success: function(data) {
-                        alert("sucess");
-                    }
-                });
-                window.alert("DELETE SUCCESS");
-          }
+    // $('#delete-player #submit').click(function(){
+    //       if ($('#delete-player #player-id').val().length == 0) {
+    //           window.alert("ERROR");
+    //       }else {
+    //             $.ajax({
+    //                 type: "POST",
+    //                 url: "http://localhost:3000/database/postPlayer",
+    //                 data: "PlayerID=" + $('#delete-player #player-id').val() +
+    //                       "&TYPE=delete",
+    //                 success: function(data) {
+    //                     alert("sucess");
+    //                 }
+    //             });
+    //             window.alert("DELETE SUCCESS");
+    //       }
           
+    // });
+    $('#team-remove').click(function(){
+        $('#form-remove-team').slideToggle(250)
     });
 
 </script>

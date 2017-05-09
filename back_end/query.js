@@ -258,10 +258,22 @@ exports.getTeam = function(callback){
     }
   }
    exports.postPlayerWithTeam = function(callback , info){
-     console.log(info.TeamsubName);
-     console.log(info.GameName);
     if(info.TYPE == 'add') {
       connection.query("INSERT INTO TeamMember SELECT TeamID,PlayerID FROM Team,Player WHERE Team.TeamsubName =\""+info.TeamsubName+"\" && Player.GameName = \""+info.GameName+"\"",function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+    }else if(info.TYPE == 'delete') {
+      connection.query("DELETE FROM Player WHERE PlayerID = "+info.PlayerID,function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+    }
+  }
+
+  exports.postHero = function(callback , info){
+    //  console.log(info.TeamsubName);
+    //  console.log(info.GameName);
+    if(info.TYPE == 'add') {
+      connection.query("INSERT INTO Hero VALUES ("+info.HeroID+",\""+info.HeroName+"\",\""+info.HeroType+"\",\""+info.HeroAttackType+"\",\""+info.HeroRole+"\")",function(err, results,fields){
         if(!!err) console.log(err);
       });
     }else if(info.TYPE == 'delete') {
