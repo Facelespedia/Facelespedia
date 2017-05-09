@@ -14,8 +14,17 @@
                 //  addPlayer += "</td><td class=\"col-xs-10\">"+getPlayerWithTeam.PlayerWithTeam[j].GameName+"</td></tr>";
             }
         }
-        addPlayer += "</tr>";
-        
+        addPlayer += "</tr><tr>";
+
+
+        for(var j = 0 ; j < getPlayerWithTeam.PlayerWithTeam.length ;j++ ) {
+            if(TeamID == getPlayerWithTeam.PlayerWithTeam[j].TeamID){
+                //  addPlayer += "<td class=\"col-xs-2\"><img src=\"/images/player/"+getPlayerWithTeam.PlayerWithTeam[j].GameName+".jpg\"></td>";
+                 addPlayer += "</td><td class=\"col-xs-10\">"+getPlayerWithTeam.PlayerWithTeam[j].GameName+"</td>";
+            }
+        }
+          addPlayer += "</tr>";
+
         document.getElementById('team-card-data').innerHTML =addPlayer;
 
     }

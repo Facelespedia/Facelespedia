@@ -2,11 +2,11 @@
 
     function createCardPlayer(PlayerID){
 
-        document.getElementById('player-card-photo').innerHTML = "<img src=\"/images/player/"+getPlayer.Player[PlayerID-1].GameName+".jpg\" style=\"width:80px\">";
+        document.getElementById('player-card-photo').innerHTML = "<img src=\"/images/player/"+getPlayer.Player[PlayerID-1].GameName+".jpg\" style=\"width:80px;height:90px;\">";
         document.getElementById('player-card-game').innerHTML = getPlayer.Player[PlayerID-1].GameName;
         document.getElementById('player-card-name').innerHTML = getPlayer.Player[PlayerID-1].PlayerName;
         document.getElementById('player-card-nation').innerHTML = getPlayer.Player[PlayerID-1].Nation +"  <img src=\"/images/national/"+getPlayer.Player[PlayerID-1].Nation+".png\" style=\"width:30px\">";
-              
+        document.getElementById('player-card-mmr').innerHTML = getPlayer.Player[PlayerID-1].MMR;
     }
 
-</script> 
+</script>

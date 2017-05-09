@@ -1,15 +1,16 @@
-<form id="search-form-team" class="form-wrapper cf">
-  	<input id="search-input-team" type="text" placeholder="Search team">
-    <button id="search-button-team" type="button" class="btn ">
-      <span class="glyphicon glyphicon-search"></span>
-    </button>
+
+
+
+
+
+<form id="search-form-team" class="search" action="">
+  <input id="search-input-team" type="search" placeholder="Search here..." required>
+  <button  id="search-button-team" type="submit">Search</button>
 </form>
 
-<form id="search-form-player" class="form-wrapper cf" style="display:none;">
-  	<input id="search-input-player" type="text" placeholder="Search player">
-	  <button id = "search-button-player" type="button" class="btn btn-info">
-      <span class="glyphicon glyphicon-search"></span>
-    </button>
+<form id="search-form-player" class="search" action="">
+  <input id="search-input-player" type="search" placeholder="Search here..." required>
+  <button  id = "search-button-player"  type="submit">Search</button>
 </form>
 
 <form class="search-select">
@@ -24,3 +25,14 @@
       <input id="select-player" type="radio" name="optradio">
     </label>
 </form>
+
+
+<div id="search-bar" class="search-bar">
+    <input type="text" />
+    <div id="close" class="toggle"></div>
+</div>
+
+<div id="search-bar" class="search-bar" style="display=none;">
+    <input type="text" />
+    <div id="close" class="toggle"></div>
+</div>
