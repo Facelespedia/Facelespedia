@@ -169,6 +169,26 @@ app.post('/database/postPlayer',function(req,res) {
   }
   query.postPlayer(callback,req.body);
 });
+app.post('/database/postTeam',function(req,res) {
+  // console.log(res);
+  // var PlayerName = req.body.PlayerName
+  // var info = req.body.PlayerName;
+  // console.log("PlayerName : " + info);
+  var callback = function(data) {
+    res.send(data);
+  }
+  query.postTeam(callback,req.body);
+});
+app.post('/database/postPlayerWithTeam',function(req,res) {
+  // console.log(res);
+  // var PlayerName = req.body.PlayerName
+  // var info = req.body.PlayerName;
+  // console.log("PlayerName : " + info);
+  var callback = function(data) {
+    res.send(data);
+  }
+  query.postPlayerWithTeam(callback,req.body);
+});
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);

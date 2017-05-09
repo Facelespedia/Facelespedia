@@ -1,11 +1,49 @@
-<div id = "insert-player" style="display:none;">
-    <form class="form-inline">
-        <div><label>Insert Player</label></div>
-        <div><label>Player Name</label><input class="form-control" id="player-name"> </div>
-        <div><label>Game Name</label><input class="form-control" id="game-name"></div>
-        <div><label>MMR</label><input class="form-control" id="mmr"></div>
-        <div><label>Nation</label><input class="form-control" id="nation"></div>
-        <div><label>Winrate</label><input class="form-control" id="winrate"></div>
-    </form>    
-    <button id= "submit-add">SUBMIT</button>
+<div id = "insert-player">
+    <!--<form class="form-inline">-->
+        <article class="larg">
+        <div><h3 id="player-add">Player<span class="entypo-down-open"></span></h3>
+            <div id = "form-add-player" style="display:none;">
+            <form class="form-inline">    
+            <label>Player Name</label><input class="form-control" id="player-name">
+            <label>Game Name</label><input class="form-control" id="game-name">
+            </form>
+            <form class="form-inline">
+            <label>MMR</label><input class="form-control" id="mmr">
+            <label>Nation</label><input class="form-control" id="nation">
+            <label>Winrate</label><input class="form-control" id="winrate">
+            </form>
+            <button id= "submit-add">SUBMIT</button>
+            </div>
+        </div>
+        <div><h3 id="team-add">Team<span class="entypo-down-open"></span></h3>
+            <div id = "form-add-team" style="display:none;">
+            <form class="form-inline">    
+                <label>Team Name</label><input class="form-control" id="team-name">
+                <label>Team SubName</label><input class="form-control" id="sub-name">
+            </form>
+            <form class="form-inline">
+                <label>Rating</label><input class="form-control" id="rating">
+                <label>Nation</label><input class="form-control" id="nation">
+            </form>
+            <button id= "submit-add">SUBMIT</button>
+            </div>
+        </div>
+        <div><h3 id="team-add-member">Team Add Member<span class="entypo-down-open"></span></h3>
+            <div id = "form-add-member" style="display:none;">
+            <form class="form-inline">    
+                <label>Team SubName</label><input class="form-control" id="sub-name">
+            </form>
+            <form class="form-inline">
+                <label>Game Name</label><input class="form-control" id="game-name">
+            </form>
+            <button id= "submit-add">SUBMIT</button>
+            </div>
+        </div>
+        
+        <div><h3>Hero<span class="entypo-down-open"></span></h3></div>
+        
+        
+        </article>
+    <!--</form>    -->
+    
 </div>
