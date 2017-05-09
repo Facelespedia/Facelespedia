@@ -7,6 +7,7 @@ var cors = require('cors')
 var bodyParser = require('body-parser')
 var query = require('./back_end/query.js');
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.get('/database/getPlayer',function(req,res) {
   var callback = function(data){
@@ -157,6 +158,16 @@ app.get('/database/getStatsFirstBanned',function(req,res) {
     res.send(data);
   };
   query.getStatsFirstBanned(callback);
+});
+app.post('/database/postPlayer',function(req,res) {
+  // console.log(res);
+  // var PlayerName = req.body.PlayerName
+  // var info = req.body.PlayerName;
+  // console.log("PlayerName : " + info);
+  var callback = function(data) {
+    res.send(data);
+  }
+  query.postPlayer(callback,req.body);
 });
 app.listen(PORT , function(err) {
     if(!!err) {

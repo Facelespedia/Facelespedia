@@ -1,4 +1,15 @@
 
+@import url(http://fonts.googleapis.com/css?family=Muli);
+@font-face {
+  font-family: 'entypo';
+  font-style: normal;
+  font-weight: normal;
+  src: url('http://weloveiconfonts.com/api/fonts/entypo/entypo.eot');
+  src: url('http://weloveiconfonts.com/api/fonts/entypo/entypo.eot?#iefix') format('eot'), url('http://weloveiconfonts.com/api/fonts/entypo/entypo.woff') format('woff'), url('http://weloveiconfonts.com/api/fonts/entypo/entypo.ttf') format('truetype'), url('http://weloveiconfonts.com/api/fonts/entypo/entypo.svg#entypo') format('svg');
+}
+.entypo-user:before {
+  content: "\1f464";
+}
 body{
     /*background-image: url("../images/bg/bg_1.jpg");
     background-size: 1680px 900px;*/
