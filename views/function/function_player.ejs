@@ -16,57 +16,48 @@
                         +"<label class=\"col-md-2\">"+getPlayerSortMMR.PlayerSortMMR[i].MMR+"</label></td></tr>";
         }
         for(var i =0; i<getPlayerSea.length; i++) {
-          player_table_sea  +="<tr id=\"team"+getPlayerSea[i].PlayerID+"\" onClick=\"SelectTablePlayer("+getPlayerSea[i].PlayerID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+          player_table_sea  +="<tr id=\"player"+getPlayerSea[i].PlayerID+"\" onClick=\"SelectTablePlayer("+getPlayerSea[i].PlayerID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
             +"<label class=\"col-md-2\"><img src=\"/images/national/"+getPlayerSea[i].Nation+".png\"></label>"
             +"<label class=\"col-md-7\">"+getPlayerSea[i].GameName+"</label>"
             +"<label class=\"col-md-2\">"+getPlayerSea[i].MMR+"</label></td></tr>";
         }
         for(var i=0; i<getPlayerEurope.length; i++) {
-          player_table_europe +="<tr id=\"team"+getPlayerEurope[i].PlayerID+"\" onClick=\"SelectTablePlayer("+getPlayerEurope[i].PlayerID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
-
-
+          player_table_europe +="<tr id=\"player"+getPlayerEurope[i].PlayerID+"\" onClick=\"SelectTablePlayer("+getPlayerEurope[i].PlayerID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
             +"<label class=\"col-md-2\"><img src=\"/images/national/"+getPlayerEurope[i].Nation+".png\"></label>"
             +"<label class=\"col-md-7\">"+getPlayerEurope[i].GameName+"</label>"
-
             +"<label class=\"col-md-2\">"+getPlayerEurope[i].MMR+"</label></td></tr>";
         }
         for(var i=0; i<getPlayerAmerica.length; i++) {
-          player_table_america  +="<tr id=\"team"+getPlayerAmerica[i].PlayerID+"\" onClick=\"SelectTablePlayer("+getPlayerAmerica[i].PlayerID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
-
-
+          player_table_america  +="<tr id=\"player"+getPlayerAmerica[i].PlayerID+"\" onClick=\"SelectTablePlayer("+getPlayerAmerica[i].PlayerID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
             +"<label class=\"col-md-2\"><img src=\"/images/national/"+getPlayerAmerica[i].Nation+".png\"></label>"
             +"<label class=\"col-md-7\">"+getPlayerAmerica[i].GameName+"</label>"
-
             +"<label class=\"col-md-2\">"+getPlayerAmerica[i].MMR+"</label></td></tr>";
         }
         for(var i=0; i<getPlayerChina.length; i++) {
-          player_table_china  +="<tr id=\"team"+getPlayerChina[i].PlayerID+"\" onClick=\"SelectTablePlayer("+getPlayerChina[i].PlayerID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
-
-
+          player_table_china  +="<tr id=\"player"+getPlayerChina[i].PlayerID+"\" onClick=\"SelectTablePlayer("+getPlayerChina[i].PlayerID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
             +"<label class=\"col-md-2\"><img src=\"/images/national/"+getPlayerChina[i].Nation+".png\"></label>"
             +"<label class=\"col-md-7\">"+getPlayerChina[i].PlayerName+"</label>"
-
             +"<label class=\"col-md-2\">"+getPlayerChina[i].MMR+"</label></td></tr>";
         }
 
 
     $('#player-global').click(function() {
-        $.fn.createTablePlayer(player_table_global,this);
+        $.fn.createTablePlayer(player_table_global,this,getPlayerSortMMR.PlayerSortMMR[0].PlayerID);
     });
     $('#player-sea').click(function() {
-        $.fn.createTablePlayer(player_table_sea,this);
+        $.fn.createTablePlayer(player_table_sea,this,getPlayerSea[0].PlayerID);
     });
     $('#player-china').click(function() {
-        $.fn.createTablePlayer(player_table_china,this);
+        $.fn.createTablePlayer(player_table_china,this,getPlayerChina[0].PlayerID);
     });
     $('#player-america').click(function() {
-        $.fn.createTablePlayer(player_table_america,this);
+        $.fn.createTablePlayer(player_table_america,this,getPlayerAmerica[0].PlayerID);
     });
     $('#player-europe').click(function() {
-       $.fn.createTablePlayer(player_table_europe,this);
+       $.fn.createTablePlayer(player_table_europe,this,getPlayerEurope[0].PlayerID);
     });
 
-    $.fn.createTablePlayer = function(PlayerTable,select) {
+    $.fn.createTablePlayer = function(PlayerTable,select,topRank) {
         if(PlayerTable!=tempPlayerTable){
             document.getElementById('player-table').innerHTML = PlayerTable;
             $(".player-menu").hide();
@@ -74,13 +65,14 @@
             $(select).addClass('select-continent');
             tempPlayerTable = PlayerTable;
             tempSelectP = select;
+            tempPlayer = 0
+            SelectTablePlayer(topRank);
         }
     }
 
 
     document.getElementById('player-table').innerHTML = player_table_global;
     document.getElementById('player-global').click();
-    SelectTablePlayer(getPlayerSortMMR.PlayerSortMMR[0].PlayerID);
 
 })
 
@@ -94,8 +86,6 @@ function SelectTablePlayer(PlayerID){
         $('.player-menu').hide();
         $('.player-menu').toggle("slide");
         tempPlayer = PlayerID;
-    }else{
-        $('.player-menu').toggle("slide");
     }
 }
 

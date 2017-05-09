@@ -37,37 +37,36 @@ $(document).ready(function(){
         }
     
     $('#team-global').click(function(){
-        $.fn.createTableTeam(team_table_global,this);
+        $.fn.createTableTeam(team_table_global,this,getTeamSortRating.TeamSortRating[0].TeamID);
     });
     $('#team-sea').click(function() { 
-        $.fn.createTableTeam(team_table_sea,this);
+        $.fn.createTableTeam(team_table_sea,this,getTeamSea[0].TeamID);
     });
     $('#team-china').click(function() {
-       $.fn.createTableTeam(team_table_china,this);
+       $.fn.createTableTeam(team_table_china,this,getTeamChina[0].TeamID);
     });
     $('#team-america').click(function() {
-       $.fn.createTableTeam(team_table_america,this);
+       $.fn.createTableTeam(team_table_america,this,getTeamAmerica[0].TeamID);
     });
     $('#team-europe').click(function() {
-       $.fn.createTableTeam(team_table_europe,this);
+       $.fn.createTableTeam(team_table_europe,this,getTeamEurope[0].TeamID);
     });
 
-    $.fn.createTableTeam = function(TeamTable,select) {  
+    $.fn.createTableTeam = function(TeamTable,select,topRank) {  
         if(TeamTable!=tempTeamTable){
             document.getElementById('team-table').innerHTML = TeamTable;
             $(".team-menu").hide();
-            // $(".team-scroll").hide();
-            // $(".team-scroll").slideToggle("slow");
             $(tempSelect).removeClass('select-continent');
             $(select).addClass('select-continent');
             tempTeamTable = TeamTable;  
             tempSelect = select; 
+            tempTeam = 0;
+            SelectTableTeam(topRank);
         }
     }
 
     document.getElementById('team-table').innerHTML = team_table_global;
     document.getElementById('team-global').click();
-    SelectTableTeam(getTeamSortRating.TeamSortRating[0].TeamID);
 })
 
 
@@ -80,8 +79,6 @@ function SelectTableTeam(TeamID) {
         $('.team-menu').hide();
         $('.team-menu').toggle("slow");
         tempTeam = TeamID;
-    }else{
-        $('.team-menu').toggle( "slow");
     }
 }
 

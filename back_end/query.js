@@ -237,7 +237,10 @@ exports.getTeam = function(callback){
 
   exports.postPlayer = function(callback , info){
     if(info.TYPE == 'add') {
-      connection.query("INSERT INTO Player VALUES ("+info.PlayerID+",\""+info.PlayerName+"\",\""+info.GameName+"\",\""+info.MMR+"\",\""+info.Nation+"\",\""+info.Winrate+"\")",function(err, results,fields){
+      connection.query("INSERT INTO Player VALUES ("+info.PlayerID+",\""+info.PlayerName+"\",\""+info.GameName+"\",\""+info.MMR+"\",\""+info.Nation+"\","+info.Winrate+")",function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+      connection.query("INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentID = "+info.ContinentID+" && Player.PlayerID = "+info.PlayerID,function(err, results,fields){
         if(!!err) console.log(err);
       });
     }else if(info.TYPE == 'delete') {
@@ -249,6 +252,9 @@ exports.getTeam = function(callback){
    exports.postTeam = function(callback , info){
     if(info.TYPE == 'add') {
       connection.query("INSERT INTO Team VALUES ("+info.TeamID+",\""+info.TeamName+"\",\""+info.TeamsubName+"\",\""+info.Rating+"\",\""+info.Nation+"\")",function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+      connection.query("INSERT INTO ContinentTeam SELECT ContinentID,TeamID FROM Continent,Team WHERE Continent.ContinentID = "+info.ContinentID+" && Team.TeamID = "+info.TeamID,function(err, results,fields){
         if(!!err) console.log(err);
       });
     }else if(info.TYPE == 'delete') {
@@ -270,8 +276,6 @@ exports.getTeam = function(callback){
   }
 
   exports.postHero = function(callback , info){
-    //  console.log(info.TeamsubName);
-    //  console.log(info.GameName);
     if(info.TYPE == 'add') {
       connection.query("INSERT INTO Hero VALUES ("+info.HeroID+",\""+info.HeroName+"\",\""+info.HeroType+"\",\""+info.HeroAttackType+"\",\""+info.HeroRole+"\")",function(err, results,fields){
         if(!!err) console.log(err);
@@ -288,3 +292,5 @@ exports.getTeam = function(callback){
   // INSERT INTO Player VALUES (199,"asdads","asdads",8000,"Thai",42);
 //   INSERT INTO TeamMember SELECT TeamID,PlayerID FROM Team,Player
 // WHERE Team.TeamsubName ='OG' && Player.GameName = 'จ๊อบ ค้าม้า';
+// INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentName = info.ContinentName && Player.PlayerID = info.PlayerID
+//INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentName = "Sea & Oceania" && Player.PlayerID = 3

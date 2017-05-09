@@ -11,7 +11,8 @@
                           "&GameName="  + $('#form-add-player #game-name').val() +
                           "&MMR=" + $('#form-add-player #mmr').val() +
                           "&Nation=" + $('#form-add-player #nation').val() +
-                          "&Winrate=" + $('#form-add-player #winrate').val()+
+                          "&Winrate=" + $('#form-add-player #winrate').val() +
+                          "&ContinentID=" + $('#form-add-player select').val() +
                           "&TYPE=add",
                     success: function(data) {
                         alert("sucess");
@@ -33,6 +34,7 @@
                           "&TeamsubName="  + $('#form-add-team #sub-name').val() +
                           "&Rating=" + $('#form-add-team #rating').val() +
                           "&Nation=" + $('#form-add-team #nation').val() +
+                          "&ContinentID=" + $('#form-add-team select').val() +
                           "&TYPE=add",
                     success: function(data) {
                         alert("sucess");

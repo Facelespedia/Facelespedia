@@ -576,7 +576,7 @@ VALUES
 INSERT INTO Continent(ContinentID,ContinentName)
 VALUES
 (1,'Sea & Oceania'),
-(2,'Europe &CIS'),
+(2,'Europe & CIS'),
 (3,'Americas'),
 (4,'China');
 
