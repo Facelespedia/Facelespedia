@@ -1,35 +1,106 @@
 <script>
-
-    $('#add').click(function(){
-        $('#insert-player').show();
-        $('#delete-player').hide();
-    });
-    $('#remove').click(function(){
-        $('#insert-player').hide();
-        $('#delete-player').show();
-    });
-
-    $('#submit-add').click(function(){
-          if ($('#player-name').val().length == 0 || $('#game-name').val().length == 0 || $('#mmr').val().length == 0 || $('#nation').val().length == 0 || $('#winrate').val().length == 0) {
+    $('#form-add-player #submit-add').click(function(){
+          if ($('#form-add-player #player-name').val().length == 0 || $('#form-add-player #game-name').val().length == 0 || $('#form-add-player #mmr').val().length == 0 || $('#form-add-player #nation').val().length == 0 || $('#form-add-player #winrate').val().length == 0) {
               window.alert("ERROR");
           }else {
                 $.ajax({
                     type: "POST",
                     url: "http://localhost:3000/database/postPlayer",
                     data: "PlayerID=" + (getPlayer.Player.length +1) +
-                          "&PlayerName=" + $('#player-name').val() + 
-                          "&GameName="  + $('#game-name').val() +
-                          "&MMR=" + $('#mmr').val() +
-                          "&Nation=" + $('#nation').val() +
-                          "&Winrate=" + $('#winrate').val()+
+                          "&PlayerName=" + $('#form-add-player #player-name').val() + 
+                          "&GameName="  + $('#form-add-player #game-name').val() +
+                          "&MMR=" + $('#form-add-player #mmr').val() +
+                          "&Nation=" + $('#form-add-player #nation').val() +
+                          "&Winrate=" + $('#form-add-player #winrate').val()+
                           "&TYPE=add",
                     success: function(data) {
                         alert("sucess");
                     }
                 });
                 window.alert("ADD SUCCESS");
-          }
+                location.reload();
+          }     
+    });
+    $('#form-add-team #submit-add').click(function(){
+          if ($('#form-add-team #team-name').val().length == 0 || $('#form-add-team #sub-name').val().length == 0 || $('#form-add-team #rating').val().length == 0 || $('#form-add-team #nation').val().length == 0) {
+              window.alert("ERROR");
+          }else {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/database/postTeam",
+                    data: "TeamID=" + (getTeam.Team.length +1) +
+                          "&TeamName=" + $('#form-add-team #team-name').val() + 
+                          "&TeamsubName="  + $('#form-add-team #sub-name').val() +
+                          "&Rating=" + $('#form-add-team #rating').val() +
+                          "&Nation=" + $('#form-add-team #nation').val() +
+                          "&TYPE=add",
+                    success: function(data) {
+                        alert("sucess");
+                    }
+                });
+                window.alert("ADD SUCCESS");
+                location.reload();
+            }
           
     });
+    $('#form-add-member #submit-add').click(function(){
+
+          if ($('#form-add-member #sub-name').val().length == 0 || $('#form-add-member #game-name').val().length == 0) {
+              window.alert("ERROR");
+          }else {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/database/postPlayerWithTeam",
+                    data: "TeamsubName="  + $('#form-add-member #sub-name').val() +
+                          "&GameName=" + $('#form-add-member #game-name').val() +
+                          "&TYPE=add",
+                    success: function(data) {
+                        alert("sucess");
+                    }
+                });
+                window.alert("ADD SUCCESS");
+                location.reload();
+            }
+          
+    });
+    $('#form-add-hero #submit-add').click(function(){
+
+          if ($('#form-add-hero #hero-name').val().length == 0 || $('#form-add-hero #hero-type').val().length == 0 || $('#form-add-hero #hero-attack').val().length == 0 || $('#form-add-hero #hero-role').val().length == 0 ) {
+              window.alert("ERROR");
+          }else {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/database/postHero",
+                    data: "HeroID="  + (getStatsWin.StatsWin.length+1) +
+                          "&HeroName=" + $('#form-add-hero #hero-name').val() +
+                          "&HeroType=" + $('#form-add-hero #hero-type').val() +
+                          "&HeroAttackType=" + $('#form-add-hero #hero-attack').val() +
+                          "&HeroRole=" + $('#form-add-hero #hero-role').val() +
+                          "&TYPE=add",
+                    success: function(data) {
+                        alert("sucess");
+                    }
+                });
+                window.alert("ADD SUCCESS");
+                // location.reload();
+            }
+          
+    });
+    
+    $('#player-add').click(function(){
+        $('#form-add-player').slideToggle(250)
+    });
+    $('#team-add').click(function(){
+        $('#form-add-team').slideToggle(250)
+    });
+    $('#team-add-member').click(function(){
+        $('#form-add-member').slideToggle(250);
+    });  
+    $('#hero-add').click(function(){
+        $('#form-add-hero').slideToggle(250);
+    });    
+
+
+     
 
 </script>
