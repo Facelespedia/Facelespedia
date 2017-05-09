@@ -29,36 +29,24 @@ body{
 .select-table{
     background-color: rgba(128, 128, 128, 0.4);
 }
-
-
-
 .FteamBanner h1{
     /*font-size: 200px;*/
     color: black;
     margin-left: 100px;
     font-size: 80px;
 }
-
 .FPLayerBanner h1{
     /*font-size: 200px;*/
     color: black;
     margin-left: 580px;
     font-size: 80px;
 }
-
 .FHeroBanner h1{
     /*font-size: 200px;*/
     color: black;
     margin-left: 140px;
     font-size: 80px;
 }
-
-
-
-
-
-
-
 .parallax-player{
   display: flex;
   align-items: center;
@@ -72,41 +60,32 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-
 .parallax-team{
-
   display: flex;
   align-items: center;
-
-
     background-image: url("../images/bg/bg_team.jpeg");
-
     /* Set a specific height */
     min-height: 400px;
-
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
-
-
 .parallax-hero{
   display: flex;
   align-items: center;
     /* The image used */
     background-image: url("../images/bg/bgHero.jpg");
-
     /* Set a specific height */
     min-height: 400px;
-
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
+}
+#navbar-top-padding div ul li a{
+    color : black;
+    cursor: pointer;
 }
