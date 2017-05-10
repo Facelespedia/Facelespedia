@@ -7,7 +7,6 @@ var cors = require('cors')
 var bodyParser = require('body-parser')
 var query = require('./back_end/query.js');
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.get('/database/getPlayer',function(req,res) {
   var callback = function(data){
@@ -51,17 +50,71 @@ app.get('/database/getContinentPlayer',function(req,res) {
   };
   query.getContinentPlayer(callback);
 });
+app.get('/database/getTeamMember',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeamMember(callback);
+});
 app.get('/database/getTeamSortRating',function(req,res) {
   var callback = function(data){
     res.send(data);
   };
   query.getTeamSortRating(callback);
 });
+app.get('/database/getTeamSea',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeamSea(callback);
+});
+app.get('/database/getTeamEurope',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeamEurope(callback);
+});
+app.get('/database/getTeamAmerica',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeamAmerica(callback);
+});
+app.get('/database/getTeamChina',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTeamChina(callback);
+});
 app.get('/database/getPlayerSortMMR',function(req,res) {
   var callback = function(data){
     res.send(data);
   };
   query.getPlayerSortMMR(callback);
+});
+app.get('/database/getPlayerSea',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getPlayerSea(callback);
+});
+app.get('/database/getPlayerEurope',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getPlayerEurope(callback);
+});
+app.get('/database/getPlayerAmerica',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getPlayerAmerica(callback);
+});
+app.get('/database/getPlayerChina',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getPlayerChina(callback);
 });
 app.get('/database/getPlayerWithTeam',function(req,res) {
   var callback = function(data){
@@ -105,30 +158,31 @@ app.get('/database/getStatsFirstBanned',function(req,res) {
   };
   query.getStatsFirstBanned(callback);
 });
-app.post('/database/postPlayer',function(req,res) {
-  var callback = function(data) {
+app.get('/database/getBoston',function(req,res) {
+  var callback = function(data){
     res.send(data);
-  }
-  query.postPlayer(callback,req.body);
+  };
+  query.getBoston(callback);
 });
-app.post('/database/postTeam',function(req,res) {
-  var callback = function(data) {
+app.get('/database/getKiev',function(req,res) {
+  var callback = function(data){
     res.send(data);
-  }
-  query.postTeam(callback,req.body);
+  };
+  query.getKiev(callback);
 });
-app.post('/database/postPlayerWithTeam',function(req,res) {
-  var callback = function(data) {
+app.get('/database/getTi6',function(req,res) {
+  var callback = function(data){
     res.send(data);
-  }
-  query.postPlayerWithTeam(callback,req.body);
+  };
+  query.getTi6(callback);
 });
-app.post('/database/postHero',function(req,res) {
-  var callback = function(data) {
+app.get('/database/getManilla',function(req,res) {
+  var callback = function(data){
     res.send(data);
-  }
-  query.postHero(callback,req.body);
+  };
+  query.getManilla(callback);
 });
+
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);
