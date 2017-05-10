@@ -87,15 +87,6 @@ exports.getTeam = function(callback){
     });
   }
 
-  // exports.getTeamMember = function(callback){
-  //   connection.query("SELECT * FROM TeamMember",function(err, results,fields){
-  //     if(!!err) console.log(err);
-  //     var data  = {
-  //       TeamMember : results
-  //     }
-  //     callback(data);
-  //   });
-  // }
 
   exports.getTeamSortRating = function(callback){
     connection.query("SELECT * FROM Team ORDER BY Rating DESC"
@@ -107,50 +98,6 @@ exports.getTeam = function(callback){
       callback(data);
     });
   }
-
-  // exports.getTeamSea = function(callback){
-  //   connection.query("SELECT * FROM Team where TeamID IN(select TeamID from ContinentTeam where ContinentID = 1)ORDER BY Rating DESC"
-  //   ,function(err, results,fields){
-  //     if(!!err) console.log(err);
-  //     var data  = {
-  //       TeamSea : results
-  //     }
-  //     callback(data);
-  //   });
-  // }
-
-  //  exports.getTeamEurope = function(callback){
-  //   connection.query("SELECT * FROM Team where TeamID IN(select TeamID from ContinentTeam where ContinentID = 2)ORDER BY Rating DESC"
-  //   ,function(err, results,fields){
-  //     if(!!err) console.log(err);
-  //     var data  = {
-  //       TeamEurope : results
-  //     }
-  //     callback(data);
-  //   });
-  // }
-
-  //  exports.getTeamAmerica = function(callback){
-  //   connection.query("SELECT * FROM Team where TeamID IN(select TeamID from ContinentTeam where ContinentID = 3)ORDER BY Rating DESC"
-  //   ,function(err, results,fields){
-  //     if(!!err) console.log(err);
-  //     var data  = {
-  //       TeamAmerica : results
-  //     }
-  //     callback(data);
-  //   });
-  // }
-
-  //  exports.getTeamChina = function(callback){
-  //   connection.query("SELECT * FROM Team where TeamID IN(select TeamID from ContinentTeam where ContinentID = 4)ORDER BY Rating DESC"
-  //   ,function(err, results,fields){
-  //     if(!!err) console.log(err);
-  //     var data  = {
-  //       TeamChina : results
-  //     }
-  //     callback(data);
-  //   });
-  // }
 
   exports.getPlayerSortMMR = function(callback){
     connection.query("SELECT * FROM Player ORDER BY MMR DESC"
@@ -320,6 +267,15 @@ exports.getTeam = function(callback){
     });
   }
 
+  exports.getHeroMost = function(callback){
+    connection.query("SELECT * FROM HeroMostWin",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        HeroMost : results
+      }
+      callback(data);
+    });
+  }
 
   // INSERT INTO Player VALUES (199,"asdads","asdads",8000,"Thai",42);
 //   INSERT INTO TeamMember SELECT TeamID,PlayerID FROM Team,Player
