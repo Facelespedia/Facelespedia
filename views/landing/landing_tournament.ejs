@@ -1,6 +1,12 @@
 <nav class="navbar-team head-team-rank">
     <div class="navbar-team-header ">
-      <label class ="nav-faceless-logo navbar-brand">Tournament</label>
+      <label>TOURNAMENT</label>
+      <select class="form-control">
+          <option value = 1>Sea & Oceania</option>
+          <option value = 2>Europe & CIS</option>
+          <option value = 3>Americas</option>
+          <option value = 4>China</option>
+      </select>
     </div>
     <div class="collapse navbar-collapse nav-menu">
       <ul id="tournament"class="nav navbar-nav navbar-right">
@@ -12,15 +18,15 @@
     </div>
 </nav>
 <div class="body-tournament">
-  <div id="tournament" class="col-xs-5">
+  <div id="tournament" class="container container-fluid">
       <div class="tournament-scroll" >
         <table id="Tournament-table" class="table table-bordered">
         </table>
       </div>
   </div>
-  <div class="col-xs-7">
+  <!-- <div class="col-xs-7">
       <div class="team-menu " style="display: none;" >
           <% include ../team-card/team-card.ejs %>
       </div>
-  </div>
+  </div> -->
 </div>
