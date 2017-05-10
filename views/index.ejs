@@ -42,6 +42,7 @@
   </div>
 
 
+
   <div class="parallax-player">
     <div class="parallex">
       <div class="FPLayerBanner">
@@ -49,6 +50,7 @@
       </div>
     </div>
   </div>
+
 
   <div id="player-rank" class="container-fluid">
     <% include landing/landing_player-rank.ejs %>
@@ -65,7 +67,16 @@
     <% include landing/landing_stat.ejs %>
   </div>
 
-  
+
+  <div id="stats" class="container-fluid">
+    <% include landing/landing_stat.ejs %>
+  </div>
+
+  <div id="tournament" class="container-fluid">
+    <% include landing/landing_tournament.ejs %>
+  </div>
+
+
   <% include function/function_search.ejs %>
   <% include function/function_landing.ejs %>
   <% include function/function_team.ejs %>
@@ -73,5 +84,6 @@
   <% include function/function_player.ejs %>
   <% include function/function_player-card.ejs %>
   <% include function/function_stats.ejs %>
+  <% include function/function_tournament.ejs %>
 </body>
 </html>

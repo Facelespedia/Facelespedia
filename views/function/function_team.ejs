@@ -33,12 +33,13 @@ $(document).ready(function(){
             team_table_china +="<tr id=\"team"+getTeamChina[i].TeamID+"\" onClick=\"SelectTableTeam("+getTeamChina[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
                               +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamChina[i].Nation+".png\"></label>"
                               +"<label class=\"col-md-7\">"+getTeamChina[i].TeamName+"</label>"
-                              +"<label class=\"col-md-2\">"+getTeamChina[i].Rating+"</label></td></tr>"; 
+                              +"<label class=\"col-md-2\">"+getTeamChina[i].Rating+"</label></td></tr>";
         }
-    
+
     $('#team-global').click(function(){
         $.fn.createTableTeam(team_table_global,this,getTeamSortRating.TeamSortRating[0].TeamID);
     });
+
     $('#team-sea').click(function() { 
         $.fn.createTableTeam(team_table_sea,this,getTeamSea[0].TeamID);
     });
@@ -51,6 +52,7 @@ $(document).ready(function(){
     $('#team-europe').click(function() {
        $.fn.createTableTeam(team_table_europe,this,getTeamEurope[0].TeamID);
     });
+
 
     $.fn.createTableTeam = function(TeamTable,select,topRank) {  
         if(TeamTable!=tempTeamTable){
@@ -67,6 +69,7 @@ $(document).ready(function(){
 
     document.getElementById('team-table').innerHTML = team_table_global;
     document.getElementById('team-global').click();
+
 })
 
 

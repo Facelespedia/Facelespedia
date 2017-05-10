@@ -1,0 +1,74 @@
+<script>
+
+$(document).ready(function(){
+
+     var table_Tournament_Ti6 = "",table_Tournament_Manilla = "",table_Tournament_Boston = "",table_Tournament_Kiev = "";
+     var tempTourTable="",tempSelect=null;
+
+     for(var i = 0; i<getBoston.Boston.length; i++) {
+         table_Tournament_Boston +=
+        "<tr id=\"team"+getBoston.Boston[i].BostonTeamId+"\" ><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+        +"<label class=\"col-md-2\"><img src=\"/images/team/"+getBoston.Boston[i].TeamsubName+".png\" style=width:30px;height:30px;></label>"
+        +"<label class=\"col-md-7\">"+getBoston.Boston[i].TeamName+"</label>"
+        +"<label class=\"col-md-2\">"+"$"+getBoston.Boston[i].BostonEarning+"</label></td></tr>";
+     }
+
+     for(var i = 0; i<getTi6.Ti6.length; i++) {
+        table_Tournament_Ti6  +=
+        "<tr id=\"team"+getTi6.Ti6[i].Ti6TeamId+"\" ><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+        +"<label class=\"col-md-2\"><img src=\"/images/team/"+getTi6.Ti6[i].TeamsubName+".png\" style=width:30px;height:30px;></label>"
+        +"<label class=\"col-md-7\">"+getTi6.Ti6[i].TeamName+"</label>"
+        +"<label class=\"col-md-2\">"+"$"+getTi6.Ti6[i].Ti6Earning+"</label></td></tr>";
+     }
+     for(var i = 0; i<getKiev.Kiev.length; i++) {
+        table_Tournament_Kiev  +=
+        "<tr id=\"team"+getKiev.Kiev[i].KievTeamId+"\" ><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+        +"<label class=\"col-md-2\"><img src=\"/images/team/"+getKiev.Kiev[i].TeamsubName+".png\" style=width:30px;height:30px;></label>"
+        +"<label class=\"col-md-7\">"+getKiev.Kiev[i].TeamName+"</label>"
+        +"<label class=\"col-md-2\">"+"$"+getKiev.Kiev[i].KievEarning+"</label></td></tr>";
+     }
+     for(var i = 0; i<getManilla.Manilla.length; i++) {
+        table_Tournament_Manilla  +=
+        "<tr id=\"team"+getManilla.Manilla[i].ManillaTeamId+"\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
+        +"<label class=\"col-md-2\"><img src=\"/images/team/"+getManilla.Manilla[i].TeamsubName+".png\" style=width:30px;height:30px;></label>"
+        +"<label class=\"col-md-7\">"+getManilla.Manilla[i].TeamName+"</label>"
+        +"<label class=\"col-md-2\">"+"$"+getManilla.Manilla[i].ManillaEarning+"</label></td></tr>";
+     }
+
+     $('#table_Ti6').click(function(){
+         $.fn.createTableTour(table_Tournament_Ti6,this);
+     });
+
+     $('#table_Manilla').click(function() {
+         $.fn.createTableTour(table_Tournament_Manilla,this);
+     });
+
+     $('#table_Kiev').click(function() {
+        $.fn.createTableTour(table_Tournament_Kiev,this);
+     });
+
+     $('#table_Boston').click(function() {
+        $.fn.createTableTour(table_Tournament_Boston,this);
+     });
+
+
+     $.fn.createTableTour = function(TourTable,select) {
+         if(TourTable!=tempTourTable){
+             document.getElementById('Tournament-table').innerHTML = TourTable;
+             $(".tour-menu").hide();
+             // $(".tournament-scroll-scroll").hide();
+             // $(".tournament-scroll-scroll").slideToggle("slow");
+             $(tempSelect).removeClass('select-tournament');
+             $(select).addClass('select-tournament');
+             tempTourTable = TourTable;
+             tempSelect = select;
+         }
+     }
+     document.getElementById('Tournament-table').innerHTML = table_Tournament_Ti6 ;
+     document.getElementById('table_Ti6').click();
+})
+
+
+
+
+</script>
