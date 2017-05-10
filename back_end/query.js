@@ -4,8 +4,6 @@ var connection;
   connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    // user     : 'gamkub',
-    // password : 'gamkung',
     database : 'facelespedia'
   });
 
