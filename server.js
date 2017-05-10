@@ -158,6 +158,31 @@ app.get('/database/getStatsFirstBanned',function(req,res) {
   };
   query.getStatsFirstBanned(callback);
 });
+app.get('/database/getBoston',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getBoston(callback);
+});
+app.get('/database/getKiev',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getKiev(callback);
+});
+app.get('/database/getTi6',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getTi6(callback);
+});
+app.get('/database/getManilla',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getManilla(callback);
+});
+
 app.listen(PORT , function(err) {
     if(!!err) {
       console.log(err);

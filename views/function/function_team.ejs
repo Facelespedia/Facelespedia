@@ -33,41 +33,43 @@ $(document).ready(function(){
             team_table_china +="<tr id=\"team"+getTeamChina[i].TeamID+"\" onClick=\"SelectTableTeam("+getTeamChina[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
                               +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamChina[i].Nation+".png\"></label>"
                               +"<label class=\"col-md-7\">"+getTeamChina[i].TeamName+"</label>"
-                              +"<label class=\"col-md-2\">"+getTeamChina[i].Rating+"</label></td></tr>"; 
+                              +"<label class=\"col-md-2\">"+getTeamChina[i].Rating+"</label></td></tr>";
         }
-    
+
     $('#team-global').click(function(){
-        $.fn.createTableTeam(team_table_global,this);
-    });
-    $('#team-sea').click(function() { 
-        $.fn.createTableTeam(team_table_sea,this);
-    });
-    $('#team-china').click(function() {
-       $.fn.createTableTeam(team_table_china,this);
-    });
-    $('#team-america').click(function() {
-       $.fn.createTableTeam(team_table_america,this);
-    });
-    $('#team-europe').click(function() {
-       $.fn.createTableTeam(team_table_europe,this);
+        $.fn.createTableTeam(team_table_global,this,getTeamSortRating.TeamSortRating[0].TeamID);
     });
 
-    $.fn.createTableTeam = function(TeamTable,select) {  
+    $('#team-sea').click(function() { 
+        $.fn.createTableTeam(team_table_sea,this,getTeamSea[0].TeamID);
+    });
+    $('#team-china').click(function() {
+       $.fn.createTableTeam(team_table_china,this,getTeamChina[0].TeamID);
+    });
+    $('#team-america').click(function() {
+       $.fn.createTableTeam(team_table_america,this,getTeamAmerica[0].TeamID);
+    });
+    $('#team-europe').click(function() {
+       $.fn.createTableTeam(team_table_europe,this,getTeamEurope[0].TeamID);
+    });
+
+
+    $.fn.createTableTeam = function(TeamTable,select,topRank) {  
         if(TeamTable!=tempTeamTable){
             document.getElementById('team-table').innerHTML = TeamTable;
             $(".team-menu").hide();
-            // $(".team-scroll").hide();
-            // $(".team-scroll").slideToggle("slow");
             $(tempSelect).removeClass('select-continent');
             $(select).addClass('select-continent');
             tempTeamTable = TeamTable;  
             tempSelect = select; 
+            tempTeam = 0;
+            SelectTableTeam(topRank);
         }
     }
 
     document.getElementById('team-table').innerHTML = team_table_global;
     document.getElementById('team-global').click();
-    
+
 })
 
 
@@ -80,8 +82,6 @@ function SelectTableTeam(TeamID) {
         $('.team-menu').hide();
         $('.team-menu').toggle("slow");
         tempTeam = TeamID;
-    }else{
-        $('.team-menu').toggle( "slow");
     }
 }
 

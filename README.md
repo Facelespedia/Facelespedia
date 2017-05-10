@@ -26,3 +26,5 @@ ERROR 1050 (42S01) at line 3: Table '...' already exists
 ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
 -> mysql.server start
 =======================================================================
+EXPORT DATABASE -> mysqldump -u root -p facelespedia > db_backup.sql
+=======================================================================

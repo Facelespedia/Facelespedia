@@ -1,5 +1,4 @@
 <script>
-
     $("#select-team").click(function(){
         resetText();
         $("#search-form-team").show();
@@ -17,7 +16,7 @@
             theme: "dark"
         };
         $("#search-input-team").easyAutocomplete(options);
-        $('#search-button-team').click(function(){
+        $('#search-form-team button').click(function(){
                 var teamID=-1;
                 for(var i=0; i<getTeam.Team.length; i++) {
                     if(getTeam.Team[i].TeamsubName == $("#search-input-team").val()) {
@@ -30,6 +29,7 @@
                     SelectTableTeam(teamID);
                     resetText();
                 }else {
+                    window.alert('ERROR');
                     window.location.href = ("#myPage");
                 }     
         });
@@ -51,7 +51,7 @@
             theme: "dark"
         };
         $("#search-input-player").easyAutocomplete(options);
-        $('#search-button-player').click(function(){
+        $('#search-form-player button').click(function(){
                 var playerID=-1;
                 for(var i=0; i<getPlayer.Player.length; i++) {
                     if(getPlayer.Player[i].GameName == $("#search-input-player").val()) {
@@ -64,6 +64,7 @@
                     SelectTablePlayer(playerID);
                     resetText();
                 }else {
+                    window.alert('ERROR');
                     window.location.href = ("#myPage");
                 }
         });

@@ -236,3 +236,98 @@ exports.getTeam = function(callback){
       callback(data);
     });
   }
+
+
+
+  exports.postPlayer = function(callback , info){
+    if(info.TYPE == 'add') {
+      connection.query("INSERT INTO Player VALUES ("+info.PlayerID+",\""+info.PlayerName+"\",\""+info.GameName+"\",\""+info.MMR+"\",\""+info.Nation+"\","+info.Winrate+")",function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+      connection.query("INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentID = "+info.ContinentID+" && Player.PlayerID = "+info.PlayerID,function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+    }else if(info.TYPE == 'delete') {
+      connection.query("DELETE Player,ContinentPlayer FROM Player INNER JOIN ContinentPlayer WHERE ContinentPlayer.PlayerID = Player.PlayerID && Player.GameName = \""+info.GameName+"\"",function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+    }
+  }
+   exports.postTeam = function(callback , info){
+    if(info.TYPE == 'add') {
+      connection.query("INSERT INTO Team VALUES ("+info.TeamID+",\""+info.TeamName+"\",\""+info.TeamsubName+"\",\""+info.Rating+"\",\""+info.Nation+"\")",function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+      connection.query("INSERT INTO ContinentTeam SELECT ContinentID,TeamID FROM Continent,Team WHERE Continent.ContinentID = "+info.ContinentID+" && Team.TeamID = "+info.TeamID,function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+    }else if(info.TYPE == 'delete') {
+      connection.query("DELETE FROM Player WHERE GameName = "+info.GameName,function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+    }
+   }
+
+  exports.getBoston = function(callback){
+    connection.query("SELECT BostonTeamId,TeamName,TeamsubName,BostonEarning FROM Team,Tournament Where Team.TeamID = Tournament.BostonTeamId ORDER BY BostonEarning DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Boston : results
+      }
+      callback(data);
+    });
+  }
+
+
+  exports.postHero = function(callback , info){
+    if(info.TYPE == 'add') {
+      connection.query("INSERT INTO Hero VALUES ("+info.HeroID+",\""+info.HeroName+"\",\""+info.HeroType+"\",\""+info.HeroAttackType+"\",\""+info.HeroRole+"\")",function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+    }else if(info.TYPE == 'delete') {
+      connection.query("DELETE FROM Player WHERE PlayerID = "+info.PlayerID,function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+    }
+  }
+
+  exports.getKiev = function(callback){
+    connection.query("SELECT KievTeamId, TeamName,TeamsubName,KievEarning FROM Team,Tournament Where Team.TeamID = Tournament.KievTeamId ORDER BY KievEarning DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Kiev : results
+      }
+      callback(data);
+    });
+
+  }
+
+  exports.getTi6 = function(callback){
+    connection.query("SELECT Ti6TeamId,TeamName,TeamsubName,Ti6Earning FROM Team,Tournament Where Team.TeamID = Tournament.Ti6TeamId ORDER BY Ti6Earning DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Ti6 : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getManilla = function(callback){
+    connection.query("SELECT ManillaTeamId,TeamName,TeamsubName,ManillaEarning FROM Team,Tournament Where Team.TeamID = Tournament.ManillaTeamId ORDER BY ManillaEarning DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Manilla : results
+      }
+      callback(data);
+    });
+  }
+
+
+  // INSERT INTO Player VALUES (199,"asdads","asdads",8000,"Thai",42);
+//   INSERT INTO TeamMember SELECT TeamID,PlayerID FROM Team,Player
+// WHERE Team.TeamsubName ='OG' && Player.GameName = 'จ๊อบ ค้าม้า';
+// INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentName = info.ContinentName && Player.PlayerID = info.PlayerID
+//INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentName = "Sea & Oceania" && Player.PlayerID = 3
+
+// DELETE Player,ContinentPlayer FROM Player INNER JOIN ContinentPlayer WHERE ContinentPlayer.PlayerID = Player.PlayerID && Player.GameName = "qqq";
+
