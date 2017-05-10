@@ -27,26 +27,6 @@ exports.getTeam = function(callback){
   });
 }
 
-// exports.getHero = function(callback){
-//   connection.query("SELECT * FROM Hero",function(err, results,fields){
-//     if(!!err) console.log(err);
-//     var data  = {
-//       Hero : results
-//     }
-//     callback(data);
-//   });
-// }
-
-// exports.getHeroStat = function(callback){
-//   connection.query("SELECT * FROM HeroStat",function(err, results,fields){
-//     if(!!err) console.log(err);
-//     var data  = {
-//       HeroStat : results
-//     }
-//     callback(data);
-//   });
-// }
-
   exports.getPlayer = function(callback){
     connection.query("SELECT * FROM Player",function(err, results,fields){
       if(!!err) console.log(err);
@@ -207,7 +187,7 @@ exports.getTeam = function(callback){
         if(!!err) console.log(err);
       });
     }else if(info.TYPE == 'delete') {
-      connection.query("DELETE FROM Player WHERE GameName = "+info.GameName,function(err, results,fields){
+      connection.query("DELETE Team,ContinentTeam FROM Team INNER JOIN ContinentTeam WHERE ContinentTeam.TeamID = Team.TeamID && Team.TeamsubName = \""+info.TeamsubName+"\"",function(err, results,fields){
         if(!!err) console.log(err);
       });
     }
@@ -285,3 +265,4 @@ exports.getTeam = function(callback){
 
 // DELETE Player,ContinentPlayer FROM Player INNER JOIN ContinentPlayer WHERE ContinentPlayer.PlayerID = Player.PlayerID && Player.GameName = "qqq";
 
+// DELETE Team,ContinentTeam FROM Team INNER JOIN ContinentTeam WHERE ContinentTeam.TeamID = Team.TeamID && Team.TeamsubName = \""info.TeamsubName+"\""
