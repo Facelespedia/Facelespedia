@@ -33,13 +33,13 @@ $(document).ready(function(){
             team_table_china +="<tr id=\"team"+getTeamChina[i].TeamID+"\" onClick=\"SelectTableTeam("+getTeamChina[i].TeamID+")\"><td><label class=\"col-md-1\">"+(i+1)+"</label>"
                               +"<label class=\"col-md-2\"><img src=\"/images/national/"+getTeamChina[i].Nation+".png\"></label>"
                               +"<label class=\"col-md-7\">"+getTeamChina[i].TeamName+"</label>"
-                              +"<label class=\"col-md-2\">"+getTeamChina[i].Rating+"</label></td></tr>"; 
+                              +"<label class=\"col-md-2\">"+getTeamChina[i].Rating+"</label></td></tr>";
         }
-    
+
     $('#team-global').click(function(){
         $.fn.createTableTeam(team_table_global,this);
     });
-    $('#team-sea').click(function() { 
+    $('#team-sea').click(function() {
         $.fn.createTableTeam(team_table_sea,this);
     });
     $('#team-china').click(function() {
@@ -52,7 +52,7 @@ $(document).ready(function(){
        $.fn.createTableTeam(team_table_europe,this);
     });
 
-    $.fn.createTableTeam = function(TeamTable,select) {  
+    $.fn.createTableTeam = function(TeamTable,select) {
         if(TeamTable!=tempTeamTable){
             document.getElementById('team-table').innerHTML = TeamTable;
             $(".team-menu").hide();
@@ -60,14 +60,14 @@ $(document).ready(function(){
             // $(".team-scroll").slideToggle("slow");
             $(tempSelect).removeClass('select-continent');
             $(select).addClass('select-continent');
-            tempTeamTable = TeamTable;  
-            tempSelect = select; 
+            tempTeamTable = TeamTable;
+            tempSelect = select;
         }
     }
 
     document.getElementById('team-table').innerHTML = team_table_global;
     document.getElementById('team-global').click();
-    
+
 })
 
 

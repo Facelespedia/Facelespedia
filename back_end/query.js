@@ -4,6 +4,7 @@ var connection;
   connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
+    password     : 'pass',
     database : 'facelespedia'
   });
 
@@ -163,7 +164,7 @@ exports.getTeam = function(callback){
     });
   }
 
-  
+
    exports.getPlayerWithTeam = function(callback){
     connection.query("SELECT Team.TeamID,GameName FROM Player,TeamMember,Team where Player.PlayerID = TeamMember.PlayerID && Team.TeamID = TeamMember.TeamID"
     ,function(err, results,fields){
@@ -174,7 +175,7 @@ exports.getTeam = function(callback){
        callback(data);
      });
    }
-   
+
   exports.getStatsWin = function(callback){
     connection.query("SELECT Hero.HeroID,HeroName,Winratepercent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY Winratepercent DESC",function(err, results,fields){
       if(!!err) console.log(err);
@@ -184,7 +185,7 @@ exports.getTeam = function(callback){
       callback(data);
     });
   }
-  
+
   exports.getStatsPick = function(callback){
     connection.query("SELECT Hero.HeroID,HeroName,PercentPick FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentPick DESC",function(err, results,fields){
       if(!!err) console.log(err);
@@ -235,56 +236,54 @@ exports.getTeam = function(callback){
     });
   }
 
-  exports.postPlayer = function(callback , info){
-    if(info.TYPE == 'add') {
-      connection.query("INSERT INTO Player VALUES ("+info.PlayerID+",\""+info.PlayerName+"\",\""+info.GameName+"\",\""+info.MMR+"\",\""+info.Nation+"\",\""+info.Winrate+"\")",function(err, results,fields){
-        if(!!err) console.log(err);
-      });
-    }else if(info.TYPE == 'delete') {
-      connection.query("DELETE FROM Player WHERE PlayerID = "+info.PlayerID,function(err, results,fields){
-        if(!!err) console.log(err);
-      });
-    }
-  }
-   exports.postTeam = function(callback , info){
-    if(info.TYPE == 'add') {
-      connection.query("INSERT INTO Team VALUES ("+info.TeamID+",\""+info.TeamName+"\",\""+info.TeamsubName+"\",\""+info.Rating+"\",\""+info.Nation+"\")",function(err, results,fields){
-        if(!!err) console.log(err);
-      });
-    }else if(info.TYPE == 'delete') {
-      connection.query("DELETE FROM Player WHERE PlayerID = "+info.PlayerID,function(err, results,fields){
-        if(!!err) console.log(err);
-      });
-    }
-  }
-   exports.postPlayerWithTeam = function(callback , info){
-    if(info.TYPE == 'add') {
-      connection.query("INSERT INTO TeamMember SELECT TeamID,PlayerID FROM Team,Player WHERE Team.TeamsubName =\""+info.TeamsubName+"\" && Player.GameName = \""+info.GameName+"\"",function(err, results,fields){
-        if(!!err) console.log(err);
-      });
-    }else if(info.TYPE == 'delete') {
-      connection.query("DELETE FROM Player WHERE PlayerID = "+info.PlayerID,function(err, results,fields){
-        if(!!err) console.log(err);
-      });
-    }
-  }
-
-  exports.postHero = function(callback , info){
-    //  console.log(info.TeamsubName);
-    //  console.log(info.GameName);
-    if(info.TYPE == 'add') {
-      connection.query("INSERT INTO Hero VALUES ("+info.HeroID+",\""+info.HeroName+"\",\""+info.HeroType+"\",\""+info.HeroAttackType+"\",\""+info.HeroRole+"\")",function(err, results,fields){
-        if(!!err) console.log(err);
-      });
-    }else if(info.TYPE == 'delete') {
-      connection.query("DELETE FROM Player WHERE PlayerID = "+info.PlayerID,function(err, results,fields){
-        if(!!err) console.log(err);
-      });
-    }
+  exports.getStatsFirstBanned = function(callback){
+    connection.query("SELECT Hero.HeroID,HeroName,PercentFirstBanned FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentFirstBanned DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        StatsFirstBanned : results
+      }
+      callback(data);
+    });
   }
 
 
+  exports.getBoston = function(callback){
+    connection.query("SELECT BostonTeamId,TeamName,TeamsubName,BostonEarning FROM Team,Tournament Where Team.TeamID = Tournament.BostonTeamId ORDER BY BostonEarning DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Boston : results
+      }
+      callback(data);
+    });
+  }
 
-  // INSERT INTO Player VALUES (199,"asdads","asdads",8000,"Thai",42);
-//   INSERT INTO TeamMember SELECT TeamID,PlayerID FROM Team,Player
-// WHERE Team.TeamsubName ='OG' && Player.GameName = 'จ๊อบ ค้าม้า';
+  exports.getKiev = function(callback){
+    connection.query("SELECT KievTeamId, TeamName,TeamsubName,KievEarning FROM Team,Tournament Where Team.TeamID = Tournament.KievTeamId ORDER BY KievEarning DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Kiev : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getTi6 = function(callback){
+    connection.query("SELECT Ti6TeamId,TeamName,TeamsubName,Ti6Earning FROM Team,Tournament Where Team.TeamID = Tournament.Ti6TeamId ORDER BY Ti6Earning DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Ti6 : results
+      }
+      callback(data);
+    });
+  }
+
+
+    exports.getManilla = function(callback){
+      connection.query("SELECT ManillaTeamId,TeamName,TeamsubName,ManillaEarning FROM Team,Tournament Where Team.TeamID = Tournament.ManillaTeamId ORDER BY ManillaEarning DESC",function(err, results,fields){
+        if(!!err) console.log(err);
+        var data  = {
+          Manilla : results
+        }
+        callback(data);
+      });
+    }
