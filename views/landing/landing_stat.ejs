@@ -1,19 +1,49 @@
 <div class="head-stats"><h1>Hero Stats</h1></div>
 <div>
-    <div class="col-md-4">
-        <a id="stats-winrate">=Highest winrate=  </a>
-        <button id="close" style="display: none;">X</button>
+  <div class = "row">
+    <div class="col-xs-4 col-sm-4">
+        <h3 id="stats-winrate"> Highest winrate  </h3>
+        <button class="w3-btn w3-red" id="close_winrate"  style="display: none" ><h2>X</h2></button>
         <table id ="stats-hero-winrate"></table>
-        <button id="show-all">Show All</button>
+        <button class="w3-btn w3-red" id="show-all_winrate">Show All</button>
     </div>
-    <a id="stats-pick" class="col-md-4">=Most picked=  </a>
-    <a id="stats-contest" class="col-md-4">=Most contested=  </a>
+
+    <div class="col-xs-4 col-sm-4">
+      <h3 id="stats-pick" > Most picked  </h3>
+    <button class="w3-btn w3-red" id="close_most_picked"  style="display: none" ><h2>X</h2></button>
+      <table id ="stats-hero-most_picked"></table>
+      <button class="w3-btn w3-red" id="show-all_most_picked">Show All</button>
+    </div>
+
+    <div class="col-xs-4 col-sm-4">
+      <h3 id="stats-contest" > Most contested  </h3>
+      <button class="w3-btn w3-red" id="close_most_contest"  style="display: none" ><h2>X</h2></button>
+      <table id ="stats-hero-most_contest"></table>
+      <button class="w3-btn w3-red" id="show-all_most_contest">Show All</button>
+    </div>
+
+  </div>
 </div>
 <div>
-    <a id="stats-ban" class="col-md-4">=Most banned=  </a>
-    <a id="stats-fpick" class="col-md-4">=Most first picked= </a>
-    <a id="stats-fban" class="col-md-4">=Most banned in first ban phase=</a>
+  <div class = "row">
+    <div class="col-xs-4 col-sm-4">
+      <h3 id="stats-ban" > Most banned  </h3>
+  <button class="w3-btn w3-red" id="close_most_ban"  style="display: none" ><h2>X</h2></button>
+      <table id ="stats-hero-most_ban"></table>
+      <button class="w3-btn w3-red" id="show-all_most_ban">Show All</button>
+    </div>
+
+    <div  class="col-xs-4 col-sm-4">
+      <h3 id="stats-fpick"> Most first picked </h3>
+<button class="w3-btn w3-red" id="close_most_firstpick"  style="display: none" ><h2>X</h2></button>
+      <table id ="stats-hero-most_firstpick"></table>
+      <button class="w3-btn w3-red" id="show-all_most_firstpick">Show All</button>
+    </div>
+    <div class="col-xs-4 col-sm-4">
+      <h3 id="stats-fban" > Most banned in first ban phase </h3>
+<button class="w3-btn w3-red" id="close_most_firstban"  style="display: none" ><h2>X</h2></button>
+      <table id ="stats-hero-most_firstban"></table>
+      <button class="w3-btn w3-red" id="show-all_most_firstban">Show All</button>
+    </div>
+  </div>
 </div>
-
-
-

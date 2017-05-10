@@ -236,6 +236,7 @@ exports.getTeam = function(callback){
   }
 
 
+
   exports.postPlayer = function(callback , info){
     if(info.TYPE == 'add') {
       connection.query("INSERT INTO Player VALUES ("+info.PlayerID+",\""+info.PlayerName+"\",\""+info.GameName+"\",\""+info.MMR+"\",\""+info.Nation+"\","+info.Winrate+")",function(err, results,fields){

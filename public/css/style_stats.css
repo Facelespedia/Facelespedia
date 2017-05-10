@@ -35,8 +35,192 @@
     width: 100%;
     color: black;
 }
+/*Image of hero----------------------------*/
 #stats-hero-winrate tr td img{
    margin-bottom: 15px;
    height: 40px;
    width: 40px;
+}
+
+#stats-hero-most_picked tr td img{
+   margin-bottom: 15px;
+   height: 40px;
+   width: 40px;
+}
+#stats-hero-most_contest tr td img{
+   margin-bottom: 15px;
+   height: 40px;
+   width: 40px;
+}
+#stats-hero-most_ban tr td img{
+   margin-bottom: 15px;
+   height: 40px;
+   width: 40px;
+}
+#stats-hero-most_firstpick tr td img{
+   margin-bottom: 15px;
+   height: 40px;
+   width: 40px;
+}
+#stats-hero-most_firstban tr td img{
+   margin-bottom: 15px;
+   height: 40px;
+   width: 40px;
+}
+
+h2 {
+  margin: 1px;
+  font-size: 15px;
+}
+#close_winrate{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#close_most_picked{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#close_most_contest{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#close_most_ban{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#close_most_firstpick{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#close_most_firstban{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#show-all_winrate{
+  margin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+#show-all_most_picked{
+  argin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+#show-all_most_contest{
+  argin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+#show-all_most_ban{
+  argin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+#show-all_most_firstpick{
+  argin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+#show-all_most_firstban{
+  argin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+
+
+
+/*------------------------------------------*/
+
+/*progress bar------------------------------*/
+
+
+.bar-wrap {
+
+  background-color: rgba(0, 0, 0, 0.15);
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-top-right-radius: 9px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.bar-fill {
+
+  background-color: rgba(255, 41, 41, 1);
+  display: block;
+  border-top-right-radius: 9px;
+  height: 15px;
+  width: 0px;
+}
+
+.bar-fill2 {
+
+  background-color: rgba(137, 36, 36, 1);
+  display: block;
+  border-top-right-radius: 9px;
+  height: 15px;
+  width: 0px;
+}
+/*------------------------------------------*/
+
+#Heroname {
+  margin-left: 10px;
+}
+
+#percenShow {
+  margin-left: 15px;
+}
+#bt_border {
+    border-bottom: 3px solid red;
+}
+
+h3 {
+  color: rgba(200, 15, 15, 1);
+	font-family: "Helvetica Neue";
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
 }
