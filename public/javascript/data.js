@@ -103,14 +103,14 @@ $.ajax({
            }
         }
   });
-// $.ajax({
-//         type: "GET",
-//         url: "http://localhost:3000/database/getHero",
-//         dataType: "json",
-//         success: function(response){
-//            getHero = response
-//         }
-// });
+$.ajax({
+        type: "GET",
+        url: "http://localhost:3000/database/getHero",
+        dataType: "json",
+        success: function(response){
+           getHero = response
+        }
+});
 // $.ajax({
 //       type: "GET",
 //       url: "http://localhost:3000/database/getHeroStat",
