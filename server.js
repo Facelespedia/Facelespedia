@@ -182,6 +182,32 @@ app.get('/database/getManilla',function(req,res) {
   };
   query.getManilla(callback);
 });
+app.get('/database/getHeroMost',function(req,res) {
+  var callback = function(data){
+    res.send(data);
+  };
+  query.getHeroMost(callback);
+});
+// app.get('/database/postPlayer',function(req,res) {
+//  var info = request.body;
+//   var callback = function(data) {
+//     console.log("---- Get prediction info ----");
+//     response.status(200).send(data);
+//   }
+//   query.getPredictionInfo(callback , info);
+// });
+// app.get('/database/postTeam',function(req,res) {
+//   var callback = function(data){
+//     res.send(data);
+//   };
+//   query.getHeroMost(callback);
+// });
+// app.get('/database/postHero',function(req,res) {
+//   var callback = function(data){
+//     res.send(data);
+//   };
+//   query.getHeroMost(callback);
+// });
 
 app.listen(PORT , function(err) {
     if(!!err) {

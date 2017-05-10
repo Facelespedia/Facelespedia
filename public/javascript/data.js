@@ -199,3 +199,11 @@ $.ajax({
             getTi6 = response
       }
 });
+$.ajax({
+      type: "GET",
+      url: "http://localhost:3000/database/getHeroMost",
+      dataType: "json",
+      success: function(response){
+            getHeroMost = response
+      }
+});
