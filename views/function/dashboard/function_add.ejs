@@ -73,7 +73,7 @@
                 $.ajax({
                     type: "POST",
                     url: "http://localhost:3000/database/postHero",
-                    data: "HeroID="  + (getStatsWin.StatsWin.length+1) +
+                    data: "HeroID="  + (getHero.Hero.length+1) +
                           "&HeroName=" + $('#form-add-hero #hero-name').val() +
                           "&HeroType=" + $('#form-add-hero #hero-type').val() +
                           "&HeroAttackType=" + $('#form-add-hero #hero-attack').val() +

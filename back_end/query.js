@@ -47,6 +47,16 @@ exports.getTeam = function(callback){
     });
   }
 
+  exports.getHero = function(callback){
+    connection.query("SELECT * FROM Hero",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Hero : results
+      }
+      callback(data);
+    });
+  }
+
   exports.getContinentTeam = function(callback){
     connection.query("SELECT * FROM ContinentTeam",function(err, results,fields){
       if(!!err) console.log(err);
