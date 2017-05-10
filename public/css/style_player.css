@@ -1,20 +1,15 @@
 #player-rank {
     background-color: #1c1c1c;
     color:whitesmoke;
-    padding-bottom: 35px;
+    padding-bottom: 40px;
+    padding-top: 70px;
 }
 
 #player-rank .player-scroll{
     height: 442px;
     overflow: auto;
 }
-.head-player-rank {
-    padding-top: 40px;
-}
-.body-player-rank {
-    padding-top: 20px;
-    border: 0px;
-}
+
 #player-rank .table label {
     text-align: center;
     color: whitesmoke;
