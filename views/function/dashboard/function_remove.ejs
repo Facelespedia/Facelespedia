@@ -1,7 +1,7 @@
 <script>
-
-     $(document).ready(function(){
-       var options = {
+     $('#player-remove').click(function(){
+        $('#form-remove-player').slideToggle(250)
+         var options = {
             url: 'http://localhost:3000/database/getPlayer',
             listLocation: "Player",
             getValue: "GameName",
@@ -14,10 +14,22 @@
             theme: "dark"
         };
         $("#search-input-player").easyAutocomplete(options);
-     })
-
-     $('#player-remove').click(function(){
-        $('#form-remove-player').slideToggle(250)
+     });
+     $('#team-remove').click(function(){
+        $('#form-remove-team').slideToggle(250)
+         var options = {
+            url: 'http://localhost:3000/database/getTeam',
+            listLocation: "Teamr",
+            getValue: "TeamsubName",
+            list: {
+                maxNumberOfElements: 10,
+                match: {
+                    enabled: true
+                }
+            },
+            theme: "dark"
+        };
+        $("#search-input-team").easyAutocomplete(options);
      });
 
      $('#search-button').click(function(){
