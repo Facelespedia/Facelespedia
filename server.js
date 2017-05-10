@@ -7,6 +7,7 @@ var cors = require('cors')
 var bodyParser = require('body-parser')
 var query = require('./back_end/query.js');
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
 app.get('/database/getPlayer',function(req,res) {
   var callback = function(data){
@@ -188,26 +189,30 @@ app.get('/database/getHeroMost',function(req,res) {
   };
   query.getHeroMost(callback);
 });
-// app.get('/database/postPlayer',function(req,res) {
-//  var info = request.body;
-//   var callback = function(data) {
-//     console.log("---- Get prediction info ----");
-//     response.status(200).send(data);
-//   }
-//   query.getPredictionInfo(callback , info);
-// });
-// app.get('/database/postTeam',function(req,res) {
-//   var callback = function(data){
-//     res.send(data);
-//   };
-//   query.getHeroMost(callback);
-// });
-// app.get('/database/postHero',function(req,res) {
-//   var callback = function(data){
-//     res.send(data);
-//   };
-//   query.getHeroMost(callback);
-// });
+app.post('/database/postPlayer',function(req,res) {
+  var callback = function(data) {
+    res.send(data);
+  }
+  query.postPlayer(callback,req.body);
+});
+app.post('/database/postTeam',function(req,res) {
+  var callback = function(data) {
+    res.send(data);
+  }
+  query.postTeam(callback,req.body);
+});
+app.post('/database/postPlayerWithTeam',function(req,res) {
+  var callback = function(data) {
+    res.send(data);
+  }
+  query.postPlayerWithTeam(callback,req.body);
+});
+app.post('/database/postHero',function(req,res) {
+  var callback = function(data) {
+    res.send(data);
+  }
+  query.postHero(callback,req.body);
+});
 
 app.listen(PORT , function(err) {
     if(!!err) {
