@@ -263,18 +263,7 @@ exports.getTeam = function(callback){
         if(!!err) console.log(err);
       });
     }
-
-  exports.getStatsFirstBanned = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,PercentFirstBanned FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentFirstBanned DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsFirstBanned : results
-      }
-      callback(data);
-    });
-
-  }
-
+   }
 
   exports.getBoston = function(callback){
     connection.query("SELECT BostonTeamId,TeamName,TeamsubName,BostonEarning FROM Team,Tournament Where Team.TeamID = Tournament.BostonTeamId ORDER BY BostonEarning DESC",function(err, results,fields){
@@ -297,6 +286,7 @@ exports.getTeam = function(callback){
         if(!!err) console.log(err);
       });
     }
+  }
 
   exports.getKiev = function(callback){
     connection.query("SELECT KievTeamId, TeamName,TeamsubName,KievEarning FROM Team,Tournament Where Team.TeamID = Tournament.KievTeamId ORDER BY KievEarning DESC",function(err, results,fields){
@@ -319,6 +309,15 @@ exports.getTeam = function(callback){
     });
   }
 
+  exports.getManilla = function(callback){
+    connection.query("SELECT ManillaTeamId,TeamName,TeamsubName,ManillaEarning FROM Team,Tournament Where Team.TeamID = Tournament.ManillaTeamId ORDER BY ManillaEarning DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Manilla : results
+      }
+      callback(data);
+    });
+  }
 
 
   // INSERT INTO Player VALUES (199,"asdads","asdads",8000,"Thai",42);
@@ -328,14 +327,4 @@ exports.getTeam = function(callback){
 //INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentName = "Sea & Oceania" && Player.PlayerID = 3
 
 // DELETE Player,ContinentPlayer FROM Player INNER JOIN ContinentPlayer WHERE ContinentPlayer.PlayerID = Player.PlayerID && Player.GameName = "qqq";
-
-    exports.getManilla = function(callback){
-      connection.query("SELECT ManillaTeamId,TeamName,TeamsubName,ManillaEarning FROM Team,Tournament Where Team.TeamID = Tournament.ManillaTeamId ORDER BY ManillaEarning DESC",function(err, results,fields){
-        if(!!err) console.log(err);
-        var data  = {
-          Manilla : results
-        }
-        callback(data);
-      });
-    }
 
