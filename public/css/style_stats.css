@@ -67,6 +67,110 @@
    height: 40px;
    width: 40px;
 }
+
+h2 {
+  margin: 1px;
+  font-size: 15px;
+}
+#close_winrate{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#close_most_picked{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#close_most_contest{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#close_most_ban{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#close_most_firstpick{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#close_most_firstban{
+  height: 30px;
+  width: 40px;
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 20px;
+  float:right;
+}
+#show-all_winrate{
+  margin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+#show-all_most_picked{
+  argin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+#show-all_most_contest{
+  argin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+#show-all_most_ban{
+  argin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+#show-all_most_firstpick{
+  argin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+#show-all_most_firstban{
+  argin: 20px;
+  border: 3px solid rgba(0, 0, 0, 1);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  border-radius: 10px;
+}
+
+
+
 /*------------------------------------------*/
 
 /*progress bar------------------------------*/

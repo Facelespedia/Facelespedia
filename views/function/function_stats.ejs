@@ -22,7 +22,7 @@ $(document).ready(function(){
         stats_table_winrate_min +="<td><label id =\"Heroname\">"+getStatsWin.StatsWin[i].HeroName+"</label>";
         if( i < 5 ){
           stats_table_winrate_min +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsWin.StatsWin[i].Winratepercent+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsPick.StatsPick[i].PercentPick+"</span></div></td></tr>";
+                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsWin.StatsWin[i].Winratepercent+"</span></div></td></tr>";
 
         }
         else {
