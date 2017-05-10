@@ -47,6 +47,13 @@ body{
     margin-left: 140px;
     font-size: 80px;
 }
+
+.FTourBanner h1{
+    /*font-size: 200px;*/
+    color: black;
+    margin-left: 750px;
+    font-size: 80px;
+}
 .parallax-player{
   display: flex;
   align-items: center;
@@ -85,6 +92,21 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.parallax-tour{
+  display: flex;
+  align-items: center;
+    /* The image used */
+    background-image: url("../images/bg/bg_tour.jpg");
+    /* Set a specific height */
+    min-height: 400px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #navbar-top-padding div ul li a{
     color : dimgray;
     cursor: pointer;

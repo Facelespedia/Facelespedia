@@ -3,20 +3,20 @@
     function createCardPlayer(PlayerID){
 
         var addHero = "<tr>";
-        document.getElementById('player-card-photo').innerHTML = "<img src=\"/images/player/"+getPlayer.Player[PlayerID-1].GameName+".jpg\" style=\"width:80px;height:90px;\">";
+        document.getElementById('player-card-photo').innerHTML = "<img src=\"/images/player/"+getPlayer.Player[PlayerID-1].GameName+".jpg\" style=\"width:120px;height:110px;\">";
         document.getElementById('player-card-game').innerHTML = getPlayer.Player[PlayerID-1].GameName;
         document.getElementById('player-card-name').innerHTML = getPlayer.Player[PlayerID-1].PlayerName;
         document.getElementById('player-card-nation').innerHTML = getPlayer.Player[PlayerID-1].Nation +"  <img src=\"/images/national/"+getPlayer.Player[PlayerID-1].Nation+".png\" style=\"width:30px\">";
         document.getElementById('player-card-mmr').innerHTML = getPlayer.Player[PlayerID-1].MMR;
-        
+
         for(var j = 0 ; j < getHeroMost.HeroMost.length ;j++ ) {
             if(PlayerID == getHeroMost.HeroMost[j].PlayerID){
                 // console.log(getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero1-1].HeroName);
-                addHero += "<td class=\"col-xs-2\"><img src=\"/images/hero/"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero1-1].HeroName+".jpg\"></td>";
-                addHero += "<td class=\"col-xs-2\"><img src=\"/images/hero/"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero2-1].HeroName+".jpg\"></td>";
-                addHero += "<td class=\"col-xs-2\"><img src=\"/images/hero/"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero3-1].HeroName+".jpg\"></td>";
-                addHero += "<td class=\"col-xs-2\"><img src=\"/images/hero/"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero4-1].HeroName+".jpg\"></td>";
-                addHero += "<td class=\"col-xs-2\"><img src=\"/images/hero/"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero5-1].HeroName+".jpg\"></td>";
+                addHero += "<td class=\"col-md-2\"><img src=\"/images/hero/"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero1-1].HeroName+".jpg\"style=\"width:70px;height:50px;\"></td>";
+                addHero += "<td class=\"col-md-2\"><img src=\"/images/hero/"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero2-1].HeroName+".jpg\"style=\"width:70px;height:50px;\"></td>";
+                addHero += "<td class=\"col-md-2\"><img src=\"/images/hero/"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero3-1].HeroName+".jpg\"style=\"width:70px;height:50px;\"></td>";
+                addHero += "<td class=\"col-md-2\"><img src=\"/images/hero/"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero4-1].HeroName+".jpg\"style=\"width:70px;height:50px;\"></td>";
+                addHero += "<td class=\"col-md-2\"><img src=\"/images/hero/"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero5-1].HeroName+".jpg\"style=\"width:70px;height:50px;\"></td>";
                 break;
             }
         }
@@ -26,11 +26,11 @@
         for(var j = 0 ; j < getHeroMost.HeroMost.length ;j++ ) {
             if(PlayerID == getHeroMost.HeroMost[j].PlayerID){
                 // console.log(getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero1-1].HeroName);
-                addHero += "<td class=\"col-xs-10\">"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero1-1].HeroName+"</td>";
-                addHero += "<td class=\"col-xs-10\">"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero2-1].HeroName+"</td>";
-                addHero += "<td class=\"col-xs-10\">"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero3-1].HeroName+"</td>";
-                addHero += "<td class=\"col-xs-10\">"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero4-1].HeroName+"</td>";
-                addHero += "<td class=\"col-xs-10\">"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero5-1].HeroName+"</td>";
+                addHero += "<td class=\"col-md-2\">"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero1-1].HeroName+"</td>";
+                addHero += "<td class=\"col-md-2\">"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero2-1].HeroName+"</td>";
+                addHero += "<td class=\"col-md-2\">"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero3-1].HeroName+"</td>";
+                addHero += "<td class=\"col-md-2\">"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero4-1].HeroName+"</td>";
+                addHero += "<td class=\"col-md-2\">"+getStatsWin.StatsWin[getHeroMost.HeroMost[j].Hero5-1].HeroName+"</td>";
                 break;
             }
         }
