@@ -1,14 +1,11 @@
 #stats {
-      background-color: #1E1D1D;
+    background-color: #1E1D1D;
     background-size: cover;
     padding-bottom: 600px;
     color:whitesmoke;
     padding-bottom: 35px;
+    padding-top: 70px;
 }
-.head-stats {
-    padding-top: 30px;
-}
-
 #stats-hero tr td label {
     margin-left: 20px;
     font-size: 12px;

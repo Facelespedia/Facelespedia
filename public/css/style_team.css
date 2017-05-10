@@ -2,18 +2,12 @@
     background-color: #1c1c1c;
     background-size: cover;
     padding-bottom: 35px;
+    padding-top: 70px;
     color:whitesmoke;
 }
 #team-rank .team-scroll{
     height: 442px;
     overflow: auto;
-}
-.head-team-rank {
-    padding-top: 40px;
-}
-.body-team-rank {
-    padding-top: 20px;
-    border: 0px;
 }
 #team-rank .table label {
     text-align: center;
