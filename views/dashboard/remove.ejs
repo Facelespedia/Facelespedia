@@ -1,10 +1,9 @@
 <div id = "remove-form" style="display:none;">
-        <article>
-        
+    <div class="larg">
         <div><h3 id="player-remove">Player<span class="entypo-down-open"></span></h3>
-            <div id = "form-remove-player" style="display:none;">
-                <form class="form-inline">
-                    <input id="search-input-player" type="text" placeholder="Search team">
+            <div id = "form-remove-player" style="display:none; border: 0px;">
+                <form >
+                    <input id="search-input-player" type="text" placeholder="Search team" style = "color : black;height:40px">
                     <button id = "search-button" type="button" class="btn btn-inverse">
                         <span class="glyphicon glyphicon-search"></span>
                     </button>
@@ -13,13 +12,7 @@
                     <% include ../player-card/player-card.ejs %>
                     <button id= "submit-delete">DELETE</button>
                 </div>
-                
             </div>
         </div>
-
-        
-        
-        </article>
-    
-    
+    </article>
 </div>
