@@ -1,0 +1,57 @@
+#tournament{
+    background-color: #1c1c1c;
+    color:whitesmoke;
+    padding-bottom: 35px;
+}
+
+#tournament.tournament-scroll{
+    height: 442px;
+    overflow: auto;
+}
+.head-tournament {
+    padding-top: 40px;
+}
+.body-tournament {
+    padding-top: 20px;
+    border: 0px;
+}
+#tournament .table label {
+    text-align: center;
+    color: whitesmoke;
+}
+.tournament-menu {
+    margin-left: 100px;
+    padding-top: 30px;
+
+}
+#tournament .table label img {
+    border: 1px solid;
+    border-color: black;
+    width: 15px;
+    height: 15px;
+    margin-bottom: 4px;
+}
+/*#tournament-card-data {
+    margin-left: 120px;
+    margin-top: 0px;
+    color: whitesmoke;
+}
+
+
+#tournament-card-data tr td img{
+    border: 1px solid;
+    border-color: whitesmoke;
+    margin-bottom: 10px;
+    width:60px;
+    height:35px;
+}*/
+#tournament-rank #tournament-table tr:hover {
+    background-color: rgba(128, 128, 128, 0.4);
+    cursor: pointer;
+}
+#tournament #tournament-table tr label{
+    cursor: pointer;
+}
+#tournament .table-header label{
+    color: black;
+}

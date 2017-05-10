@@ -7,7 +7,7 @@
                     type: "POST",
                     url: "http://localhost:3000/database/postPlayer",
                     data: "PlayerID=" + (getPlayer.Player.length +1) +
-                          "&PlayerName=" + $('#form-add-player #player-name').val() + 
+                          "&PlayerName=" + $('#form-add-player #player-name').val() +
                           "&GameName="  + $('#form-add-player #game-name').val() +
                           "&MMR=" + $('#form-add-player #mmr').val() +
                           "&Nation=" + $('#form-add-player #nation').val() +
@@ -19,8 +19,10 @@
                     }
                 });
                 window.alert("ADD SUCCESS");
-                // location.reload();
-          }     
+
+                location.reload();
+          }
+
     });
     $('#form-add-team #submit-add').click(function(){
           if ($('#form-add-team #team-name').val().length == 0 || $('#form-add-team #sub-name').val().length == 0 || $('#form-add-team #rating').val().length == 0 || $('#form-add-team #nation').val().length == 0) {
@@ -30,7 +32,7 @@
                     type: "POST",
                     url: "http://localhost:3000/database/postTeam",
                     data: "TeamID=" + (getTeam.Team.length +1) +
-                          "&TeamName=" + $('#form-add-team #team-name').val() + 
+                          "&TeamName=" + $('#form-add-team #team-name').val() +
                           "&TeamsubName="  + $('#form-add-team #sub-name').val() +
                           "&Rating=" + $('#form-add-team #rating').val() +
                           "&Nation=" + $('#form-add-team #nation').val() +
@@ -43,7 +45,7 @@
                 window.alert("ADD SUCCESS");
                 // location.reload();
             }
-          
+
     });
     $('#form-add-member #submit-add').click(function(){
 
@@ -63,7 +65,7 @@
                 window.alert("ADD SUCCESS");
                 location.reload();
             }
-          
+
     });
     $('#form-add-hero #submit-add').click(function(){
 
@@ -86,9 +88,9 @@
                 window.alert("ADD SUCCESS");
                 // location.reload();
             }
-          
+
     });
-    
+
     $('#player-add').click(function(){
         $('#form-add-player').slideToggle(250)
     });
@@ -97,12 +99,12 @@
     });
     $('#team-add-member').click(function(){
         $('#form-add-member').slideToggle(250);
-    });  
+    });
     $('#hero-add').click(function(){
         $('#form-add-hero').slideToggle(250);
-    });    
+    });
 
 
-     
+
 
 </script>
