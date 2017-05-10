@@ -1,24 +1,58 @@
 <script>
 
-    // $('#delete-player #submit').click(function(){
-    //       if ($('#delete-player #player-id').val().length == 0) {
-    //           window.alert("ERROR");
-    //       }else {
-    //             $.ajax({
-    //                 type: "POST",
-    //                 url: "http://localhost:3000/database/postPlayer",
-    //                 data: "PlayerID=" + $('#delete-player #player-id').val() +
-    //                       "&TYPE=delete",
-    //                 success: function(data) {
-    //                     alert("sucess");
-    //                 }
-    //             });
-    //             window.alert("DELETE SUCCESS");
-    //       }
-          
-    // });
-    $('#team-remove').click(function(){
-        $('#form-remove-team').slideToggle(250)
-    });
+     $(document).ready(function(){
+       var options = {
+            url: 'http://localhost:3000/database/getPlayer',
+            listLocation: "Player",
+            getValue: "GameName",
+            list: {
+                maxNumberOfElements: 10,
+                match: {
+                    enabled: true
+                }
+            },
+            theme: "dark"
+        };
+        $("#search-input-player").easyAutocomplete(options);
+     })
+
+     $('#player-remove').click(function(){
+        $('#form-remove-player').slideToggle(250)
+     });
+
+     $('#search-button').click(function(){
+                var playerID=-1;
+                for(var i=0; i<getPlayer.Player.length; i++) {
+                    if(getPlayer.Player[i].GameName == $("#search-input-player").val()) {
+                        playerID = getPlayer.Player[i].PlayerID;
+                        break;
+                    }
+                }
+                if(playerID != -1) {
+                    createCardPlayer(playerID);
+                    $('.player-menu').show();
+                }else {
+                    window.alert('ERROR');
+                }     
+        });
+
+        $('#form-remove-player #submit-delete').click(function(){
+            if ($('#form-remove-player #search-input-player').val() == 0) {
+              window.alert("ERROR");
+          }else {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/database/postPlayer",
+                    data: "GameName=" + $('#form-remove-player #search-input-player').val() +
+                          "&TYPE=delete",
+                    success: function(data) {
+                        alert("sucess");
+                    }
+                });
+                window.alert("DELETE SUCCESS");
+                location.reload();
+          }     
+        });
+     
 
 </script>

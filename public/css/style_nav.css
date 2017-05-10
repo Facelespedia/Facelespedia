@@ -10,10 +10,6 @@
 }
 .navbar {
     border: 0px;
-    /*border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;*/
 }
 .user a:before{
     content: "\1f464"

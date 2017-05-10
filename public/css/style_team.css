@@ -1,5 +1,5 @@
 #team-rank {
-    background-color: #1E1D1D;
+    background-color: #1c1c1c;
     background-size: cover;
     padding-bottom: 35px;
     color:whitesmoke;
@@ -50,20 +50,22 @@
     width:60px;
     height:35px;
 }
-
-#team-rank .table tr:hover {
-    background-color: whitesmoke;
+#team-rank #team-table tr:hover {
+    background-color: rgba(128, 128, 128, 0.4);
+    cursor: pointer;
 }
-
-#team-rank .table tr:hover label{
-    color: black;
+#team-rank #team-table tr label{
+    cursor: pointer;
 }
-
 .margin-top-roster{
   margin-top: 25px;
 }
-
-
 .margin-left-roster{
   margin-right: 400px;
+}
+.table-header{
+    background-color: whitesmoke;
+}
+#team-rank .table-header label{
+    color: black;
 }

@@ -1,5 +1,5 @@
 #player-rank {
-  background-color: #1E1D1D;
+    background-color: #1c1c1c;
     color:whitesmoke;
     padding-bottom: 35px;
 }
@@ -45,11 +45,13 @@
     width:60px;
     height:35px;
 }
-
-
-#player-rank .table tr:hover {
-    background-color: whitesmoke;
+#player-rank #player-table tr:hover {
+    background-color: rgba(128, 128, 128, 0.4);
+    cursor: pointer;
 }
-#player-rank .table tr:hover label{
+#player-rank #player-table tr label{
+    cursor: pointer;
+}
+#player-rank .table-header label{
     color: black;
 }
