@@ -31,6 +31,7 @@ $.ajax({
         url: "http://localhost:3000/database/getContinentTeam",
         dataType: "json",
         success: function(res){
+            getContinentTeam = res
            for(var j = 0; j < getTeamSortRating.TeamSortRating.length; j++){
             for( var i = 0; i < res.ContinentTeam.length; i++  ) {
                   if(res.ContinentTeam[i].TeamID == getTeamSortRating.TeamSortRating[j].TeamID){

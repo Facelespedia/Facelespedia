@@ -1,18 +1,35 @@
 <script>
 
-    var getplayerID = "";
+    var getplayerID = "",getteamID="";
 
     $('#player-edit').click(function(){
         $('#form-edit-player').slideToggle(250);
-        search($('#form-edit-player select').val());
+        $("#form-edit-player #search-input-team").val("");
+        $('#form-edit-team').hide();
+        searchPlayer($('#form-edit-player #select-1').val());
     });
-    $('#form-edit-player select').change(function(){
-        search($('#form-edit-player select').val());
+     $('#team-edit').click(function(){
+        $('#form-edit-team').slideToggle(250);
+        $("#form-edit-player #search-input-player").val("");
+        $('#form-edit-player').hide();
+        searchTeam($('#form-edit-team #select-1').val());
     });
-    function search(value) {
+    $('#form-edit-player #select-1').change(function(){
+        $("#form-edit-player #search-input-player").val("");
+        $('#form-edit-player #menu-edit').hide();
+        searchPlayer($('#form-edit-player #select-1').val());
+    });
+    $('#form-edit-team #select-1').change(function(){
+        $("#form-edit-team #search-input-team").val("");
+        $('#form-edit-team #menu-edit').hide();
+        searchTeam($('#form-edit-team #select-1').val());
+    });
+
+    function searchPlayer(value) {
+        var url = 'http://localhost:3000/database/getPlayer';
         var options = {
-            url: 'http://localhost:3000/database/getPlayer',
-            listLocation: "Player",
+            url: url,
+            listLocation: 'Player',
             getValue: value,
             list: {
                 maxNumberOfElements: 10,
@@ -22,9 +39,25 @@
             },
             theme: "dark"
         };
-
-        $("#form-edit-player #search-input-player").easyAutocomplete(options);
+        $('#form-edit-player #search-input-player').easyAutocomplete(options);
         $('#form-edit-player #search-input-player').attr("placeholder", "Search " + value);
+    }
+    function searchTeam(value) {
+        var url = 'http://localhost:3000/database/getTeam';
+        var options = {
+            url: url,
+            listLocation: 'Team',
+            getValue: value,
+            list: {
+                maxNumberOfElements: 10,
+                match: {
+                    enabled: true
+                }
+            },
+            theme: "dark"
+        };
+        $('#form-edit-team #search-input-team').easyAutocomplete(options);
+        $('#form-edit-team #search-input-team').attr("placeholder", "Search " + value);
     }
 
      $('#form-edit-player #search-button').click(function(){
@@ -45,8 +78,27 @@
         $('#form-edit-player #menu-edit #mmr').val(getPlayer.Player[getplayerID-1].MMR);
         $('#form-edit-player #menu-edit #nation').val(getPlayer.Player[getplayerID-1].Nation);
         $('#form-edit-player #menu-edit #winrate').val(getPlayer.Player[getplayerID-1].Winrate);
-        $('#form-edit-player #menu-edit select option').attr("selected",getContinent.Continent[(getContinentPlayer.ContinentPlayer[getplayerID-1].ContinentID)-1].ContinentName);
+        $('#form-edit-player #menu-edit select').val(getContinentPlayer.ContinentPlayer[getplayerID-1].ContinentID);
         $('#form-edit-player #menu-edit').show();    
+     });
+     $('#form-edit-team #search-button').click(function(){
+
+         for(var i = 0 ; i < getTeam.Team.length ; i++ ){
+            if(getTeam.Team[i].TeamName == $('#form-edit-team #search-input-team').val()){
+                getteamID = getTeam.Team[i].TeamID;
+                break;
+            }
+             if(getTeam.Team[i].TeamsubName == $('#form-edit-team #search-input-team').val()){
+                getteamID = getTeam.Team[i].TeamID;
+                break;
+            }
+        }
+        $('#form-edit-team #menu-edit #team-name').val(getTeam.Team[getteamID-1].TeamName);
+        $('#form-edit-team #menu-edit #sub-name').val(getTeam.Team[getteamID-1].TeamsubName);
+        $('#form-edit-team #menu-edit #rating').val(getTeam.Team[getteamID-1].Rating);
+        $('#form-edit-team #menu-edit #nation').val(getTeam.Team[getteamID-1].Nation);
+        $('#form-edit-team #menu-edit select').val(getContinentTeam.ContinentTeam[getteamID-1].ContinentID);
+        $('#form-edit-team #menu-edit').show();    
      });
 
      $('#form-edit-player #menu-edit #submit-edit').click(function(){
@@ -72,17 +124,28 @@
                 // reloadEdit ();
           }     
         });
+        $('#form-edit-team #menu-edit #submit-edit').click(function(){
+          if ($('#form-edit-team #team-name').val().length == 0 || $('#form-edit-team #sub-name').val().length == 0 || $('#form-edit-team #rating').val().length == 0 || $('#form-edit-team #nation').val().length == 0 ) {
+              window.alert("ERROR");
+          }else {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/database/postTeam",
+                    data: "TeamID=" + getteamID +
+                          "&TeamName=" + $('#form-edit-team #team-name').val() +
+                          "&TeamsubName="  + $('#form-edit-team #sub-name').val() +
+                          "&Rating=" + $('#form-edit-team #rating').val() +
+                          "&Nation=" + $('#form-edit-team #nation').val() +
+                          "&ContinentID=" + $('#form-edit-team select').val() +
+                          "&TYPE=edit",
+                    success: function(data) {
+                        alert("sucess");
+                    }
+                });
+                window.alert("EDIT SUCCESS");
+                // reloadEdit ();
+          }     
+        });
 
-        function reloadEdit () {
-            location.reload();
-            $('#edit').click(function(){
-                $('#add').removeClass('bg-color');
-                $('#remove').removeClass('bg-color');
-                $('#edit').addClass('bg-color');
-                $('#add-form').hide();
-                $('#remove-form').hide();
-                $('#edit-form').show();
-            });
-        }
 
 </script>

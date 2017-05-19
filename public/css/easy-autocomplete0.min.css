@@ -22,6 +22,9 @@
 #search-input-player {
   color: black !important;
 }
+#search-input-team {
+  color: black !important;
+}
 
 .easy-autocomplete-container{
   padding-left: 0px !important;
