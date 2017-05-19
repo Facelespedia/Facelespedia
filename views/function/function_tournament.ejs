@@ -35,37 +35,28 @@ $(document).ready(function(){
         +"<label class=\"col-md-2\">"+"$"+getManilla.Manilla[i].ManillaEarning+"</label></td></tr>";
      }
 
-     $('#table_Ti6').click(function(){
-         $.fn.createTableTour(table_Tournament_Ti6,this);
-     });
 
-     $('#table_Manilla').click(function() {
-         $.fn.createTableTour(table_Tournament_Manilla,this);
-     });
-
-     $('#table_Kiev').click(function() {
-        $.fn.createTableTour(table_Tournament_Kiev,this);
-     });
-
-     $('#table_Boston').click(function() {
-        $.fn.createTableTour(table_Tournament_Boston,this);
-     });
+    $('#select-tour').change(function(){
+        if($('#select-tour').val() == 'TI6') {
+            $.fn.createTableTour(table_Tournament_Ti6);
+        }else if($('#select-tour').val() == 'Manilla') {
+            $.fn.createTableTour(table_Tournament_Manilla);
+        }else if($('#select-tour').val() == 'Kiev') {
+            $.fn.createTableTour(table_Tournament_Kiev);
+        }else if($('#select-tour').val() == 'Boston') {
+            $.fn.createTableTour(table_Tournament_Boston);
+        }
+        
+    });
 
 
-     $.fn.createTableTour = function(TourTable,select) {
+     $.fn.createTableTour = function(TourTable) {
          if(TourTable!=tempTourTable){
              document.getElementById('Tournament-table').innerHTML = TourTable;
-             $(".tour-menu").hide();
-             // $(".tournament-scroll-scroll").hide();
-             // $(".tournament-scroll-scroll").slideToggle("slow");
-             $(tempSelect).removeClass('select-tournament');
-             $(select).addClass('select-tournament');
-             tempTourTable = TourTable;
-             tempSelect = select;
          }
      }
      document.getElementById('Tournament-table').innerHTML = table_Tournament_Ti6 ;
-     document.getElementById('table_Ti6').click();
+
 })
 
 

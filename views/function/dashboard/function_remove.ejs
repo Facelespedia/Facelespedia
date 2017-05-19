@@ -1,7 +1,7 @@
 <script>
-
-     $(document).ready(function(){
-       var options = {
+     $('#player-remove').click(function(){
+        $('#form-remove-player').slideToggle(250)
+         var options = {
             url: 'http://localhost:3000/database/getPlayer',
             listLocation: "Player",
             getValue: "GameName",
@@ -13,14 +13,27 @@
             },
             theme: "dark"
         };
-        $("#search-input-player").easyAutocomplete(options);
-     })
-
-     $('#player-remove').click(function(){
-        $('#form-remove-player').slideToggle(250)
+        $("#form-remove-player #search-input-player").easyAutocomplete(options);
      });
 
-     $('#search-button').click(function(){
+     $('#team-remove').click(function(){
+        $('#form-remove-team').slideToggle(250)
+         var options = {
+            url: 'http://localhost:3000/database/getTeam',
+            listLocation: "Team",
+            getValue: "TeamsubName",
+            list: {
+                maxNumberOfElements: 10,
+                match: {
+                    enabled: true
+                }
+            },
+            theme: "dark"
+        };
+        $("#search-remove-team").easyAutocomplete(options);
+     });
+
+     $('#form-remove-player #search-button').click(function(){
                 var playerID=-1;
                 for(var i=0; i<getPlayer.Player.length; i++) {
                     if(getPlayer.Player[i].GameName == $("#search-input-player").val()) {
@@ -36,6 +49,22 @@
                 }     
         });
 
+        $('#form-remove-team #search-button').click(function(){
+                var teamID=-1;
+                for(var i=0; i<getTeam.Team.length; i++) {
+                    if(getTeam.Team[i].TeamsubName == $("#search-input-team").val()) {
+                        teamID = getTeam.Team[i].TeamID;
+                        break;
+                    }
+                }
+                if(teamID != -1) {
+                    createCardTeam(teamID);
+                    $('.team-menu').show();
+                }else {
+                    window.alert('ERROR');
+                }     
+        });
+
         $('#form-remove-player #submit-delete').click(function(){
             if ($('#form-remove-player #search-input-player').val() == 0) {
               window.alert("ERROR");
@@ -44,6 +73,24 @@
                     type: "POST",
                     url: "http://localhost:3000/database/postPlayer",
                     data: "GameName=" + $('#form-remove-player #search-input-player').val() +
+                          "&TYPE=delete",
+                    success: function(data) {
+                        alert("sucess");
+                    }
+                });
+                window.alert("DELETE SUCCESS");
+                location.reload();
+          }     
+        });
+
+        $('#form-remove-team #submit-delete').click(function(){
+            if ($('#form-remove-team #search-input-team').val() == 0) {
+              window.alert("ERROR");
+          }else {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/database/postTeam",
+                    data: "TeamsubName=" + $('#form-remove-team #search-input-team').val() +
                           "&TYPE=delete",
                     success: function(data) {
                         alert("sucess");

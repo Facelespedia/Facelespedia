@@ -27,26 +27,6 @@ exports.getTeam = function(callback){
   });
 }
 
-// exports.getHero = function(callback){
-//   connection.query("SELECT * FROM Hero",function(err, results,fields){
-//     if(!!err) console.log(err);
-//     var data  = {
-//       Hero : results
-//     }
-//     callback(data);
-//   });
-// }
-
-// exports.getHeroStat = function(callback){
-//   connection.query("SELECT * FROM HeroStat",function(err, results,fields){
-//     if(!!err) console.log(err);
-//     var data  = {
-//       HeroStat : results
-//     }
-//     callback(data);
-//   });
-// }
-
   exports.getPlayer = function(callback){
     connection.query("SELECT * FROM Player",function(err, results,fields){
       if(!!err) console.log(err);
@@ -62,6 +42,16 @@ exports.getTeam = function(callback){
       if(!!err) console.log(err);
       var data  = {
         Continent : results
+      }
+      callback(data);
+    });
+  }
+
+  exports.getHero = function(callback){
+    connection.query("SELECT * FROM Hero",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Hero : results
       }
       callback(data);
     });
@@ -196,6 +186,10 @@ exports.getTeam = function(callback){
       connection.query("DELETE Player,ContinentPlayer FROM Player INNER JOIN ContinentPlayer WHERE ContinentPlayer.PlayerID = Player.PlayerID && Player.GameName = \""+info.GameName+"\"",function(err, results,fields){
         if(!!err) console.log(err);
       });
+    }else if(info.TYPE == 'edit') {
+      connection.query("UPDATE Player SET PlayerName = \""+info.PlayerName+"\", GameName = \""+info.GameName+"\", MMR = "+info.MMR+", Nation = \""+info.Nation+"\", Winrate = "+info.Winrate+" WHERE PlayerID = " + info.PlayerID,function(err, results,fields){
+        if(!!err) console.log(err);
+      });
     }
   }
    exports.postTeam = function(callback , info){
@@ -207,23 +201,11 @@ exports.getTeam = function(callback){
         if(!!err) console.log(err);
       });
     }else if(info.TYPE == 'delete') {
-      connection.query("DELETE FROM Player WHERE GameName = "+info.GameName,function(err, results,fields){
+      connection.query("DELETE Team,ContinentTeam FROM Team INNER JOIN ContinentTeam WHERE ContinentTeam.TeamID = Team.TeamID && Team.TeamsubName = \""+info.TeamsubName+"\"",function(err, results,fields){
         if(!!err) console.log(err);
       });
     }
    }
-
-  exports.getBoston = function(callback){
-    connection.query("SELECT BostonTeamId,TeamName,TeamsubName,BostonEarning FROM Team,Tournament Where Team.TeamID = Tournament.BostonTeamId ORDER BY BostonEarning DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        Boston : results
-      }
-      callback(data);
-    });
-  }
-
-
   exports.postHero = function(callback , info){
     if(info.TYPE == 'add') {
       connection.query("INSERT INTO Hero VALUES ("+info.HeroID+",\""+info.HeroName+"\",\""+info.HeroType+"\",\""+info.HeroAttackType+"\",\""+info.HeroRole+"\")",function(err, results,fields){
@@ -234,6 +216,16 @@ exports.getTeam = function(callback){
         if(!!err) console.log(err);
       });
     }
+  }
+
+  exports.getBoston = function(callback){
+    connection.query("SELECT BostonTeamId,TeamName,TeamsubName,BostonEarning FROM Team,Tournament Where Team.TeamID = Tournament.BostonTeamId ORDER BY BostonEarning DESC",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Boston : results
+      }
+      callback(data);
+    });
   }
 
   exports.getKiev = function(callback){
@@ -285,3 +277,6 @@ exports.getTeam = function(callback){
 
 // DELETE Player,ContinentPlayer FROM Player INNER JOIN ContinentPlayer WHERE ContinentPlayer.PlayerID = Player.PlayerID && Player.GameName = "qqq";
 
+// DELETE Team,ContinentTeam FROM Team INNER JOIN ContinentTeam WHERE ContinentTeam.TeamID = Team.TeamID && Team.TeamsubName = \""info.TeamsubName+"\""
+
+// UPDATE Player SET PlayerName = "asdasd", GameName = "sadads", MMR = 9876, Nation = "Thai", Winrate = WHERE PlayerID = 204

@@ -2,24 +2,6 @@
         <article class="larg">
         <div><h3 id="player-add">Player<span class="entypo-down-open"></span></h3>
             <div id = "form-add-player" style="display:none; border: 0px ;">
-                <!-- <form class="form-inline">
-                <label>Player Name</label><input class="form-control" id="player-name">
-                <label>Game Name</label><input class="form-control" id="game-name">
-                </form>
-                <form class="form-inline">
-                <label>MMR</label><input class="form-control" id="mmr">
-                <label>Nation</label><input class="form-control" id="nation">
-                <label>Winrate</label><input class="form-control" id="winrate">
-                </form>
-                <label>Server</label>
-                <select class="form-control">
-                    <option value = 1>Sea & Oceania</option>
-                    <option value = 2>Europe & CIS</option>
-                    <option value = 3>Americas</option>
-                    <option value = 4>China</option>
-                </select>
-                <button id= "submit-add">SUBMIT</button>
-            </div> -->
             <label fclass="padding-form control-label">Player Name</label>
             <input type="text"   id="player-name" class="padding-form form-control" required />
             <label style="padding-top:10px;">Game Name</label>
@@ -43,24 +25,7 @@
 
         <div><h3 id="team-add">Team<span class="entypo-down-open"></span></h3>
             <div id = "form-add-team" style="display:none; border: 0px ;">
-            <!-- <form class="form-inline">
-                <label>Team Name</label><input class="form-control" id="team-name">
-                <label>Team SubName</label><input class="form-control" id="sub-name">
-            </form>
-            <form class="form-inline">
-                <label>Rating</label><input class="form-control" id="rating">
-                <label>Nation</label><input class="form-control" id="nation">
-            </form>
-            <label >Server</label>
-            <select class="form-control">
-                <option value = 1>Sea & Oceania</option>
-                <option value = 2>Europe & CIS</option>
-                <option value = 3>Americas</option>
-                <option value = 4>China</option>
-            </select>
-            <button id= "submit-add">SUBMIT</button> -->
-
-
+           
             <label fclass="padding-form control-label">Team Name</label>
             <input type="text"   id="team-name" class="padding-form form-control" required />
             <label style="padding-top:10px;">Team Subname</label>
@@ -83,13 +48,6 @@
 
         <div><h3 id="team-add-member">Team Member<span class="entypo-down-open"></span></h3>
             <div id = "form-add-member" style="display:none; border: 0px ;">
-            <!-- <form class="form-inline">
-                <label>Team SubName</label><input class="form-control" id="sub-name">
-            </form>
-            <form class="form-inline">
-                <label>Game Name</label><input class="form-control" id="game-name">
-            </form>
-            <button id= "submit-add">SUBMIT</button> -->
 
             <label fclass="padding-form control-label">Team Subname</label>
             <input type="text"   id="sub-name" class="padding-form form-control" required />
@@ -103,24 +61,28 @@
 
         <div><h3 id="hero-add">Hero<span class="entypo-down-open"></span></h3>
             <div id = "form-add-hero" style="display:none; border: 0px ;">
-            <!-- <form class="form-inline">
-                <label>Hero Name</label><input class="form-control" id="hero-name">
-                <label>Hero Type</label><input class="form-control" id="hero-type">
-            </form>
-            <form class="form-inline">
-                <label>Hero AttackType</label><input class="form-control" id="hero-attack">
-                <label>Hero Role</label><input class="form-control" id="hero-role">
-            </form>
-            <button id= "submit-add">SUBMIT</button> -->
             <label fclass="padding-form control-label">Hero Name</label>
             <input type="text"   id="hero-name" class="padding-form form-control" required />
             <label style="padding-top:10px;">Hero Type</label>
-            <input type="email"  id="hero-type" class="padding-form form-control" required />
+            <select id="hero-type" style="padding-bottom:10px;"class="form-control">
+              <option>Str</option>
+              <option>Int</option>
+              <option>Agi</option>
+            </select>
             <label style="padding-top:10px;">Hero Attacktype</label>
-            <input type="text"  id="hero-attack"  class="padding-form form-control" />
+            <select id="hero-attack" style="padding-bottom:10px;"class="form-control">
+              <option>Melee</option>
+              <option>Range</option>
+            </select>
             <label style="padding-top:10px;">Hero Role</label>
-            <input type="text"  id="hero-role"  class="padding-form form-control" />
-
+            <select id="hero-role" style="padding-bottom:10px;"class="form-control">
+              <option>Tanker</option>
+              <option>Support</option>
+              <option>Roamer</option>
+              <option>Offlaner</option>
+              <option>Semi-Carry</option>
+              <option>Hard-Carry</option>
+            </select>
             <button style="margin-top:10px;margin-bottom:10px;" id="submit-add" class="btn btn-success">SUBMIT</button>
 
             </div>

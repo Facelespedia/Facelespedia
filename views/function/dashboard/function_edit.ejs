@@ -1,0 +1,88 @@
+<script>
+
+    var getplayerID = "";
+
+    $('#player-edit').click(function(){
+        $('#form-edit-player').slideToggle(250);
+        search($('#form-edit-player select').val());
+    });
+    $('#form-edit-player select').change(function(){
+        search($('#form-edit-player select').val());
+    });
+    function search(value) {
+        var options = {
+            url: 'http://localhost:3000/database/getPlayer',
+            listLocation: "Player",
+            getValue: value,
+            list: {
+                maxNumberOfElements: 10,
+                match: {
+                    enabled: true
+                }
+            },
+            theme: "dark"
+        };
+
+        $("#form-edit-player #search-input-player").easyAutocomplete(options);
+        $('#form-edit-player #search-input-player').attr("placeholder", "Search " + value);
+    }
+
+     $('#form-edit-player #search-button').click(function(){
+
+         for(var i = 0 ; i < getPlayer.Player.length ; i++ ){
+            if(getPlayer.Player[i].GameName == $('#form-edit-player #search-input-player').val()){
+                getplayerID = getPlayer.Player[i].PlayerID;
+                break;
+            }
+             if(getPlayer.Player[i].PlayerName == $('#form-edit-player #search-input-player').val()){
+                getplayerID = getPlayer.Player[i].PlayerID;
+                break;
+            }
+        }
+
+        $('#form-edit-player #menu-edit #player-name').val(getPlayer.Player[getplayerID-1].PlayerName);
+        $('#form-edit-player #menu-edit #game-name').val(getPlayer.Player[getplayerID-1].GameName);
+        $('#form-edit-player #menu-edit #mmr').val(getPlayer.Player[getplayerID-1].MMR);
+        $('#form-edit-player #menu-edit #nation').val(getPlayer.Player[getplayerID-1].Nation);
+        $('#form-edit-player #menu-edit #winrate').val(getPlayer.Player[getplayerID-1].Winrate);
+        $('#form-edit-player #menu-edit select option').attr("selected",getContinent.Continent[(getContinentPlayer.ContinentPlayer[getplayerID-1].ContinentID)-1].ContinentName);
+        $('#form-edit-player #menu-edit').show();    
+     });
+
+     $('#form-edit-player #menu-edit #submit-edit').click(function(){
+          if ($('#form-edit-player #player-name').val().length == 0 || $('#form-edit-player #game-name').val().length == 0 || $('#form-edit-player #mmr').val().length == 0 || $('#form-edit-player #nation').val().length == 0 || $('#form-edit-player #winrate').val().length == 0) {
+              window.alert("ERROR");
+          }else {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/database/postPlayer",
+                    data: "PlayerID=" + getplayerID +
+                          "&PlayerName=" + $('#form-edit-player #player-name').val() +
+                          "&GameName="  + $('#form-edit-player #game-name').val() +
+                          "&MMR=" + $('#form-edit-player #mmr').val() +
+                          "&Nation=" + $('#form-edit-player #nation').val() +
+                          "&Winrate=" + $('#form-edit-player #winrate').val() +
+                          "&ContinentID=" + $('#form-edit-player select').val() +
+                          "&TYPE=edit",
+                    success: function(data) {
+                        alert("sucess");
+                    }
+                });
+                window.alert("EDIT SUCCESS");
+                // reloadEdit ();
+          }     
+        });
+
+        function reloadEdit () {
+            location.reload();
+            $('#edit').click(function(){
+                $('#add').removeClass('bg-color');
+                $('#remove').removeClass('bg-color');
+                $('#edit').addClass('bg-color');
+                $('#add-form').hide();
+                $('#remove-form').hide();
+                $('#edit-form').show();
+            });
+        }
+
+</script>

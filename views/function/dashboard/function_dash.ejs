@@ -2,14 +2,26 @@
     $('#add').click(function(){
         $('#add').addClass('bg-color');
         $('#remove').removeClass('bg-color');
+        $('#edit').removeClass('bg-color');
         $('#add-form').show();
         $('#remove-form').hide();
+        $('#edit-form').hide();
     });
     $('#remove').click(function(){
         $('#add').removeClass('bg-color');
         $('#remove').addClass('bg-color');
+        $('#edit').removeClass('bg-color');
         $('#add-form').hide();
         $('#remove-form').show();
+        $('#edit-form').hide();
+    });
+    $('#edit').click(function(){
+        $('#add').removeClass('bg-color');
+        $('#remove').removeClass('bg-color');
+        $('#edit').addClass('bg-color');
+        $('#add-form').hide();
+        $('#remove-form').hide();
+        $('#edit-form').show();
     });
     
     $('#add').click();
