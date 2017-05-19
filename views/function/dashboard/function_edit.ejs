@@ -124,6 +124,28 @@
                 // reloadEdit ();
           }     
         });
+        $('#form-edit-team #menu-edit #submit-edit').click(function(){
+          if ($('#form-edit-team #team-name').val().length == 0 || $('#form-edit-team #sub-name').val().length == 0 || $('#form-edit-team #rating').val().length == 0 || $('#form-edit-team #nation').val().length == 0 ) {
+              window.alert("ERROR");
+          }else {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/database/postTeam",
+                    data: "TeamID=" + getteamID +
+                          "&TeamName=" + $('#form-edit-team #team-name').val() +
+                          "&TeamsubName="  + $('#form-edit-team #sub-name').val() +
+                          "&Rating=" + $('#form-edit-team #rating').val() +
+                          "&Nation=" + $('#form-edit-team #nation').val() +
+                          "&ContinentID=" + $('#form-edit-team select').val() +
+                          "&TYPE=edit",
+                    success: function(data) {
+                        alert("sucess");
+                    }
+                });
+                window.alert("EDIT SUCCESS");
+                // reloadEdit ();
+          }     
+        });
 
 
 </script>

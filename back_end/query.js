@@ -79,8 +79,7 @@ exports.getTeam = function(callback){
 
 
   exports.getTeamSortRating = function(callback){
-    connection.query("SELECT * FROM Team ORDER BY Rating DESC"
-    ,function(err, results,fields){
+    connection.query("SELECT * FROM Team ORDER BY Rating DESC",function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
         TeamSortRating : results
@@ -90,8 +89,7 @@ exports.getTeam = function(callback){
   }
 
   exports.getPlayerSortMMR = function(callback){
-    connection.query("SELECT * FROM Player ORDER BY MMR DESC"
-    ,function(err, results,fields){
+    connection.query("SELECT * FROM Player ORDER BY MMR DESC",function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
         PlayerSortMMR : results
@@ -187,7 +185,7 @@ exports.getTeam = function(callback){
         if(!!err) console.log(err);
       });
     }else if(info.TYPE == 'edit') {
-      connection.query("UPDATE Player SET PlayerName = \""+info.PlayerName+"\", GameName = \""+info.GameName+"\", MMR = "+info.MMR+", Nation = \""+info.Nation+"\", Winrate = "+info.Winrate+" WHERE PlayerID = " + info.PlayerID,function(err, results,fields){
+      connection.query("UPDATE Player SET PlayerName = \""+info.PlayerName+"\", GameName = \""+info.GameName+"\", MMR = "+info.MMR+", Nation = \""+info.Nation+"\", Winrate = "+info.Winrate+" WHERE PlayerID = " + info.PlayerID,function(err, results,fields) {
         if(!!err) console.log(err);
       });
     }
@@ -202,6 +200,10 @@ exports.getTeam = function(callback){
       });
     }else if(info.TYPE == 'delete') {
       connection.query("DELETE Team,ContinentTeam FROM Team INNER JOIN ContinentTeam WHERE ContinentTeam.TeamID = Team.TeamID && Team.TeamsubName = \""+info.TeamsubName+"\"",function(err, results,fields){
+        if(!!err) console.log(err);
+      });
+    }else if(info.TYPE == 'edit') {
+      connection.query("UPDATE Team SET TeamName = \""+info.TeamName+"\", TeamsubName = \""+info.TeamsubName+"\", Rating = "+info.Rating+", Nation = \""+info.Nation+"\" WHERE TeamID = " + info.TeamID,function(err, results,fields) {
         if(!!err) console.log(err);
       });
     }
