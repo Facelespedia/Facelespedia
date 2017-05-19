@@ -18,7 +18,7 @@ body{
 .banner{
     background-image: url("../images/bg/bg_2.jpg");
     background-size: cover;
-    padding: 155px;
+    padding: 375px;
     color: ghostwhite;
     /*opacity: 0.5;
     filter: alpha(opacity=200); */
