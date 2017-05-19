@@ -1063,8 +1063,8 @@ main {
 .table label img {
     border: 1px solid;
     border-color: black;
-    width: 15px;
-    height: 15px;
+    width: 30px;
+    height: 30px;
 }
 .player-scroll{
     height: 442px;
