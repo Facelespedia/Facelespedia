@@ -1,14 +1,83 @@
 <script>
 
+    var table = '';
+
     $('#form-table').change(function(){
-        var table = ""
-        if( $('#form-table').val() == 2 ) {
-            table += ' <thead><tr>';
-            for( var i = 0; i < getPlayer.Player.length; i++ ) {
-                console.log(Object.keys(getPlayer.Player));   
-            }
-            table += '</tr></thead>';
+        
+        table = '';        
+
+        if($('#form-table').val() == 1) {
+            createTeamTable();
         }
-    });    
+
+        if($('#form-table').val() == 2) {
+            createPlayerTable();
+        }
+
+         if($('#form-table').val() == 3) {
+            createHeroTable();
+        }
+
+        document.getElementById('table-query').innerHTML = table;
+        
+    });  
+
+    function createPlayerTable() {
+
+        table += ' <thead><tr>';
+        for( var i = 0; i < Object.keys(getPlayer.Player[0]).length; i++ ) {
+            table += '<th>'+ Object.keys(getPlayer.Player[0])[i]+'</th>'; 
+        }
+        table += '</tr></thead><tbody>';
+        for(var j = 0; j < getPlayer.Player.length; j++ ) {
+            table += '<tr>'
+                    + '<td>'+getPlayer.Player[j].PlayerID+'</td>'
+                    + '<td>'+getPlayer.Player[j].PlayerName+'</td>'
+                    + '<td>'+getPlayer.Player[j].GameName+'</td>'
+                    + '<td>'+getPlayer.Player[j].MMR+'</td>'
+                    + '<td>'+getPlayer.Player[j].Nation+'</td>'
+                    + '<td>'+getPlayer.Player[j].Winrate+'</td>'
+                    +'</tr>';
+        }
+        table += '</tbody>';
+
+    }  
+
+    function createTeamTable() {
+        table += ' <thead><tr>';
+        for( var i = 0; i < Object.keys(getTeam.Team[0]).length; i++ ) {
+            table += '<th>'+ Object.keys(getTeam.Team[0])[i]+'</th>'; 
+        }
+        table += '</tr></thead><tbody>';
+        for(var j = 0; j < getTeam.Team.length; j++ ) {
+            table += '<tr>'
+                    + '<td>'+getTeam.Team[j].TeamID+'</td>'
+                    + '<td>'+getTeam.Team[j].TeamName+'</td>'
+                    + '<td>'+getTeam.Team[j].TeamsubName+'</td>'
+                    + '<td>'+getTeam.Team[j].Rating+'</td>'
+                    + '<td>'+getTeam.Team[j].Nation+'</td>'
+                    +'</tr>';
+        }
+        table += '</tbody>';
+
+    }
+
+    function createHeroTable() {
+        table += ' <thead><tr>';
+        for( var i = 0; i < Object.keys(getHero.Hero[0]).length; i++ ) {
+            table += '<th>'+ Object.keys(getHero.Hero[0])[i]+'</th>'; 
+        }
+        table += '</tr></thead><tbody>';
+        for(var j = 0; j < getHero.Hero.length; j++ ) {
+            table += '<tr>'
+                    + '<td>'+getHero.Hero[j].HeroID+'</td>'
+                    + '<td>'+getHero.Hero[j].HeroName+'</td>'
+                    + '<td>'+getHero.Hero[j].HeroType+'</td>'
+                    + '<td>'+getHero.Hero[j].HeroAttackType+'</td>'
+                    + '<td>'+getHero.Hero[j].HeroRole+'</td>'
+                    +'</tr>';
+        }
+        table += '</tbody>';
+    }
 
 </script>
