@@ -57,14 +57,6 @@ $.ajax({
       }
  });
  $.ajax({
-        type: "GET",
-        url: "http://localhost:3000/database/getContinentTeam",
-        dataType: "json",
-        success: function(res){
-            getContinentTeam = res
-        }
- });
- $.ajax({
       type: "GET",
       url: "http://localhost:3000/database/getPlayerWithTeam",
       dataType: "json",

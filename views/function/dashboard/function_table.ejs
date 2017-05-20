@@ -5,7 +5,7 @@
         if( $('#form-table').val() == 2 ) {
             table += ' <thead><tr>';
             for( var i = 0; i < getPlayer.Player.length; i++ ) {
-                console.log( getPlayer.Player[i]);   
+                console.log(Object.keys(getPlayer.Player));   
             }
             table += '</tr></thead>';
         }
