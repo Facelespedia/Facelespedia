@@ -1,22 +1,18 @@
-   /*.cf:before, .cf:after{
-     content:"";
-     display:table;
-   }
+    
 
-   .cf:after{
-     clear:both;
-   }
-
-   .cf{
-     zoom:1;
-   }*/
-
+    #position-search {
+        top : 450px;
+        left : 400px;
+        right: 5px;
+        bottom : 5px;
+        position: absolute;
+    }
    .form-wrapper {
        width: 480px;
        height: 70px;
 
-       margin-top:  300px ;
-       margin-left: 250px;
+       /*margin-top:  300px ;
+       margin-left: 250px;*/
        background: #444;
        background: rgba(0,0,0,.2);
        -moz-border-radius: 10px;
@@ -32,8 +28,6 @@
        margin-left: 10px;
        width: 400px;
        height: 50px;
-       /*padding: 10px 5px;*/
-       /*float: left;*/
        font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
        border: 0;
        background: #eee;
@@ -69,8 +63,8 @@
    }
 
    .search-select {
-     margin-top: 10px;
-       margin-left: 430px;
+     margin-top: 15px;
+     margin-left: 200px;
    }
 
    /*.form-wrapper button {

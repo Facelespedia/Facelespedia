@@ -1,0 +1,14 @@
+<script>
+
+    $('#form-table').change(function(){
+        var table = ""
+        if( $('#form-table').val() == 2 ) {
+            table += ' <thead><tr>';
+            for( var i = 0; i < getPlayer.Player.length; i++ ) {
+                console.log( getPlayer.Player[i]);   
+            }
+            table += '</tr></thead>';
+        }
+    });    
+
+</script>
