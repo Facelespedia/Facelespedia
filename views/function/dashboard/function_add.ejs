@@ -90,16 +90,28 @@
     });
 
     $('#player-add').click(function(){
-        $('#form-add-player').slideToggle(250)
+        $('#form-add-player').slideToggle(250);
+        $('#form-add-team').hide();
+        $('#form-add-member').hide();
+        $('#form-add-hero').hide();
     });
     $('#team-add').click(function(){
-        $('#form-add-team').slideToggle(250)
+        $('#form-add-team').slideToggle(250);
+        $('#form-add-player').hide();
+        $('#form-add-member').hide();
+        $('#form-add-hero').hide();
     });
     $('#team-add-member').click(function(){
         $('#form-add-member').slideToggle(250);
+        $('#form-add-team').hide();
+        $('#form-add-player').hide();
+        $('#form-add-hero').hide();
     });
     $('#hero-add').click(function(){
         $('#form-add-hero').slideToggle(250);
+        $('#form-add-team').hide();
+        $('#form-add-member').hide();
+        $('#form-add-player').hide();
     });
 
 

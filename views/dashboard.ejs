@@ -21,7 +21,7 @@
   <nav>
     <ul>
       <li id="add">
-        <a>Add</a>
+        <a><span class="glyphicon glyphicon-user"></span> Add</a>
       </li>
       <li id="remove">
         <a>Remove</a>
@@ -30,7 +30,7 @@
         <a id="edit">Edit</a>
       </li>
       <li>
-        <a id="search">Search</a>
+        <a id="table">Table</a>
       </li>
       <li>
         <a href="/">Back</a>
@@ -46,11 +46,13 @@
     <% include dashboard/add.ejs %>
     <% include dashboard/remove.ejs %>
     <% include dashboard/edit.ejs %>
+    <% include dashboard/table.ejs %>
 </main>
     <% include function/dashboard/function_dash.ejs %>
     <% include function/dashboard/function_add.ejs %>
     <% include function/dashboard/function_remove.ejs %>
     <% include function/dashboard/function_edit.ejs %>
+    <% include function/dashboard/function_table.ejs %>
     <% include function/function_player-card.ejs %>
     <% include function/function_team-card.ejs %>
 </html>

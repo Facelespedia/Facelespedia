@@ -21,9 +21,19 @@
 
 #search-input-player {
   color: black !important;
+  width: 300px;
 }
 #search-input-team {
   color: black !important;
+  width: 300px;
+}
+#search-input-player-edit {
+  color: black !important;
+  width: 300px;
+}
+#search-input-team-edit {
+  color: black !important;
+  width: 300px;
 }
 
 .easy-autocomplete-container{

@@ -4,23 +4,23 @@
 
     $('#player-edit').click(function(){
         $('#form-edit-player').slideToggle(250);
-        $("#form-edit-player #search-input-team").val("");
+        $("#form-edit-player #search-input-team-edit").val("");
         $('#form-edit-team').hide();
         searchPlayer($('#form-edit-player #select-1').val());
     });
      $('#team-edit').click(function(){
         $('#form-edit-team').slideToggle(250);
-        $("#form-edit-player #search-input-player").val("");
+        $("#form-edit-player #search-input-player-edit").val("");
         $('#form-edit-player').hide();
         searchTeam($('#form-edit-team #select-1').val());
     });
     $('#form-edit-player #select-1').change(function(){
-        $("#form-edit-player #search-input-player").val("");
+        $("#form-edit-player #search-input-player-edit").val("");
         $('#form-edit-player #menu-edit').hide();
         searchPlayer($('#form-edit-player #select-1').val());
     });
     $('#form-edit-team #select-1').change(function(){
-        $("#form-edit-team #search-input-team").val("");
+        $("#form-edit-team #search-input-team-edit").val("");
         $('#form-edit-team #menu-edit').hide();
         searchTeam($('#form-edit-team #select-1').val());
     });
@@ -39,8 +39,8 @@
             },
             theme: "dark"
         };
-        $('#form-edit-player #search-input-player').easyAutocomplete(options);
-        $('#form-edit-player #search-input-player').attr("placeholder", "Search " + value);
+        $('#form-edit-player #search-input-player-edit').easyAutocomplete(options);
+        $('#form-edit-player #search-input-player-edit').attr("placeholder", "Search " + value);
     }
     function searchTeam(value) {
         var url = 'http://localhost:3000/database/getTeam';
@@ -56,18 +56,18 @@
             },
             theme: "dark"
         };
-        $('#form-edit-team #search-input-team').easyAutocomplete(options);
-        $('#form-edit-team #search-input-team').attr("placeholder", "Search " + value);
+        $('#form-edit-team #search-input-team-edit').easyAutocomplete(options);
+        $('#form-edit-team #search-input-team-edit').attr("placeholder", "Search " + value);
     }
 
      $('#form-edit-player #search-button').click(function(){
 
          for(var i = 0 ; i < getPlayer.Player.length ; i++ ){
-            if(getPlayer.Player[i].GameName == $('#form-edit-player #search-input-player').val()){
+            if(getPlayer.Player[i].GameName == $('#form-edit-player #search-input-player-edit').val()){
                 getplayerID = getPlayer.Player[i].PlayerID;
                 break;
             }
-             if(getPlayer.Player[i].PlayerName == $('#form-edit-player #search-input-player').val()){
+             if(getPlayer.Player[i].PlayerName == $('#form-edit-player #search-input-player-edit').val()){
                 getplayerID = getPlayer.Player[i].PlayerID;
                 break;
             }
@@ -84,11 +84,11 @@
      $('#form-edit-team #search-button').click(function(){
 
          for(var i = 0 ; i < getTeam.Team.length ; i++ ){
-            if(getTeam.Team[i].TeamName == $('#form-edit-team #search-input-team').val()){
+            if(getTeam.Team[i].TeamName == $('#form-edit-team #search-input-team-edit').val()){
                 getteamID = getTeam.Team[i].TeamID;
                 break;
             }
-             if(getTeam.Team[i].TeamsubName == $('#form-edit-team #search-input-team').val()){
+             if(getTeam.Team[i].TeamsubName == $('#form-edit-team #search-input-team-edit').val()){
                 getteamID = getTeam.Team[i].TeamID;
                 break;
             }

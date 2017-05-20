@@ -1,5 +1,6 @@
 <script>
      $('#player-remove').click(function(){
+        $('#form-remove-team').hide();
         $('#form-remove-player').slideToggle(250)
          var options = {
             url: 'http://localhost:3000/database/getPlayer',
@@ -17,6 +18,7 @@
      });
 
      $('#team-remove').click(function(){
+        $('#form-remove-player').hide();
         $('#form-remove-team').slideToggle(250)
          var options = {
             url: 'http://localhost:3000/database/getTeam',

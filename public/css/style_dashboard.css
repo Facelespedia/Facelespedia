@@ -1070,9 +1070,3 @@ main {
     height: 442px;
     overflow: auto;
 }
-#search-input-player {
-  width: 300px;
-}
-#search-input-team {
-  width: 300px;
-}
