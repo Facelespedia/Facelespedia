@@ -877,10 +877,10 @@ ul {
   padding: 0;
 }
 a {
-  cursor: pointer;
-  display: block;
-  color: #b3b3b3;
-  text-decoration: none;
+  cursor: pointer !important; 
+  display: block !important;
+  color: #b3b3b3 !important;
+  text-decoration: none !important;
 }
 .bckg {
   background-color: #383B42;
