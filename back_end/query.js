@@ -57,29 +57,8 @@ exports.getTeam = function(callback){
     });
   }
 
-  exports.getContinentTeam = function(callback){
-    connection.query("SELECT * FROM ContinentTeam",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        ContinentTeam : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getContinentPlayer = function(callback){
-    connection.query("SELECT * FROM ContinentPlayer",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        ContinentPlayer : results
-      }
-      callback(data);
-    });
-  }
-
-
   exports.getTeamSortRating = function(callback){
-    connection.query("SELECT * FROM Team ORDER BY Rating DESC",function(err, results,fields){
+    connection.query("SELECT Team.TeamID,TeamName,TeamsubName,Rating,Nation,ContinentName FROM Team INNER JOIN (SELECT Continent.ContinentName ,ContinentTeam.TeamID FROM Continent INNER JOIN ContinentTeam ON ContinentTeam.ContinentID = Continent.ContinentID ) AS NC ON NC.TeamID = Team.TeamID,ContinentTeam WHERE Team.TeamID = ContinentTeam.TeamID ORDER BY Rating DESC",function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
         TeamSortRating : results
@@ -89,8 +68,7 @@ exports.getTeam = function(callback){
   }
 
   exports.getPlayerSortMMR = function(callback){
-    connection.query("SELECT * FROM Player ORDER BY MMR DESC",function(err, results,fields){
-      if(!!err) console.log(err);
+      connection.query("SELECT Player.PlayerID,PlayerName,GameName,MMR,Nation,Winrate,ContinentName FROM Player INNER JOIN (SELECT Continent.ContinentName ,ContinentPlayer.PlayerID FROM Continent INNER JOIN ContinentPlayer ON ContinentPlayer.ContinentID = Continent.ContinentID ) AS NC ON NC.PlayerID = Player.PlayerID,ContinentPlayer WHERE Player.PlayerID = ContinentPlayer.PlayerID ORDER BY MMR DESC",function(err, results,fields){      if(!!err) console.log(err);
       var data  = {
         PlayerSortMMR : results
       }
@@ -282,3 +260,5 @@ exports.getTeam = function(callback){
 // DELETE Team,ContinentTeam FROM Team INNER JOIN ContinentTeam WHERE ContinentTeam.TeamID = Team.TeamID && Team.TeamsubName = \""info.TeamsubName+"\""
 
 // UPDATE Player SET PlayerName = "asdasd", GameName = "sadads", MMR = 9876, Nation = "Thai", Winrate = WHERE PlayerID = 204
+
+// SELECT Team.TeamID,TeamName,TeamsubName,Rating,Nation,ContinentName FROM Team INNER JOIN (SELECT Continent.ContinentName ,ContinentTeam.TeamID FROM Continent INNER JOIN ContinentTeam ON ContinentTeam.ContinentID = Continent.ContinentID ) AS NC ON NC.TeamID = Team.TeamID,ContinentTeam WHERE Team.TeamID = ContinentTeam.TeamID ORDER BY Rating DESC
