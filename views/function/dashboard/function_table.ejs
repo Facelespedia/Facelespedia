@@ -2,86 +2,113 @@
 
     var table = '';
 
-    $('#form-table').change(function(){
-        
-        table = '';        
+    $('#form-table').change(function(){  
 
         if($('#form-table').val() == 1) {
-            createTeamTable();
+            createTeamTable(getTeam.Team);
+            $('#select-query-player').hide();
+            $('#select-query-team').show();
+            $('#select-query-hero').hide();
         }
 
         if($('#form-table').val() == 2) {
-            createPlayerTable();
+            createPlayerTable(getPlayer.Player);
+            $('#select-query-player').show();
+            $('#select-query-team').hide();
+            $('#select-query-hero').hide();
         }
 
          if($('#form-table').val() == 3) {
-            createHeroTable();
+            createHeroTable(getHero.Hero);
+            $('#select-query-player').hide();
+            $('#select-query-team').hide();
+            $('#select-query-hero').show();
         }
 
-        createTeamTable();
-        document.getElementById('table-query').innerHTML = table;
         
-    });  
+        
+    });
 
-    function createPlayerTable() {
+    $('#select-query-team #submit-query').click(function(){
 
+        var parameter = {sort : $('#select-query-team #form-table-sort').val()
+                        ,limit : $('#select-query-team #form-table-limit').val()
+                        ,group : $('#select-query-team #form-table-group').val()
+                        ,value : $('#select-query-team #form-table-value').val() };
+        $.ajax({
+            data : JSON.stringify(parameter),
+            url : "http://localhost:3000/database/getQuerySort",
+            contentType : "application/json",
+            type : "POST",
+            success : (function(res){
+                createTeamTable(res.QuerySort);
+            })
+        }) 
+
+    });
+   
+    function createPlayerTable(Player) {
+        table = '';      
         table += ' <thead><tr>';
-        for( var i = 0; i < Object.keys(getPlayer.Player[0]).length; i++ ) {
-            table += '<th>'+ Object.keys(getPlayer.Player[0])[i]+'</th>'; 
+        for( var i = 0; i < Object.keys(Player[0]).length; i++ ) {
+            table += '<th>'+ Object.keys(Player[0])[i]+'</th>'; 
         }
         table += '</tr></thead><tbody>';
-        for(var j = 0; j < getPlayer.Player.length; j++ ) {
+        for(var j = 0; j < Player.length; j++ ) {
             table += '<tr>'
-                    + '<td>'+getPlayer.Player[j].PlayerID+'</td>'
-                    + '<td>'+getPlayer.Player[j].PlayerName+'</td>'
-                    + '<td>'+getPlayer.Player[j].GameName+'</td>'
-                    + '<td>'+getPlayer.Player[j].MMR+'</td>'
-                    + '<td>'+getPlayer.Player[j].Nation+'</td>'
-                    + '<td>'+getPlayer.Player[j].Winrate+'</td>'
+                    + '<td>'+Player[j].PlayerID+'</td>'
+                    + '<td>'+Player[j].PlayerName+'</td>'
+                    + '<td>'+Player[j].GameName+'</td>'
+                    + '<td>'+Player[j].MMR+'</td>'
+                    + '<td>'+Player[j].Nation+'</td>'
+                    + '<td>'+Player[j].Winrate+'</td>'
                     +'</tr>';
         }
         table += '</tbody>';
-
+        document.getElementById('table-query').innerHTML = table;
     }  
 
-    function createTeamTable() {
+    function createTeamTable(Team) {
+        table = '';      
         table += ' <thead><tr>';
-        for( var i = 0; i < Object.keys(getTeam.Team[0]).length; i++ ) {
-            table += '<th>'+ Object.keys(getTeam.Team[0])[i]+'</th>'; 
+        for( var i = 0; i < Object.keys(Team[0]).length; i++ ) {
+            table += '<th>'+ Object.keys(Team[0])[i]+'</th>'; 
         }
         table += '</tr></thead><tbody>';
-        for(var j = 0; j < getTeam.Team.length; j++ ) {
+        for(var j = 0; j < Team.length; j++ ) {
             table += '<tr>'
-                    + '<td>'+getTeam.Team[j].TeamID+'</td>'
-                    + '<td>'+getTeam.Team[j].TeamName+'</td>'
-                    + '<td>'+getTeam.Team[j].TeamsubName+'</td>'
-                    + '<td>'+getTeam.Team[j].Rating+'</td>'
-                    + '<td>'+getTeam.Team[j].Nation+'</td>'
+                    + '<td>'+Team[j].TeamID+'</td>'
+                    + '<td>'+Team[j].TeamName+'</td>'
+                    + '<td>'+Team[j].TeamsubName+'</td>'
+                    + '<td>'+Team[j].Rating+'</td>'
+                    + '<td>'+Team[j].Nation+'</td>'
                     +'</tr>';
         }
         table += '</tbody>';
-
+        document.getElementById('table-query').innerHTML = table;
     }
 
-    function createHeroTable() {
+    function createHeroTable(Hero) {
+        table = '';      
         table += ' <thead><tr>';
-        for( var i = 0; i < Object.keys(getHero.Hero[0]).length; i++ ) {
-            table += '<th>'+ Object.keys(getHero.Hero[0])[i]+'</th>'; 
+        for( var i = 0; i < Object.keys(Hero[0]).length; i++ ) {
+            table += '<th>'+ Object.keys(Hero[0])[i]+'</th>'; 
         }
         table += '</tr></thead><tbody>';
-        for(var j = 0; j < getHero.Hero.length; j++ ) {
+        for(var j = 0; j < Hero.length; j++ ) {
             table += '<tr>'
-                    + '<td>'+getHero.Hero[j].HeroID+'</td>'
-                    + '<td>'+getHero.Hero[j].HeroName+'</td>'
-                    + '<td>'+getHero.Hero[j].HeroType+'</td>'
-                    + '<td>'+getHero.Hero[j].HeroAttackType+'</td>'
-                    + '<td>'+getHero.Hero[j].HeroRole+'</td>'
+                    + '<td>'+Hero[j].HeroID+'</td>'
+                    + '<td>'+Hero[j].HeroName+'</td>'
+                    + '<td>'+Hero[j].HeroType+'</td>'
+                    + '<td>'+Hero[j].HeroAttackType+'</td>'
+                    + '<td>'+Hero[j].HeroRole+'</td>'
                     +'</tr>';
         }
         table += '</tbody>';
+        document.getElementById('table-query').innerHTML = table;
     }
 
-     createTeamTable();
+     createTeamTable(getTeam.Team);
      document.getElementById('table-query').innerHTML = table;
 
 </script>

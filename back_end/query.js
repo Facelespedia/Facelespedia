@@ -75,16 +75,6 @@ exports.getTeam = function(callback){
       callback(data);
     });
   }
-  exports.getPlayerSort = function(callback,info){
-      connection.query("SELECT Player.PlayerID,PlayerName,GameName,MMR,Nation,Winrate,ContinentName FROM Player INNER JOIN (SELECT Continent.ContinentName ,ContinentPlayer.PlayerID FROM Continent INNER JOIN ContinentPlayer ON ContinentPlayer.ContinentID = Continent.ContinentID ) AS NC ON NC.PlayerID = Player.PlayerID,ContinentPlayer WHERE Player.PlayerID = ContinentPlayer.PlayerID ORDER BY MMR DESC",function(err, results,fields){      if(!!err) console.log(err);
-      var data  = {
-        PlayerSortMMR : results
-      }
-      callback(data);
-    });
-  }
-
-
    exports.getPlayerWithTeam = function(callback){
     connection.query("SELECT Team.TeamID,GameName FROM Player,TeamMember,Team where Player.PlayerID = TeamMember.PlayerID && Team.TeamID = TeamMember.TeamID"
     ,function(err, results,fields){
@@ -222,3 +212,31 @@ exports.getTeam = function(callback){
       callback(data);
     });
   }
+
+  exports.getQuerySort = function(callback,info){
+    var data,query='';
+    query += 'SELECT * FROM Team ' ;
+
+    if(info.group != 'All') {
+        query += 'WHERE TeamID IN (SELECT TeamID FROM ContinentTeam WHERE ContinentID IN (SELECT ContinentID FROM Continent WHERE ContinentName = "'+info.group+'" )) ';
+    }
+    query += 'ORDER BY ' + info.sort + ' ';
+    if(info.value == 'Max') {
+      query += 'DESC ';
+    }else if(info.value == 'Min') {
+      query += 'ASC ';
+    }
+    if(info.limit != 'All') {
+      query += 'LIMIT ' + info.limit + ' ';
+    }
+
+    connection.query(query,function(err, results,fields){
+        if(!!err) console.log(err);
+        data  = {
+          QuerySort : results
+        }
+        callback(data);
+      }); 
+  }
+
+  // SELECT * FROM Team ORDER BY TeamName ASC LIMIT 10;

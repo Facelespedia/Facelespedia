@@ -7,33 +7,80 @@
             <option value = 3>Hero</option>
             <option value = 3>Hero ที่คนชอบเล่นมากที่สุด</option>
         </select>
-        <span class="form-control">
-        <label>SORT BY : </label>
-        <select id = "form-table-sort"style="padding-bottom:10px;">
-            <option value = 1>TeamID</option>
-            <option value = 2>Rating</option>
-            <option value = 3>TeamName</option>
-        </select>
-        <label> LIMIT BY : </label>
-        <select id = "form-table-limit"style="padding-bottom:10px;">
-            <option value = 1>All</option>
-            <option value = 2>10</option>
-            <option value = 3>20</option>
-            <option value = 3>30</option>
-        </select>
-        <label> GROUP BY : </label>
-        <select id = "form-table-limit"style="padding-bottom:10px;">
-            <option value = 1>All</option>
-            <option value = 2>Nation</option>
-            <option value = 3>Continent</option>
-        </select>
-        <label> VALUE : </label>
-        <select id = "form-table-limit"style="padding-bottom:10px;">
-            <option value = 1>NONE</option>
-            <option value = 2>MAX</option>
-            <option value = 3>MIN</option>
-        </select>
-        <button>SUBMIT</button>
+        <span id = "select-query-team" class="form-control">
+            <label>SORT BY : </label>
+            <select id = "form-table-sort"style="padding-bottom:10px;">
+                <option>TeamID</option>
+                <option>Rating</option>
+                <option>TeamName</option>
+            </select>
+            <label> LIMIT BY : </label>
+            <select id = "form-table-limit"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+            </select>
+            <label> Continent : </label>
+            <select id = "form-table-group"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>Sea & Oceania</option>
+                <option>Europe & CIS</option>
+                <option>Americas</option>
+                <option>China</option>
+            </select>
+            <label> VALUE : </label>
+            <select id = "form-table-value"style="padding-bottom:10px;">
+                <option>None</option>
+                <option>Max</option>
+                <option>Min</option>
+            </select>
+            <button id = "submit-query">SUBMIT</button>
+        </span>
+        <span id = "select-query-player" class="form-control" style="display:none;">
+            <label>SORT BY : </label>
+            <select id = "form-table-sort"style="padding-bottom:10px;">
+                <option>PlayerID</option>
+                <option>MMR</option>
+                <option>GameName</option>
+            </select>
+            <label> LIMIT BY : </label>
+            <select id = "form-table-limit"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+            </select>
+            <label> GROUP BY : </label>
+            <select id = "form-table-limit"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>Nation</option>
+                <option>Continent</option>
+            </select>
+            <label> VALUE : </label>
+            <select id = "form-table-limit"style="padding-bottom:10px;">
+                <option>NONE</option>
+                <option>MAX</option>
+                <option>MIN</option>
+            </select>
+            <button id = "submit-query">SUBMIT</button>
+        </span>
+        <span id = "select-query-hero" class="form-control" style="display:none;">
+            <label> LIMIT BY : </label>
+            <select id = "form-table-limit"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+            </select>
+            <label> GROUP BY : </label>
+            <select id = "form-table-limit"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>Hero Type</option>
+                <option>Hero AttackType</option>
+                <option>Hero Role</option>
+            </select>
+            <button id = "submit-query">SUBMIT</button>
         </span>
         <br/>
         <table id = "table-query" class="table table-bordered">

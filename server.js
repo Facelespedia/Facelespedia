@@ -45,12 +45,6 @@ app.get('/database/getPlayerSortMMR',function(req,res) {
   };
   query.getPlayerSortMMR(callback);
 });
-app.post('/database/getPlayerSort',function(req,res) {
-  var callback = function(data){
-    res.status(200).send(data);
-  };
-  query.getPlayerSortMMR(callback,req.body);
-});
 app.get('/database/getPlayerWithTeam',function(req,res) {
   var callback = function(data){
     res.send(data);
@@ -116,6 +110,12 @@ app.post('/database/postHero',function(req,res) {
     res.send(data);
   }
   query.postHero(callback,req.body);
+});
+app.post('/database/getQuerySort',function(req,res) {
+  var callback = function(data) {
+    res.send(data);
+  }
+  query.getQuerySort(callback,req.body);
 });
 
 app.listen(PORT , function(err) {
