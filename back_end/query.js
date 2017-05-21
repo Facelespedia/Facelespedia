@@ -243,6 +243,32 @@ exports.getTeam = function(callback){
       if(info.limit != 'All') {
         query += 'LIMIT ' + info.limit + ' ';
       }
+    }else if(info.TYPE == 'Hero') {
+      query += 'SELECT * FROM Hero ';
+      if(info.group != 'All') {
+        query += 'WHERE HeroType = "'+info.group+'" ';
+      }
+      if(info.attack != 'All') {
+        if(info.group != 'All') {
+          query += 'AND ';
+        }else {
+          query += 'WHERE ';
+        }
+        query += 'HeroAttackType = "'+info.attack+'" ';
+      }
+      if(info.role != 'All') {
+        if(info.attack != 'All') {
+          query += 'AND ';
+        }else if(info.group != 'All' && info.attack == 'All') {
+          query += 'AND ';
+        }else{
+          query += 'WHERE ';
+        }
+        query += 'HeroRole = "'+info.role+'" ';
+      }
+      if(info.limit != 'All') {
+        query += 'LIMIT ' + info.limit + ' ';
+      }
     }
 
     connection.query(query,function(err, results,fields){
@@ -255,3 +281,4 @@ exports.getTeam = function(callback){
   }
 
   // SELECT * FROM Player WHERE PlayerID IN (SELECT PlayerID FROM ContinentPlayer WHERE ContinentID IN (SELECT ContinentID FROM Continent WHERE ContinentName = "China" )) ORDER BY MMR DESC 
+  // SELECT * FROM Hero;
