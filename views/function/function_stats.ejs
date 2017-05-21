@@ -5,7 +5,7 @@
 // $(document).ready(function(){
 
 
-    var stats_table;
+    var stats_table,getStats;
 
      SelectStats("Winratepercent",10,'stats-hero-winrate');
      SelectStats("PercentPick",10,'stats-hero-most_picked');
@@ -90,7 +90,7 @@ function SelectStats(op,lm,id) {
             contentType : "application/json",
             type : "POST",
             success : (function(res){
-                getStatsWin = res;
+                getStats = res;
                 CreateTable(res.Stats,id);
             })
         }) 
@@ -99,6 +99,7 @@ function SelectStats(op,lm,id) {
 
 function CreateTable(arrStats,id) {
     stats_table = "" ;
+        getStats = arrStats;
         for(var i = 0; i < arrStats.length; i++ ){
             stats_table +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+arrStats[i].HeroName+".jpg\"></td>";
             stats_table +="<td><label id =\"Heroname\">"+arrStats[i].HeroName+"</label>";
