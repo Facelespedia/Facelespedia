@@ -1,10 +1,5 @@
 <script>
 
-
-
-// $(document).ready(function(){
-
-
     var stats_table,getStats;
 
      SelectStats("Winratepercent",10,'stats-hero-winrate');
@@ -80,7 +75,6 @@
          SelectStats("PercentFirstBanned",0,'stats-hero-most_firstban');
     });
    
-// })
 
 function SelectStats(op,lm,id) {
     var parameter = {option : op,limit : lm};
@@ -105,12 +99,12 @@ function CreateTable(arrStats,id) {
             stats_table +="<td><label id =\"Heroname\">"+arrStats[i].HeroName+"</label>";
             if( i < 5 ){
             stats_table +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+arrStats[i].Percent+"%;\"></span></div></td>"
-                                    +"<td ><label></label><div id =\"percenShow\"><span>"+arrStats[i].Percent+" %</span></div></td></tr>";
+                                    +"<td ><label><img src=\"/images/hero/"+arrStats[i].HeroType+".png\" style='width:30px;height:30px;margin-bottom:0px;'</label><div id =\"percenShow\"><span>"+arrStats[i].Percent+" %</span></div></td></tr>";
 
             }
             else {
                 stats_table +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+arrStats[i].Percent+"%;\"></span></div></td>"
-                                        +"<td ><label></label><div id =\"percenShow\"><span>"+arrStats[i].Percent+" %</span></div></td></tr>";
+                                        +"<td ><label><img src=\"/images/hero/"+arrStats[i].HeroType+".png\" style='width:30px;height:30px;margin-bottom:0px;'</label><div id =\"percenShow\"><span>"+arrStats[i].Percent+" %</span></div></td></tr>";
             }
         }
                 document.getElementById(id).innerHTML = stats_table;

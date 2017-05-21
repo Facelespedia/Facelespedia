@@ -88,73 +88,13 @@ exports.getTeam = function(callback){
      });
    }
 
-  exports.getStatsWin = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,Winratepercent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY Winratepercent DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsWin : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getStatsPick = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,PercentPick FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentPick DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsPick : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getStatsContest = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,PercentContest FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentContest DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsContest : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getStatsBanned = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,PercentBanned FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentBanned DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsBanned : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getStatsFirstPick = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,PercentFirstPick FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentFirstPick DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsFirstPick : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getStatsFirstBanned = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,PercentFirstBanned FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentFirstBanned DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsFirstBanned : results
-      }
-      callback(data);
-    });
-  }
-
   exports.getStats = function(callback,info){
     var data,query;
     if(info.limit > 0) {
-      query = 'SELECT Hero.HeroID,HeroName,'+info.option+
+      query = 'SELECT Hero.HeroID,HeroName,HeroType,'+info.option+
                   ' AS Percent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY '+info.option+' DESC LIMIT ' + info.limit;
     }else {
-      query = 'SELECT Hero.HeroID,HeroName,'+info.option+
+      query = 'SELECT Hero.HeroID,HeroName,HeroType,'+info.option+
                   ' AS Percent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY '+info.option+' DESC';
     }
     connection.query(query,function(err, results,fields){
@@ -165,7 +105,6 @@ exports.getTeam = function(callback){
         callback(data);
       }); 
   }
-
 
   exports.postPlayer = function(callback , info){
     if(info.TYPE == 'add') {
@@ -265,19 +204,3 @@ exports.getTeam = function(callback){
       callback(data);
     });
   }
-
-  // INSERT INTO Player VALUES (199,"asdads","asdads",8000,"Thai",42);
-//   INSERT INTO TeamMember SELECT TeamID,PlayerID FROM Team,Player
-// WHERE Team.TeamsubName ='OG' && Player.GameName = 'จ๊อบ ค้าม้า';
-// INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentName = info.ContinentName && Player.PlayerID = info.PlayerID
-//INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentName = "Sea & Oceania" && Player.PlayerID = 3
-
-// DELETE Player,ContinentPlayer FROM Player INNER JOIN ContinentPlayer WHERE ContinentPlayer.PlayerID = Player.PlayerID && Player.GameName = "qqq";
-
-// DELETE Team,ContinentTeam FROM Team INNER JOIN ContinentTeam WHERE ContinentTeam.TeamID = Team.TeamID && Team.TeamsubName = \""info.TeamsubName+"\""
-
-// UPDATE Player SET PlayerName = "asdasd", GameName = "sadads", MMR = 9876, Nation = "Thai", Winrate = WHERE PlayerID = 204
-
-// SELECT Team.TeamID,TeamName,TeamsubName,Rating,Nation,ContinentName FROM Team INNER JOIN (SELECT Continent.ContinentName ,ContinentTeam.TeamID FROM Continent INNER JOIN ContinentTeam ON ContinentTeam.ContinentID = Continent.ContinentID ) AS NC ON NC.TeamID = Team.TeamID,ContinentTeam WHERE Team.TeamID = ContinentTeam.TeamID ORDER BY Rating DESC
-
-// SELECT Hero.HeroID,HeroName,PercentBanned FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentBanned DESC LIMIT 10
