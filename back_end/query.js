@@ -215,19 +215,34 @@ exports.getTeam = function(callback){
 
   exports.getQuerySort = function(callback,info){
     var data,query='';
-    query += 'SELECT * FROM Team ' ;
-
-    if(info.group != 'All') {
-        query += 'WHERE TeamID IN (SELECT TeamID FROM ContinentTeam WHERE ContinentID IN (SELECT ContinentID FROM Continent WHERE ContinentName = "'+info.group+'" )) ';
-    }
-    query += 'ORDER BY ' + info.sort + ' ';
-    if(info.value == 'Max') {
-      query += 'DESC ';
-    }else if(info.value == 'Min') {
-      query += 'ASC ';
-    }
-    if(info.limit != 'All') {
-      query += 'LIMIT ' + info.limit + ' ';
+    if(info.TYPE == 'Team') {
+      query += 'SELECT * FROM Team ' ;
+      if(info.group != 'All') {
+          query += 'WHERE TeamID IN (SELECT TeamID FROM ContinentTeam WHERE ContinentID IN (SELECT ContinentID FROM Continent WHERE ContinentName = "'+info.group+'" )) ';
+      }
+      query += 'ORDER BY ' + info.sort + ' ';
+      if(info.value == 'Max') {
+        query += 'DESC ';
+      }else if(info.value == 'Min') {
+        query += 'ASC ';
+      }
+      if(info.limit != 'All') {
+        query += 'LIMIT ' + info.limit + ' ';
+      }
+    }else if(info.TYPE == 'Player') {
+      query += 'SELECT * FROM Player ' ;
+      if(info.group != 'All') {
+          query += 'WHERE PlayerID IN (SELECT PlayerID FROM ContinentPlayer WHERE ContinentID IN (SELECT ContinentID FROM Continent WHERE ContinentName = "'+info.group+'" )) ';
+      }
+      query += 'ORDER BY ' + info.sort + ' ';
+      if(info.value == 'Max') {
+        query += 'DESC ';
+      }else if(info.value == 'Min') {
+        query += 'ASC ';
+      }
+      if(info.limit != 'All') {
+        query += 'LIMIT ' + info.limit + ' ';
+      }
     }
 
     connection.query(query,function(err, results,fields){
@@ -239,4 +254,4 @@ exports.getTeam = function(callback){
       }); 
   }
 
-  // SELECT * FROM Team ORDER BY TeamName ASC LIMIT 10;
+  // SELECT * FROM Player WHERE PlayerID IN (SELECT PlayerID FROM ContinentPlayer WHERE ContinentID IN (SELECT ContinentID FROM Continent WHERE ContinentName = "China" )) ORDER BY MMR DESC 

@@ -34,7 +34,8 @@
         var parameter = {sort : $('#select-query-team #form-table-sort').val()
                         ,limit : $('#select-query-team #form-table-limit').val()
                         ,group : $('#select-query-team #form-table-group').val()
-                        ,value : $('#select-query-team #form-table-value').val() };
+                        ,value : $('#select-query-team #form-table-value').val() 
+                        ,TYPE : "Team"};
         $.ajax({
             data : JSON.stringify(parameter),
             url : "http://localhost:3000/database/getQuerySort",
@@ -42,6 +43,25 @@
             type : "POST",
             success : (function(res){
                 createTeamTable(res.QuerySort);
+            })
+        }) 
+
+    });
+
+    $('#select-query-player #submit-query').click(function(){
+
+        var parameter = {sort : $('#select-query-player #form-table-sort').val()
+                        ,limit : $('#select-query-player #form-table-limit').val()
+                        ,group : $('#select-query-player #form-table-group').val()
+                        ,value : $('#select-query-player #form-table-value').val() 
+                        ,TYPE : "Player"};
+        $.ajax({
+            data : JSON.stringify(parameter),
+            url : "http://localhost:3000/database/getQuerySort",
+            contentType : "application/json",
+            type : "POST",
+            success : (function(res){
+                createPlayerTable(res.QuerySort);
             })
         }) 
 
