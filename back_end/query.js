@@ -148,6 +148,23 @@ exports.getTeam = function(callback){
     });
   }
 
+  exports.getStats = function(callback,info){
+    var data,query;
+    if(info.limit > 0) {
+      query = 'SELECT Hero.HeroID,HeroName,'+info.option+
+                  ' AS Percent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY '+info.option+' DESC LIMIT ' + info.limit;
+    }else {
+      query = 'SELECT Hero.HeroID,HeroName,'+info.option+
+                  ' AS Percent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY '+info.option+' DESC';
+    }
+    connection.query(query,function(err, results,fields){
+        if(!!err) console.log(err);
+        data  = {
+          Stats : results
+        }
+        callback(data);
+      }); 
+  }
 
 
   exports.postPlayer = function(callback , info){
@@ -262,3 +279,5 @@ exports.getTeam = function(callback){
 // UPDATE Player SET PlayerName = "asdasd", GameName = "sadads", MMR = 9876, Nation = "Thai", Winrate = WHERE PlayerID = 204
 
 // SELECT Team.TeamID,TeamName,TeamsubName,Rating,Nation,ContinentName FROM Team INNER JOIN (SELECT Continent.ContinentName ,ContinentTeam.TeamID FROM Continent INNER JOIN ContinentTeam ON ContinentTeam.ContinentID = Continent.ContinentID ) AS NC ON NC.TeamID = Team.TeamID,ContinentTeam WHERE Team.TeamID = ContinentTeam.TeamID ORDER BY Rating DESC
+
+// SELECT Hero.HeroID,HeroName,PercentBanned FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentBanned DESC LIMIT 10

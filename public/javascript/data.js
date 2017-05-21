@@ -1,6 +1,5 @@
 var getTeamEurope = [],getTeamSea = [],getTeamAmerica = [],getTeamChina = [];
 var getPlayerEurope = [],getPlayerSea = [],getPlayerAmerica = [],getPlayerChina = [];
-var getStatsWin = [],getStatsPick = [],getStatsBanned = [],getStatsContest = [],getStatsFirstPick = [],getStatsFirstBanned = [];
 
 $.ajax({
         type: "GET",
@@ -80,54 +79,7 @@ $.ajax({
            getHero = response
         }
 });
-$.ajax({
-      type: "GET",
-      url: "http://localhost:3000/database/getStatsWin",
-      dataType: "json",
-      success: function(response){
-            getStatsWin = response
-      }
-});
-$.ajax({
-      type: "GET",
-      url: "http://localhost:3000/database/getStatsPick",
-      dataType: "json",
-      success: function(response){
-            getStatsPick = response
-      }
-});
-$.ajax({
-      type: "GET",
-      url: "http://localhost:3000/database/getStatsContest",
-      dataType: "json",
-      success: function(response){
-            getStatsContest = response
-      }
-});
-$.ajax({
-      type: "GET",
-      url: "http://localhost:3000/database/getStatsBanned",
-      dataType: "json",
-      success: function(response){
-            getStatsBanned = response
-      }
-});
-$.ajax({
-      type: "GET",
-      url: "http://localhost:3000/database/getStatsFirstPick",
-      dataType: "json",
-      success: function(response){
-            getStatsFirstPick = response
-      }
-});
-$.ajax({
-      type: "GET",
-      url: "http://localhost:3000/database/getStatsFirstBanned",
-      dataType: "json",
-      success: function(response){
-            getStatsFirstBanned = response
-      }
-});
+
 $.ajax({
       type: "GET",
       url: "http://localhost:3000/database/getBoston",
@@ -168,3 +120,4 @@ $.ajax({
             getHeroMost = response
       }
 });
+

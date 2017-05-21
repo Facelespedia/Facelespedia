@@ -2,270 +2,118 @@
 
 
 
-$(document).ready(function(){
+// $(document).ready(function(){
 
 
+    var stats_table;
 
-    var stats_table_winrate_max = "",stats_table_winrate_min = "";
-    var stats_table_pick = "" ,stats_table_pick_mini = "";
-    var stats_table_ban = "", stats_table_ban_mini = "";
-    var stats_table_contest = "" ,stats_table_contest_mini = "";
-    var stats_table_fpick = "" , stats_table_fpick_mini = "";
-    var stats_table_fban = "" , stats_table_fban_mini = "";
+     SelectStats("Winratepercent",10,'stats-hero-winrate');
+     SelectStats("PercentPick",10,'stats-hero-most_picked');
+     SelectStats("PercentContest",10,'stats-hero-most_contest');
+     SelectStats("PercentBanned",10,'stats-hero-most_ban');
+     SelectStats("PercentFirstPick",10,'stats-hero-most_firstpick');
+     SelectStats("PercentFirstBanned",10,'stats-hero-most_firstban');
 
-
-
-    for(var i = 0 ;i<10; i++) {
-
-
-        stats_table_winrate_min +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsWin.StatsWin[i].HeroName+".jpg\"></td>";
-        stats_table_winrate_min +="<td><label id =\"Heroname\">"+getStatsWin.StatsWin[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_winrate_min +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsWin.StatsWin[i].Winratepercent+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsWin.StatsWin[i].Winratepercent+" %</span></div></td></tr>";
-
-        }
-        else {
-
-            stats_table_winrate_min +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsWin.StatsWin[i].Winratepercent+"%;\"></span></div></td>"
-                                    +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsWin.StatsWin[i].Winratepercent+" %</span></div></td></tr>";
-
-        }
-
-        stats_table_pick_mini +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsPick.StatsPick[i].HeroName+".jpg\"></td>";
-        stats_table_pick_mini +="<td><label id = \"Heroname\">"+getStatsPick.StatsPick[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_pick_mini +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsPick.StatsPick[i].PercentPick+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsPick.StatsPick[i].PercentPick+" %</span></div></td></tr>";
-
-        }
-        else {
-          stats_table_pick_mini +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsPick.StatsPick[i].PercentPick+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsPick.StatsPick[i].PercentPick+" %</span></div></td></tr>";
-
-        }
-
-
-        stats_table_ban_mini +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsBanned.StatsBanned[i].HeroName+".jpg\"></td>";
-        stats_table_ban_mini +="<td><label id = \"Heroname\">"+getStatsBanned.StatsBanned[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_ban_mini +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsBanned.StatsBanned[i].PercentBanned+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsBanned.StatsBanned[i].PercentBanned+" %</span></div></td></tr>";
-
-        }
-        else {
-          stats_table_ban_mini +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsBanned.StatsBanned[i].PercentBanned+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsBanned.StatsBanned[i].PercentBanned+" %</span></div></td></tr>";
-
-        }
-
-
-
-        stats_table_contest_mini +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsContest.StatsContest[i].HeroName+".jpg\"></td>";
-        stats_table_contest_mini +="<td><label id = \"Heroname\">"+getStatsContest.StatsContest[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_contest_mini +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsContest.StatsContest[i].PercentContest+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsContest.StatsContest[i].PercentContest+" %</span></div></td></tr>";
-
-        }
-        else {
-          stats_table_contest_mini +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsContest.StatsContest[i].PercentContest+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsContest.StatsContest[i].PercentContest+" %</span></div></td></tr>";
-
-        }
-
-        stats_table_fpick_mini +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsFirstPick.StatsFirstPick[i].HeroName+".jpg\"></td>";
-        stats_table_fpick_mini +="<td><label id = \"Heroname\">"+getStatsFirstPick.StatsFirstPick[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_fpick_mini +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+" %</span></div></td></tr>";
-
-        }
-        else {
-          stats_table_fpick_mini +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+" %</span></div></td></tr>";
-
-        }
-
-        stats_table_fban_mini +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsFirstBanned.StatsFirstBanned[i].HeroName+".jpg\"></td>";
-        stats_table_fban_mini +="<td><label id = \"Hername\">"+getStatsFirstBanned.StatsFirstBanned[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_fban_mini +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"%;\"></span></div></td>"
-
-          +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+" %</span></div></td></tr>";
-        }
-        else {
-          stats_table_fban_mini +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+" %</span></div></td></tr>";
-
-        }
-
-
-
-    }
-
-
-
-    for(var i = 0 ;i< getStatsWin.StatsWin.length; i++){
-        stats_table_winrate_max +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsWin.StatsWin[i].HeroName+".jpg\"></td>";
-        stats_table_winrate_max +="<td><label id =\"Heroname\">"+getStatsWin.StatsWin[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_winrate_max +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsWin.StatsWin[i].Winratepercent+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsWin.StatsWin[i].Winratepercent+" %</span></div></td></tr>";
-
-        }
-        else {
-
-            stats_table_winrate_max +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsWin.StatsWin[i].Winratepercent+"%;\"></span></div></td>"
-                                    +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsWin.StatsWin[i].Winratepercent+" %</span></div></td></tr>";
-
-        }
-        stats_table_pick +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsPick.StatsPick[i].HeroName+".jpg\"></td>";
-        stats_table_pick +="<td><label id =\"Heroname\">"+getStatsPick.StatsPick[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_pick +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsPick.StatsPick[i].PercentPick+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsPick.StatsPick[i].PercentPick+" %</span></div></td></tr>";
-
-        }
-        else {
-          stats_table_pick +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsPick.StatsPick[i].PercentPick+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsPick.StatsPick[i].PercentPick+" %</span></div></td></tr>";
-
-        }
-        stats_table_ban +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsBanned.StatsBanned[i].HeroName+".jpg\"></td>";
-        stats_table_ban +="<td><label id =\"Heroname\">"+getStatsBanned.StatsBanned[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_ban +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsBanned.StatsBanned[i].PercentBanned+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsBanned.StatsBanned[i].PercentBanned+" %</span></div></td></tr>";
-
-        }
-        else {
-          stats_table_ban +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsBanned.StatsBanned[i].PercentBanned+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsBanned.StatsBanned[i].PercentBanned+" %</span></div></td></tr>";
-
-        }
-
-        stats_table_contest +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsContest.StatsContest[i].HeroName+".jpg\"></td>";
-        stats_table_contest +="<td><label id =\"Heroname\">"+getStatsContest.StatsContest[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_contest +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsContest.StatsContest[i].PercentContest+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsContest.StatsContest[i].PercentContest+" %</span></div></td></tr>";
-
-        }
-        else {
-          stats_table_contest +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsContest.StatsContest[i].PercentContest+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsContest.StatsContest[i].PercentContest+" %</span></div></td></tr>";
-
-        }
-        stats_table_fpick +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsFirstPick.StatsFirstPick[i].HeroName+".jpg\"></td>";
-        stats_table_fpick +="<td><label id =\"Heroname\">"+getStatsFirstPick.StatsFirstPick[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_fpick +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+" %</span></div></td></tr>";
-
-        }
-        else {
-          stats_table_fpick +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsFirstPick.StatsFirstPick[i].PercentFirstPick+" %</span></div></td></tr>";
-
-        }
-        stats_table_fban +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+getStatsFirstBanned.StatsFirstBanned[i].HeroName+".jpg\"></td>";
-        stats_table_fban +="<td><label id =\"Heroname\">"+getStatsFirstBanned.StatsFirstBanned[i].HeroName+"</label>";
-        if( i < 5 ){
-          stats_table_fban +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"%;\"></span></div></td>"
-
-          +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+" %</span></div></td></tr>";
-        }
-        else {
-          stats_table_fban +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+"%;\"></span></div></td>"
-                                  +"<td ><label></label><div id =\"percenShow\"><span>"+getStatsFirstBanned.StatsFirstBanned[i].PercentFirstBanned+" %</span></div></td></tr>";
-
-        }
-    }
-// Start website show this item-----------------------------------------------
-        document.getElementById('stats-hero-winrate').innerHTML = stats_table_winrate_min;
-        document.getElementById('stats-hero-most_picked').innerHTML = stats_table_pick_mini;
-        document.getElementById('stats-hero-most_contest').innerHTML = stats_table_contest_mini;
-        document.getElementById('stats-hero-most_ban').innerHTML = stats_table_ban_mini;
-        document.getElementById('stats-hero-most_firstpick').innerHTML = stats_table_fpick_mini;
-        document.getElementById('stats-hero-most_firstban').innerHTML = stats_table_fban_mini;
-// funtion showall----------------------------------------------------------------------------
     $('#show-all_winrate').click(function() {
         $('#close').show();
-        document.getElementById('stats-hero-winrate').innerHTML = stats_table_winrate_max;
+        SelectStats("Winratepercent",0,'stats-hero-winrate');
         document.getElementById('close_winrate').style="display block";
     });
 
     $('#show-all_most_picked').click(function() {
         $('#close').show();
-        document.getElementById('stats-hero-most_picked').innerHTML = stats_table_pick;
+        SelectStats("PercentPick",0,'stats-hero-most_picked');
         document.getElementById('close_most_picked').style="display block";
     });
 
     $('#show-all_most_contest').click(function() {
         $('#close').show();
-        document.getElementById('stats-hero-most_contest').innerHTML = stats_table_contest;
+        SelectStats("PercentContest",0,'stats-hero-most_contest');
         document.getElementById('close_most_contest').style="display block";
     });
 
     $('#show-all_most_ban').click(function() {
         $('#close').show();
-        document.getElementById('stats-hero-most_ban').innerHTML = stats_table_ban;
+        SelectStats("PercentBanned",0,'stats-hero-most_ban');
         document.getElementById('close_most_ban').style="display block";
     });
 
     $('#show-all_most_firstpick').click(function() {
         $('#close').show();
-        document.getElementById('stats-hero-most_firstpick').innerHTML = stats_table_fpick;
+        SelectStats("PercentFirstPick",0,'stats-hero-most_firstpick');
         document.getElementById('close_most_firstpick').style="display block";
     });
 
     $('#show-all_most_firstban').click(function() {
         $('#close').show();
-        document.getElementById('stats-hero-most_firstban').innerHTML = stats_table_fban;
+        SelectStats("PercentFirstBanned",0,'stats-hero-most_firstban');
         document.getElementById('close_most_firstban').style="display block";
     });
 
-// function close tab-------------------------------------------------------------------------
     $('#close_winrate').click(function() {
          $('#close_winrate').hide();
-         document.getElementById('stats-hero-winrate').innerHTML = stats_table_winrate_min;
-
+         SelectStats("Winratepercent",10,'stats-hero-winrate');
     });
 
     $('#close_most_picked').click(function() {
          $('#close_most_picked').hide();
-         document.getElementById('stats-hero-most_picked').innerHTML = stats_table_pick_mini;
+         SelectStats("PercentPick",10,'stats-hero-most_picked');
     });
 
     $('#close_most_contest').click(function() {
          $('#close_most_contest').hide();
-         document.getElementById('stats-hero-most_contest').innerHTML = stats_table_contest_mini;
+         SelectStats("PercentContest",10,'stats-hero-most_contest');
     });
 
     $('#close_most_ban').click(function() {
          $('#close_most_ban').hide();
-         document.getElementById('stats-hero-most_ban').innerHTML = stats_table_ban_mini;
+         SelectStats("PercentBanned",10,'stats-hero-most_ban');
     });
 
     $('#close_most_firstpick').click(function() {
          $('#close_most_firstpick').hide();
-         document.getElementById('stats-hero-most_firstpick').innerHTML = stats_table_fpick_mini;
+         SelectStats("PercentFirstPick",0,'stats-hero-most_firstpick');
     });
 
     $('#close_most_firstban').click(function() {
          $('#close_most_firstban').hide();
-         document.getElementById('stats-hero-most_firstban').innerHTML = stats_table_fban_mini;
+         SelectStats("PercentFirstBanned",0,'stats-hero-most_firstban');
     });
+   
+// })
 
-// funtion click -----------------------------------------------------------------------------
-    // document.getElementById('stats-hero-winrate').innerHTML = stats_table_winrate_min;
-    // // document.getElementById('stats-winrate').click();
+function SelectStats(op,lm,id) {
+    var parameter = {option : op,limit : lm};
+        $.ajax({
+            data : JSON.stringify(parameter),
+            url : "http://localhost:3000/database/getStats",
+            contentType : "application/json",
+            type : "POST",
+            success : (function(res){
+                getStatsWin = res;
+                CreateTable(res.Stats,id);
+            })
+        }) 
 
-    // document.getElementById('stats-hero-most_picked').innerHTML = stats_table_pick;
-    // document.getElementById('stats-pick').click();
+}
 
-})
+function CreateTable(arrStats,id) {
+    stats_table = "" ;
+        for(var i = 0; i < arrStats.length; i++ ){
+            stats_table +="<tr id = \"bt_border\"><td><h4>"+(i+1)+"</h4></td><td><img src=\"/images/hero/"+arrStats[i].HeroName+".jpg\"></td>";
+            stats_table +="<td><label id =\"Heroname\">"+arrStats[i].HeroName+"</label>";
+            if( i < 5 ){
+            stats_table +="<div class=\"bar-wrap\"><span class=\"bar-fill\" style=\"width:"+arrStats[i].Percent+"%;\"></span></div></td>"
+                                    +"<td ><label></label><div id =\"percenShow\"><span>"+arrStats[i].Percent+" %</span></div></td></tr>";
+
+            }
+            else {
+                stats_table +="<div class=\"bar-wrap\"><span class=\"bar-fill2\" style=\"width:"+arrStats[i].Percent+"%;\"></span></div></td>"
+                                        +"<td ><label></label><div id =\"percenShow\"><span>"+arrStats[i].Percent+" %</span></div></td></tr>";
+            }
+        }
+                document.getElementById(id).innerHTML = stats_table;
+}
 
 
 </script>
