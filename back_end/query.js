@@ -75,6 +75,14 @@ exports.getTeam = function(callback){
       callback(data);
     });
   }
+  exports.getPlayerSort = function(callback,info){
+      connection.query("SELECT Player.PlayerID,PlayerName,GameName,MMR,Nation,Winrate,ContinentName FROM Player INNER JOIN (SELECT Continent.ContinentName ,ContinentPlayer.PlayerID FROM Continent INNER JOIN ContinentPlayer ON ContinentPlayer.ContinentID = Continent.ContinentID ) AS NC ON NC.PlayerID = Player.PlayerID,ContinentPlayer WHERE Player.PlayerID = ContinentPlayer.PlayerID ORDER BY MMR DESC",function(err, results,fields){      if(!!err) console.log(err);
+      var data  = {
+        PlayerSortMMR : results
+      }
+      callback(data);
+    });
+  }
 
 
    exports.getPlayerWithTeam = function(callback){
@@ -200,6 +208,16 @@ exports.getTeam = function(callback){
       if(!!err) console.log(err);
       var data  = {
         HeroMost : results
+      }
+      callback(data);
+    });
+  }
+
+   exports.getTable = function(callback){
+    connection.query("SELECT * FROM HeroMostWin",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Table : results
       }
       callback(data);
     });

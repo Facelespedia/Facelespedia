@@ -1,11 +1,40 @@
 <div id = "table-form" style="display:none;">
     <div class="larg">
+        
         <select id = "form-table"style="padding-bottom:10px;" class="form-control">
             <option value = 1>Team</option>
             <option value = 2>Player</option>
             <option value = 3>Hero</option>
-            <option value = 4>China</option>
+            <option value = 3>Hero ที่คนชอบเล่นมากที่สุด</option>
         </select>
+        <span class="form-control">
+        <label>SORT BY : </label>
+        <select id = "form-table-sort"style="padding-bottom:10px;">
+            <option value = 1>TeamID</option>
+            <option value = 2>Rating</option>
+            <option value = 3>TeamName</option>
+        </select>
+        <label> LIMIT BY : </label>
+        <select id = "form-table-limit"style="padding-bottom:10px;">
+            <option value = 1>All</option>
+            <option value = 2>10</option>
+            <option value = 3>20</option>
+            <option value = 3>30</option>
+        </select>
+        <label> GROUP BY : </label>
+        <select id = "form-table-limit"style="padding-bottom:10px;">
+            <option value = 1>All</option>
+            <option value = 2>Nation</option>
+            <option value = 3>Continent</option>
+        </select>
+        <label> VALUE : </label>
+        <select id = "form-table-limit"style="padding-bottom:10px;">
+            <option value = 1>NONE</option>
+            <option value = 2>MAX</option>
+            <option value = 3>MIN</option>
+        </select>
+        <button>SUBMIT</button>
+        </span>
         <br/>
         <table id = "table-query" class="table table-bordered">
         </table>

@@ -27,12 +27,6 @@ app.get('/database/getHero',function(req,res) {
   };
   query.getHero(callback);
 });
-app.get('/database/getHeroStat',function(req,res) {
-  var callback = function(data){
-    res.send(data);
-  };
-  query.getHeroStat(callback);
-});
 app.get('/database/getContinent',function(req,res) {
   var callback = function(data){
     res.send(data);
@@ -50,6 +44,12 @@ app.get('/database/getPlayerSortMMR',function(req,res) {
     res.send(data);
   };
   query.getPlayerSortMMR(callback);
+});
+app.post('/database/getPlayerSort',function(req,res) {
+  var callback = function(data){
+    res.status(200).send(data);
+  };
+  query.getPlayerSortMMR(callback,req.body);
 });
 app.get('/database/getPlayerWithTeam',function(req,res) {
   var callback = function(data){
