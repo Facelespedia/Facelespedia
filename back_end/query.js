@@ -151,6 +151,17 @@ exports.getTeam = function(callback){
       });
     }
   }
+  exports.postPlayerWithTeam = function(callback , info){
+     if(info.TYPE == 'add') {
+      connection.query("INSERT INTO TeamMember SELECT TeamID,PlayerID FROM Team,Player WHERE Team.TeamsubName =\""+info.TeamsubName+"\" && Player.GameName = \""+info.GameName+"\"",function(err, results,fields){
+         if(!!err) console.log(err);
+       });
+     }else if(info.TYPE == 'delete') {
+       connection.query("DELETE FROM Player WHERE PlayerID = "+info.PlayerID,function(err, results,fields){
+         if(!!err) console.log(err);
+       });
+     }
+   }
 
   exports.getBoston = function(callback){
     connection.query("SELECT BostonTeamId,TeamName,TeamsubName,BostonEarning FROM Team,Tournament Where Team.TeamID = Tournament.BostonTeamId ORDER BY BostonEarning DESC",function(err, results,fields){
