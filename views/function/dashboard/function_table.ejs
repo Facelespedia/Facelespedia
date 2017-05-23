@@ -24,6 +24,18 @@
             $('#select-query-team').hide();
             $('#select-query-hero').show();
         }
+        if($('#form-table').val() == 4) {
+            createHeroMostTable();
+            $('#select-query-player').hide();
+            $('#select-query-team').hide();
+            $('#select-query-hero').hide();
+        }
+        if($('#form-table').val() == 5) {
+             createTopFiveTable();
+            $('#select-query-player').hide();
+            $('#select-query-team').hide();
+            $('#select-query-hero').hide();
+        }
 
         
         
@@ -157,6 +169,66 @@
         }
         
         document.getElementById('table-query').innerHTML = table;
+    }
+    function createHeroMostTable(){
+                var parameter = {TYPE : "MaxHero"};
+        $.ajax({
+            data : JSON.stringify(parameter),
+            url : "http://localhost:3000/database/getQuerySort",
+            contentType : "application/json",
+            type : "POST",
+            success : (function(res){
+                 table = ''; 
+                    if(res.QuerySort[0] == null){
+                        table += '<tbody></tbody>';
+                    }else{      
+                        table += ' <thead><tr>';
+                        for( var i = 0; i < Object.keys(res.QuerySort[0]).length; i++ ) {
+                            table += '<th>'+ Object.keys(res.QuerySort[0])[i]+'</th>'; 
+                        }
+                        table += '</tr></thead><tbody>';
+                        for(var j = 0; j < res.QuerySort.length; j++ ) {
+                            table += '<tr>'
+                                    + '<td>'+res.QuerySort[j].HeroName+'</td>'
+                                    + '<td>'+res.QuerySort[j].MostLike+'</td>'
+                                    +'</tr>';
+                        }
+                        table += '</tbody>';
+                    }
+                    
+                    document.getElementById('table-query').innerHTML = table;
+            })
+        }) 
+    }
+    function createTopFiveTable(){
+                var parameter = {TYPE : "TopFive"};
+        $.ajax({
+            data : JSON.stringify(parameter),
+            url : "http://localhost:3000/database/getQuerySort",
+            contentType : "application/json",
+            type : "POST",
+            success : (function(res){
+                 table = ''; 
+                    if(res.QuerySort[0] == null){
+                        table += '<tbody></tbody>';
+                    }else{      
+                        table += ' <thead><tr>';
+                        for( var i = 0; i < Object.keys(res.QuerySort[0]).length; i++ ) {
+                            table += '<th>'+ Object.keys(res.QuerySort[0])[i]+'</th>'; 
+                        }
+                        table += '</tr></thead><tbody>';
+                        for(var j = 0; j < res.QuerySort.length; j++ ) {
+                            table += '<tr>'
+                                    + '<td>'+res.QuerySort[j].TeamName+'</td>'
+                                    + '<td>$ '+res.QuerySort[j].PRIZE+'</td>'
+                                    +'</tr>';
+                        }
+                        table += '</tbody>';
+                    }
+                    
+                    document.getElementById('table-query').innerHTML = table;
+            })
+        }) 
     }
 
      createTeamTable(getTeam.Team);
