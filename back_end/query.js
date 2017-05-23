@@ -295,6 +295,3 @@ exports.getTeam = function(callback){
         callback(data);
       }); 
   }
-
-  // SELECT * FROM Player WHERE PlayerID IN (SELECT PlayerID FROM ContinentPlayer WHERE ContinentID IN (SELECT ContinentID FROM Continent WHERE ContinentName = "China" )) ORDER BY MMR DESC 
-  // SELECT * FROM Hero;
