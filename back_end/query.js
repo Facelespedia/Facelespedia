@@ -269,6 +269,22 @@ exports.getTeam = function(callback){
       if(info.limit != 'All') {
         query += 'LIMIT ' + info.limit + ' ';
       }
+    }else if(info.TYPE == 'MaxHero') {
+        query += 'select Hero.HeroName, COUNT(Hero.HeroID) AS MostLike FROM Hero, HeroMostWin '+
+                  'WHERE Hero.HeroID = HeroMostWin.Hero1 '+
+                  'OR Hero.HeroID = HeroMostWin.Hero2 '+
+                  'OR Hero.HeroID = HeroMostWin.Hero3 '+
+                  'OR Hero.HeroID = HeroMostWin.Hero4 '+
+                  'OR Hero.HeroID = HeroMostWin.Hero5 '+
+                  'GROUP BY Hero.HeroName '+
+                  'ORDER BY MostLike  DESC';
+    }
+    else if(info.TYPE == 'TopFive') {
+        query += 'select team.TeamName, manilla.PRIZE + boston.PRIZE + kiev.PRIZE + ti6.PRIZE AS PRIZE from (select team.teamname as TEAMNAME , tournament.manillaearning as PRIZE from team , tournament  where team.teamid = tournament.ManillaTeamId ) manilla,'+
+                  '(select team.teamname as TEAMNAME , tournament.bostonearning as PRIZE from team , tournament  where team.teamid = tournament.BostonTeamId) boston,'+
+                  '(select team.teamname as TEAMNAME , tournament.kievearning as PRIZE from team , tournament  where team.teamid = tournament.kievTeamId) kiev,'+
+                  '(select team.teamname as TEAMNAME , tournament.ti6earning as PRIZE from team , tournament  where team.teamid = tournament.ti6TeamId) ti6,team '+
+                  ' where team.teamname = manilla.TEAMNAME and manilla.teamname = boston.teamname and boston.teamname = kiev.teamname and kiev.teamname = ti6.teamname and manilla.teamname = ti6.teamname ORDER BY PRIZE DESC';
     }
 
     connection.query(query,function(err, results,fields){
