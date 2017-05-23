@@ -1,15 +1,15 @@
 # Facelespedia
 
-*Download npm
+Download npm
 =================
 Download node.js
 ====================
-run -> node server.js
-=====================
+run -> node server.js , node client.js
+======================================
 home -> index.html
 ==================
-database -> facelespedia.sql
-============================
+database -> backend/facelespedia.sql,query -> query.js
+=======================================================
 how to use database -> mysql -u root -p facelespedia < facelespedia.sql
 =======================================================================
 start database -> sudo mysql -u root -p
