@@ -15,7 +15,8 @@ CREATE TABLE Player(
     GameName varchar(255),
     MMR int,
     Nation varchar(255),
-    Winrate int
+    Winrate int,
+    PRIMARY KEY (PlayerID)
 );
 
 CREATE TABLE Team (
@@ -23,7 +24,8 @@ CREATE TABLE Team (
     TeamName varchar(255),
     TeamsubName varchar(255),
     Rating int,
-    Nation varchar(255)
+    Nation varchar(255),
+    PRIMARY KEY (TeamID)
 );
 
 CREATE TABLE Hero(
@@ -31,7 +33,8 @@ CREATE TABLE Hero(
     HeroName varchar(255),
     HeroType varchar(255),
     HeroAttackType varchar(255),
-    HeroRole varchar(255)
+    HeroRole varchar(255),
+    PRIMARY KEY (HeroID)
 );
 
 CREATE TABLE HeroStat(
@@ -41,36 +44,50 @@ CREATE TABLE HeroStat(
     PercentContest int,
     PercentBanned int,
     PercentFirstPick int,
-    PercentFirstBanned int
+    PercentFirstBanned int,
+    FOREIGN KEY (HeroID) REFERENCES Hero(HeroID)
 );
 
 CREATE TABLE Continent(
   ContinentID int,
-  ContinentName varchar(255)
+  ContinentName varchar(255),
+  PRIMARY KEY (ContinentID)
 );
 
 CREATE TABLE ContinentTeam(
   ContinentID int,
-  TeamID int
+  TeamID int,
+  FOREIGN KEY (ContinentID) REFERENCES Continent(ContinentID),
+  FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
 );
 
 CREATE TABLE ContinentPlayer(
   ContinentID int,
-  PlayerID int
+  PlayerID int,
+  FOREIGN KEY (ContinentID) REFERENCES Continent(ContinentID),
+  FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID)
 );
 
 CREATE TABLE TeamMember(
   TeamID int,
-  PlayerID int
+  PlayerID int,
+  FOREIGN KEY (TeamID) REFERENCES Team(TeamID),
+  FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID)
 );
 
 CREATE TABLE HeroMostWin(
-   PlayerID               INT
+   PlayerID             INT
   ,Hero1                INT
   ,Hero2                INT
   ,Hero3                INT
   ,Hero4                INT
   ,Hero5                INT
+  ,FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID)
+  ,FOREIGN KEY (Hero1) REFERENCES Hero(HeroID)
+  ,FOREIGN KEY (Hero2) REFERENCES Hero(HeroID)
+  ,FOREIGN KEY (Hero3) REFERENCES Hero(HeroID)
+  ,FOREIGN KEY (Hero4) REFERENCES Hero(HeroID)
+  ,FOREIGN KEY (Hero5) REFERENCES Hero(HeroID)
 );
 
 CREATE TABLE Tournament(
@@ -81,7 +98,11 @@ CREATE TABLE Tournament(
   KievTeamId int,
   KievEarning int,
   Ti6TeamId int,
-  Ti6Earning int
+  Ti6Earning int,
+  FOREIGN KEY (ManillaTeamId) REFERENCES Team(TeamID),
+  FOREIGN KEY (BostonTeamId) REFERENCES Team(TeamID),
+  FOREIGN KEY (KievTeamId) REFERENCES Team(TeamID),
+  FOREIGN KEY (Ti6TeamId) REFERENCES Team(TeamID)
 
 );
 
@@ -1043,7 +1064,7 @@ INSERT INTO HeroMostWin (PlayerID,Hero1,Hero2,Hero3,Hero4,Hero5)
 VALUES
  (1,89,49,84,92,105),
  (2,94,66,95,98,2),
- (3,83,559,87,9,62),
+ (3,83,55,87,9,62),
  (4,103,28,83,76,63),
  (5,20,15,113,27,103),
  (6,18,15,53,96,2),

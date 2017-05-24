@@ -18,7 +18,7 @@ body{
 .banner{
     background-image: url("../images/bg/bg_2.jpg");
     background-size: cover;
-    padding: 155px;
+    padding: 375px;
     color: ghostwhite;
     /*opacity: 0.5;
     filter: alpha(opacity=200); */
@@ -51,7 +51,7 @@ body{
 .FTourBanner h1{
     /*font-size: 200px;*/
     color: black;
-    margin-left: 750px;
+    margin-left: 700px;
     font-size: 80px;
 }
 .parallax-player{

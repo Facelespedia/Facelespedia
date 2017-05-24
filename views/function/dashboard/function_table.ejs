@@ -1,0 +1,237 @@
+<script>
+
+    var table = '';
+
+    $('#form-table').change(function(){  
+
+        if($('#form-table').val() == 1) {
+            createTeamTable(getTeam.Team);
+            $('#select-query-player').hide();
+            $('#select-query-team').show();
+            $('#select-query-hero').hide();
+        }
+
+        if($('#form-table').val() == 2) {
+            createPlayerTable(getPlayer.Player);
+            $('#select-query-player').show();
+            $('#select-query-team').hide();
+            $('#select-query-hero').hide();
+        }
+
+         if($('#form-table').val() == 3) {
+            createHeroTable(getHero.Hero);
+            $('#select-query-player').hide();
+            $('#select-query-team').hide();
+            $('#select-query-hero').show();
+        }
+        if($('#form-table').val() == 4) {
+            createHeroMostTable();
+            $('#select-query-player').hide();
+            $('#select-query-team').hide();
+            $('#select-query-hero').hide();
+        }
+        if($('#form-table').val() == 5) {
+             createTopFiveTable();
+            $('#select-query-player').hide();
+            $('#select-query-team').hide();
+            $('#select-query-hero').hide();
+        }
+
+        
+        
+    });
+
+    $('#select-query-team #submit-query').click(function(){
+
+        var parameter = {sort : $('#select-query-team #form-table-sort').val()
+                        ,limit : $('#select-query-team #form-table-limit').val()
+                        ,group : $('#select-query-team #form-table-group').val()
+                        ,value : $('#select-query-team #form-table-value').val() 
+                        ,TYPE : "Team"};
+        $.ajax({
+            data : JSON.stringify(parameter),
+            url : "http://localhost:3000/database/getQuerySort",
+            contentType : "application/json",
+            type : "POST",
+            success : (function(res){
+                createTeamTable(res.QuerySort);
+            })
+        }) 
+
+    });
+
+    $('#select-query-player #submit-query').click(function(){
+
+        var parameter = {sort : $('#select-query-player #form-table-sort').val()
+                        ,limit : $('#select-query-player #form-table-limit').val()
+                        ,group : $('#select-query-player #form-table-group').val()
+                        ,value : $('#select-query-player #form-table-value').val() 
+                        ,TYPE : "Player"};
+        $.ajax({
+            data : JSON.stringify(parameter),
+            url : "http://localhost:3000/database/getQuerySort",
+            contentType : "application/json",
+            type : "POST",
+            success : (function(res){
+                createPlayerTable(res.QuerySort);
+            })
+        }) 
+
+    });
+    $('#select-query-hero #submit-query').click(function(){
+
+        var parameter = {limit : $('#select-query-hero #form-table-limit').val()
+                        ,group : $('#select-query-hero #form-table-type').val()
+                        ,attack : $('#select-query-hero #form-table-attack').val() 
+                        ,role : $('#select-query-hero #form-table-role').val()
+                        ,TYPE : "Hero"};
+        $.ajax({
+            data : JSON.stringify(parameter),
+            url : "http://localhost:3000/database/getQuerySort",
+            contentType : "application/json",
+            type : "POST",
+            success : (function(res){
+                createHeroTable(res.QuerySort);
+            })
+        }) 
+
+    });
+   
+    function createPlayerTable(Player) {
+        table = '';      
+        if(Player[0] == null){
+            table += '<tbody></tbody>';
+        }else{
+            table += ' <thead><tr>';
+            for( var i = 0; i < Object.keys(Player[0]).length; i++ ) {
+                table += '<th>'+ Object.keys(Player[0])[i]+'</th>'; 
+            }
+            table += '</tr></thead><tbody>';
+            for(var j = 0; j < Player.length; j++ ) {
+                table += '<tr>'
+                        + '<td>'+Player[j].PlayerID+'</td>'
+                        + '<td>'+Player[j].PlayerName+'</td>'
+                        + '<td>'+Player[j].GameName+'</td>'
+                        + '<td>'+Player[j].MMR+'</td>'
+                        + '<td>'+Player[j].Nation+'</td>'
+                        + '<td>'+Player[j].Winrate+'</td>'
+                        +'</tr>';
+            }
+            table += '</tbody>';
+        }
+        document.getElementById('table-query').innerHTML = table;
+    }  
+
+    function createTeamTable(Team) {
+        table = '';
+        if(Team[0] == null){
+            table += '<tbody></tbody>';
+        }else{
+            table += ' <thead><tr>';
+            for( var i = 0; i < Object.keys(Team[0]).length; i++ ) {
+                table += '<th>'+ Object.keys(Team[0])[i]+'</th>'; 
+            }
+            table += '</tr></thead><tbody>';
+            for(var j = 0; j < Team.length; j++ ) {
+                table += '<tr>'
+                        + '<td>'+Team[j].TeamID+'</td>'
+                        + '<td>'+Team[j].TeamName+'</td>'
+                        + '<td>'+Team[j].TeamsubName+'</td>'
+                        + '<td>'+Team[j].Rating+'</td>'
+                        + '<td>'+Team[j].Nation+'</td>'
+                        +'</tr>';
+            }
+            table += '</tbody>';
+        }
+        document.getElementById('table-query').innerHTML = table;
+    }
+
+    function createHeroTable(Hero) {
+        table = ''; 
+        if(Hero[0] == null){
+            table += '<tbody></tbody>';
+        }else{      
+            table += ' <thead><tr>';
+            for( var i = 0; i < Object.keys(Hero[0]).length; i++ ) {
+                table += '<th>'+ Object.keys(Hero[0])[i]+'</th>'; 
+            }
+            table += '</tr></thead><tbody>';
+            for(var j = 0; j < Hero.length; j++ ) {
+                table += '<tr>'
+                        + '<td>'+Hero[j].HeroID+'</td>'
+                        + '<td>'+Hero[j].HeroName+'</td>'
+                        + '<td>'+Hero[j].HeroType+'</td>'
+                        + '<td>'+Hero[j].HeroAttackType+'</td>'
+                        + '<td>'+Hero[j].HeroRole+'</td>'
+                        +'</tr>';
+            }
+            table += '</tbody>';
+        }
+        
+        document.getElementById('table-query').innerHTML = table;
+    }
+    function createHeroMostTable(){
+                var parameter = {TYPE : "MaxHero"};
+        $.ajax({
+            data : JSON.stringify(parameter),
+            url : "http://localhost:3000/database/getQuerySort",
+            contentType : "application/json",
+            type : "POST",
+            success : (function(res){
+                 table = ''; 
+                    if(res.QuerySort[0] == null){
+                        table += '<tbody></tbody>';
+                    }else{      
+                        table += ' <thead><tr>';
+                        for( var i = 0; i < Object.keys(res.QuerySort[0]).length; i++ ) {
+                            table += '<th>'+ Object.keys(res.QuerySort[0])[i]+'</th>'; 
+                        }
+                        table += '</tr></thead><tbody>';
+                        for(var j = 0; j < res.QuerySort.length; j++ ) {
+                            table += '<tr>'
+                                    + '<td>'+res.QuerySort[j].HeroName+'</td>'
+                                    + '<td>'+res.QuerySort[j].MostLike+'</td>'
+                                    +'</tr>';
+                        }
+                        table += '</tbody>';
+                    }
+                    
+                    document.getElementById('table-query').innerHTML = table;
+            })
+        }) 
+    }
+    function createTopFiveTable(){
+                var parameter = {TYPE : "TopFive"};
+        $.ajax({
+            data : JSON.stringify(parameter),
+            url : "http://localhost:3000/database/getQuerySort",
+            contentType : "application/json",
+            type : "POST",
+            success : (function(res){
+                 table = ''; 
+                    if(res.QuerySort[0] == null){
+                        table += '<tbody></tbody>';
+                    }else{      
+                        table += ' <thead><tr>';
+                        for( var i = 0; i < Object.keys(res.QuerySort[0]).length; i++ ) {
+                            table += '<th>'+ Object.keys(res.QuerySort[0])[i]+'</th>'; 
+                        }
+                        table += '</tr></thead><tbody>';
+                        for(var j = 0; j < res.QuerySort.length; j++ ) {
+                            table += '<tr>'
+                                    + '<td>'+res.QuerySort[j].TeamName+'</td>'
+                                    + '<td>$ '+res.QuerySort[j].PRIZE+'</td>'
+                                    +'</tr>';
+                        }
+                        table += '</tbody>';
+                    }
+                    
+                    document.getElementById('table-query').innerHTML = table;
+            })
+        }) 
+    }
+
+     createTeamTable(getTeam.Team);
+     document.getElementById('table-query').innerHTML = table;
+
+</script>

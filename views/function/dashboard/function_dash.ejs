@@ -3,29 +3,70 @@
         $('#add').addClass('bg-color');
         $('#remove').removeClass('bg-color');
         $('#edit').removeClass('bg-color');
+        $('#table').removeClass('bg-color');
         $('#add-form').show();
         $('#remove-form').hide();
         $('#edit-form').hide();
+        $('#table-form').hide();
+        resetAll();
     });
     $('#remove').click(function(){
         $('#add').removeClass('bg-color');
         $('#remove').addClass('bg-color');
         $('#edit').removeClass('bg-color');
+        $('#table').removeClass('bg-color');
         $('#add-form').hide();
         $('#remove-form').show();
         $('#edit-form').hide();
+        $('#table-form').hide();
+        resetAll();
     });
     $('#edit').click(function(){
         $('#add').removeClass('bg-color');
         $('#remove').removeClass('bg-color');
         $('#edit').addClass('bg-color');
+        $('#table').removeClass('bg-color');
         $('#add-form').hide();
         $('#remove-form').hide();
         $('#edit-form').show();
+        $('#table-form').hide();
+        resetAll();
     });
-    
+     $('#table').click(function(){
+        $('#add').removeClass('bg-color');
+        $('#remove').removeClass('bg-color');
+        $('#edit').removeClass('bg-color');
+        $('#table').addClass('bg-color');
+        $('#add-form').hide();
+        $('#remove-form').hide();
+        $('#edit-form').hide();
+        $('#table-form').show();
+        resetAll();
+    });
+   
     $('#add').click();
 
+    function resetAll() {
+
+        $('#search-input-player').val('');
+        $('#search-input-team').val('');
+        $('.player-menu').hide();
+        $('.team-menu').hide();
+        $('#form-edit-player').hide();
+        $('#form-edit-team').hide();
+        $('#form-remove-player').hide();
+        $('#form-remove-team').hide();
+        $('#form-add-player').hide();
+        $('#form-add-team').hide();
+        $('#form-add-member').hide();
+        $('#form-add-hero').hide();
+        // var options = {
+        //     data: ["blue", "green", "pink", "red", "yellow"]
+        // };
+        // $('#search-input-player').easyAutocomplete(options);
+        // $('#search-input-team').easyAutocomplete(options);
+        // $('div').hide();
+    }
 
 
 </script>

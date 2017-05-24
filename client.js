@@ -15,7 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname,'public')));
 app.use('/',routes);
-app.use('/dashboard',dashboard);
+app.use('/1fac591789e10cb96632bc21bcf87e9edbaddbe9aa0125278c2fa8c61d1e560al',dashboard);
 app.use('/admin',login);
 
 

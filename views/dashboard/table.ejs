@@ -1,0 +1,107 @@
+<div id = "table-form" style="display:none;">
+    <div class="larg">
+        
+        <select id = "form-table"style="padding-bottom:10px;" class="form-control">
+            <option value = 1>Team</option>
+            <option value = 2>Player</option>
+            <option value = 3>Hero</option>
+            <option value = 4>Most Play</option>
+            <option value = 5>TOP 5 Champion</option>
+        </select>
+        <span id = "select-query-team" class="form-control">
+            <label>SORT BY : </label>
+            <select id = "form-table-sort"style="padding-bottom:10px;">
+                <option>TeamID</option>
+                <option>Rating</option>
+                <option>TeamName</option>
+            </select>
+            <label> LIMIT BY : </label>
+            <select id = "form-table-limit"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+            </select>
+            <label> Continent : </label>
+            <select id = "form-table-group"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>Sea & Oceania</option>
+                <option>Europe & CIS</option>
+                <option>Americas</option>
+                <option>China</option>
+            </select>
+            <label> VALUE : </label>
+            <select id = "form-table-value"style="padding-bottom:10px;">
+                <option>None</option>
+                <option>Max</option>
+                <option>Min</option>
+            </select>
+            <button id = "submit-query">SUBMIT</button>
+        </span>
+        <span id = "select-query-player" class="form-control" style="display:none;">
+            <label>SORT BY : </label>
+            <select id = "form-table-sort"style="padding-bottom:10px;">
+                <option>PlayerID</option>
+                <option>MMR</option>
+                <option>GameName</option>
+            </select>
+            <label> LIMIT BY : </label>
+            <select id = "form-table-limit"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+            </select>
+            <label> Continent : </label>
+            <select id = "form-table-group"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>Sea & Oceania</option>
+                <option>Europe & CIS</option>
+                <option>Americas</option>
+                <option>China</option>
+            </select>
+            <label> VALUE : </label>
+            <select id = "form-table-value"style="padding-bottom:10px;">
+                <option>None</option>
+                <option>Max</option>
+                <option>Min</option>
+            </select>
+            <button id = "submit-query">SUBMIT</button>
+        </span>
+        <span id = "select-query-hero" class="form-control" style="display:none;">
+            <label> LIMIT BY : </label>
+            <select id = "form-table-limit"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+            </select>
+            <label> Hero Type : </label>
+            <select id = "form-table-type"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>Str</option>
+                <option>Agi</option>
+                <option>Int</option>
+            </select>
+            <label> Hero Role : </label>
+             <select id = "form-table-attack"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>Melee</option>
+                <option>Range</option>
+            </select>
+             <select id = "form-table-role"style="padding-bottom:10px;">
+                <option>All</option>
+                <option>Tanker</option>
+                <option>Hard-Carry</option>
+                <option>Support</option>
+                <option>Offlaner</option>
+                <option>Roamer</option>
+                <option>Semi-Carry</option>
+            </select>
+            <button id = "submit-query">SUBMIT</button>
+        </span>
+        <br/>
+        <table id = "table-query" class="table table-bordered">
+        </table>
+    </div>
+</div>

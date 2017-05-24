@@ -57,29 +57,8 @@ exports.getTeam = function(callback){
     });
   }
 
-  exports.getContinentTeam = function(callback){
-    connection.query("SELECT * FROM ContinentTeam",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        ContinentTeam : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getContinentPlayer = function(callback){
-    connection.query("SELECT * FROM ContinentPlayer",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        ContinentPlayer : results
-      }
-      callback(data);
-    });
-  }
-
-
   exports.getTeamSortRating = function(callback){
-    connection.query("SELECT * FROM Team ORDER BY Rating DESC",function(err, results,fields){
+    connection.query("SELECT Team.TeamID,TeamName,TeamsubName,Rating,Nation,ContinentName FROM Team INNER JOIN (SELECT Continent.ContinentName ,ContinentTeam.TeamID FROM Continent INNER JOIN ContinentTeam ON ContinentTeam.ContinentID = Continent.ContinentID ) AS NC ON NC.TeamID = Team.TeamID,ContinentTeam WHERE Team.TeamID = ContinentTeam.TeamID ORDER BY Rating DESC",function(err, results,fields){
       if(!!err) console.log(err);
       var data  = {
         TeamSortRating : results
@@ -89,16 +68,13 @@ exports.getTeam = function(callback){
   }
 
   exports.getPlayerSortMMR = function(callback){
-    connection.query("SELECT * FROM Player ORDER BY MMR DESC",function(err, results,fields){
-      if(!!err) console.log(err);
+      connection.query("SELECT Player.PlayerID,PlayerName,GameName,MMR,Nation,Winrate,ContinentName FROM Player INNER JOIN (SELECT Continent.ContinentName ,ContinentPlayer.PlayerID FROM Continent INNER JOIN ContinentPlayer ON ContinentPlayer.ContinentID = Continent.ContinentID ) AS NC ON NC.PlayerID = Player.PlayerID,ContinentPlayer WHERE Player.PlayerID = ContinentPlayer.PlayerID ORDER BY MMR DESC",function(err, results,fields){      if(!!err) console.log(err);
       var data  = {
         PlayerSortMMR : results
       }
       callback(data);
     });
   }
-
-
    exports.getPlayerWithTeam = function(callback){
     connection.query("SELECT Team.TeamID,GameName FROM Player,TeamMember,Team where Player.PlayerID = TeamMember.PlayerID && Team.TeamID = TeamMember.TeamID"
     ,function(err, results,fields){
@@ -110,67 +86,23 @@ exports.getTeam = function(callback){
      });
    }
 
-  exports.getStatsWin = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,Winratepercent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY Winratepercent DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsWin : results
-      }
-      callback(data);
-    });
+  exports.getStats = function(callback,info){
+    var data,query;
+    if(info.limit > 0) {
+      query = 'SELECT Hero.HeroID,HeroName,HeroType,'+info.option+
+                  ' AS Percent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY '+info.option+' DESC LIMIT ' + info.limit;
+    }else {
+      query = 'SELECT Hero.HeroID,HeroName,HeroType,'+info.option+
+                  ' AS Percent FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY '+info.option+' DESC';
+    }
+    connection.query(query,function(err, results,fields){
+        if(!!err) console.log(err);
+        data  = {
+          Stats : results
+        }
+        callback(data);
+      }); 
   }
-
-  exports.getStatsPick = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,PercentPick FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentPick DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsPick : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getStatsContest = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,PercentContest FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentContest DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsContest : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getStatsBanned = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,PercentBanned FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentBanned DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsBanned : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getStatsFirstPick = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,PercentFirstPick FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentFirstPick DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsFirstPick : results
-      }
-      callback(data);
-    });
-  }
-
-  exports.getStatsFirstBanned = function(callback){
-    connection.query("SELECT Hero.HeroID,HeroName,PercentFirstBanned FROM HeroStat,Hero Where Hero.HeroID = HeroStat.HeroID ORDER BY PercentFirstBanned DESC",function(err, results,fields){
-      if(!!err) console.log(err);
-      var data  = {
-        StatsFirstBanned : results
-      }
-      callback(data);
-    });
-  }
-
-
 
   exports.postPlayer = function(callback , info){
     if(info.TYPE == 'add') {
@@ -219,6 +151,17 @@ exports.getTeam = function(callback){
       });
     }
   }
+  exports.postPlayerWithTeam = function(callback , info){
+     if(info.TYPE == 'add') {
+      connection.query("INSERT INTO TeamMember SELECT TeamID,PlayerID FROM Team,Player WHERE Team.TeamsubName =\""+info.TeamsubName+"\" && Player.GameName = \""+info.GameName+"\"",function(err, results,fields){
+         if(!!err) console.log(err);
+       });
+     }else if(info.TYPE == 'delete') {
+       connection.query("DELETE FROM Player WHERE PlayerID = "+info.PlayerID,function(err, results,fields){
+         if(!!err) console.log(err);
+       });
+     }
+   }
 
   exports.getBoston = function(callback){
     connection.query("SELECT BostonTeamId,TeamName,TeamsubName,BostonEarning FROM Team,Tournament Where Team.TeamID = Tournament.BostonTeamId ORDER BY BostonEarning DESC",function(err, results,fields){
@@ -271,14 +214,95 @@ exports.getTeam = function(callback){
     });
   }
 
-  // INSERT INTO Player VALUES (199,"asdads","asdads",8000,"Thai",42);
-//   INSERT INTO TeamMember SELECT TeamID,PlayerID FROM Team,Player
-// WHERE Team.TeamsubName ='OG' && Player.GameName = 'จ๊อบ ค้าม้า';
-// INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentName = info.ContinentName && Player.PlayerID = info.PlayerID
-//INSERT INTO ContinentPlayer SELECT ContinentID,PlayerID FROM Continent,Player WHERE Continent.ContinentName = "Sea & Oceania" && Player.PlayerID = 3
+   exports.getTable = function(callback){
+    connection.query("SELECT * FROM HeroMostWin",function(err, results,fields){
+      if(!!err) console.log(err);
+      var data  = {
+        Table : results
+      }
+      callback(data);
+    });
+  }
 
-// DELETE Player,ContinentPlayer FROM Player INNER JOIN ContinentPlayer WHERE ContinentPlayer.PlayerID = Player.PlayerID && Player.GameName = "qqq";
+  exports.getQuerySort = function(callback,info){
+    var data,query='';
+    if(info.TYPE == 'Team') {
+      query += 'SELECT * FROM Team ' ;
+      if(info.group != 'All') {
+          query += 'WHERE TeamID IN (SELECT TeamID FROM ContinentTeam WHERE ContinentID IN (SELECT ContinentID FROM Continent WHERE ContinentName = "'+info.group+'" )) ';
+      }
+      query += 'ORDER BY ' + info.sort + ' ';
+      if(info.value == 'Max') {
+        query += 'DESC ';
+      }else if(info.value == 'Min') {
+        query += 'ASC ';
+      }
+      if(info.limit != 'All') {
+        query += 'LIMIT ' + info.limit + ' ';
+      }
+    }else if(info.TYPE == 'Player') {
+      query += 'SELECT * FROM Player ' ;
+      if(info.group != 'All') {
+          query += 'WHERE PlayerID IN (SELECT PlayerID FROM ContinentPlayer WHERE ContinentID IN (SELECT ContinentID FROM Continent WHERE ContinentName = "'+info.group+'" )) ';
+      }
+      query += 'ORDER BY ' + info.sort + ' ';
+      if(info.value == 'Max') {
+        query += 'DESC ';
+      }else if(info.value == 'Min') {
+        query += 'ASC ';
+      }
+      if(info.limit != 'All') {
+        query += 'LIMIT ' + info.limit + ' ';
+      }
+    }else if(info.TYPE == 'Hero') {
+      query += 'SELECT * FROM Hero ';
+      if(info.group != 'All') {
+        query += 'WHERE HeroType = "'+info.group+'" ';
+      }
+      if(info.attack != 'All') {
+        if(info.group != 'All') {
+          query += 'AND ';
+        }else {
+          query += 'WHERE ';
+        }
+        query += 'HeroAttackType = "'+info.attack+'" ';
+      }
+      if(info.role != 'All') {
+        if(info.attack != 'All') {
+          query += 'AND ';
+        }else if(info.group != 'All' && info.attack == 'All') {
+          query += 'AND ';
+        }else{
+          query += 'WHERE ';
+        }
+        query += 'HeroRole = "'+info.role+'" ';
+      }
+      if(info.limit != 'All') {
+        query += 'LIMIT ' + info.limit + ' ';
+      }
+    }else if(info.TYPE == 'MaxHero') {
+        query += 'select Hero.HeroName, COUNT(Hero.HeroID) AS MostLike FROM Hero, HeroMostWin '+
+                  'WHERE Hero.HeroID = HeroMostWin.Hero1 '+
+                  'OR Hero.HeroID = HeroMostWin.Hero2 '+
+                  'OR Hero.HeroID = HeroMostWin.Hero3 '+
+                  'OR Hero.HeroID = HeroMostWin.Hero4 '+
+                  'OR Hero.HeroID = HeroMostWin.Hero5 '+
+                  'GROUP BY Hero.HeroName '+
+                  'ORDER BY MostLike  DESC';
+    }
+    else if(info.TYPE == 'TopFive') {
+        query += 'select team.TeamName, manilla.PRIZE + boston.PRIZE + kiev.PRIZE + ti6.PRIZE AS PRIZE from (select team.teamname as TEAMNAME , tournament.manillaearning as PRIZE from team , tournament  where team.teamid = tournament.ManillaTeamId ) manilla,'+
+                  '(select team.teamname as TEAMNAME , tournament.bostonearning as PRIZE from team , tournament  where team.teamid = tournament.BostonTeamId) boston,'+
+                  '(select team.teamname as TEAMNAME , tournament.kievearning as PRIZE from team , tournament  where team.teamid = tournament.kievTeamId) kiev,'+
+                  '(select team.teamname as TEAMNAME , tournament.ti6earning as PRIZE from team , tournament  where team.teamid = tournament.ti6TeamId) ti6,team '+
+                  ' where team.teamname = manilla.TEAMNAME and manilla.teamname = boston.teamname and boston.teamname = kiev.teamname and kiev.teamname = ti6.teamname and manilla.teamname = ti6.teamname ORDER BY PRIZE DESC';
+    }
 
-// DELETE Team,ContinentTeam FROM Team INNER JOIN ContinentTeam WHERE ContinentTeam.TeamID = Team.TeamID && Team.TeamsubName = \""info.TeamsubName+"\""
-
-// UPDATE Player SET PlayerName = "asdasd", GameName = "sadads", MMR = 9876, Nation = "Thai", Winrate = WHERE PlayerID = 204
+    connection.query(query,function(err, results,fields){
+        if(!!err) console.log(err);
+        data  = {
+          QuerySort : results
+        }
+        callback(data);
+      }); 
+  }
