@@ -1,13 +1,13 @@
--- DROP TABLE Player;
--- DROP TABLE Team;
--- DROP TABLE Hero;
 -- Drop TABLE HeroStat;
--- DROP TABLE Continent;
 -- DROP TABLE ContinentTeam;
 -- DROP TABLE ContinentPlayer;
 -- DROP TABLE TeamMember;
 -- DROP TABLE HeroMostWin;
 -- DROP TABLE Tournament;
+-- DROP TABLE Continent;
+-- DROP TABLE Team;
+-- DROP TABLE Hero;
+-- DROP TABLE Player;
 
 CREATE TABLE Player(
     PlayerID int,
